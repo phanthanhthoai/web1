@@ -213,15 +213,15 @@ function escapeHtml(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':
 syncAccountNav();
 document.addEventListener('click',e=>{const out=e.target.closest('[data-logout]');if(!out)return;e.preventDefault();const isAdmin=location.pathname.includes('/admin/');try{if(isAdmin){localStorage.removeItem('techzone_admin')}else{localStorage.removeItem('techzone_customer')}sessionStorage.setItem('techzone_pending_toast','Đã đăng xuất thành công');}catch(_){}location.href=isAdmin?'index.html':'index.html';});
 // Tim kiem tren trang san pham: hien ket qua va thong bao ro rang
-if(location.pathname.endsWith('/products.html') && !location.pathname.includes('/admin/')){
- const params=new URLSearchParams(location.search), q=(params.get('q')||'').trim().toLocaleLowerCase('vi');
- const cards=[...document.querySelectorAll('main .grid .product')];
- if(q){let count=0;cards.forEach(c=>{const ok=c.innerText.toLocaleLowerCase('vi').includes(q);c.hidden=!ok;if(ok)count++;});const box=document.createElement('div');box.className='search-results panel';box.innerHTML='<h2>Kết quả tìm kiếm</h2><p>Từ khóa: <b>'+escapeHtml(params.get('q'))+'</b></p><p>'+ (count?'Tìm thấy '+count+' sản phẩm phù hợp.':'Không tìm thấy sản phẩm phù hợp với từ khóa này.')+'</p>';const title=document.querySelector('main .page-title');if(title)title.after(box);}
-}
+// if(location.pathname.endsWith('/products.html') && !location.pathname.includes('/admin/')){
+//  const params=new URLSearchParams(location.search), q=(params.get('q')||'').trim().toLocaleLowerCase('vi');
+//  const cards=[...document.querySelectorAll('main .grid .product')];
+//  if(q){let count=0;cards.forEach(c=>{const ok=c.innerText.toLocaleLowerCase('vi').includes(q);c.hidden=!ok;if(ok)count++;});const box=document.createElement('div');box.className='search-results panel';box.innerHTML='<h2>Kết quả tìm kiếm</h2><p>Từ khóa: <b>'+escapeHtml(params.get('q'))+'</b></p><p>'+ (count?'Tìm thấy '+count+' sản phẩm phù hợp.':'Không tìm thấy sản phẩm phù hợp với từ khóa này.')+'</p>';const title=document.querySelector('main .page-title');if(title)title.after(box);}
+// }
 // Bo loc trong khu vuc quan tri chi la giao dien minh hoa, khong loc du lieu.
- document.querySelectorAll('[data-ui-only-filter]').forEach(form=>{
-   form.addEventListener('submit',e=>e.preventDefault());
- });
+//  document.querySelectorAll('[data-ui-only-filter]').forEach(form=>{
+//    form.addEventListener('submit',e=>e.preventDefault());
+//  });
 // Thao tac xem/sua/xoa dong du lieu khach hang, nhan vien, nha cung cap
  document.addEventListener('click',e=>{const b=e.target.closest('[data-row-view],[data-row-edit],[data-row-delete]');if(!b)return;const row=b.closest('tr');if(!row)return;const cells=[...row.cells].slice(0,-1);if(b.hasAttribute('data-row-delete')){toast('Xóa thành công.');return;}
 if(b.hasAttribute('data-row-view')){
