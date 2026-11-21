@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Nhập liệu sản phẩm | TechZone</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <span>Hệ thống quản lý cửa hàng máy tính</span>
+
+        <span>
+            Xin chào,
+            <a href="profile.html"
+               id="admin-top-name"
+               style="color: white;">
+                Quản trị viên
+            </a>
+            ·
+            <a href="../index.html"
+               data-logout
+               style="color: white;">
+                Đăng xuất
+            </a>
+        </span>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner">
+
+            <a class="brand" href="index.html">
+                TECH<span>ZONE</span>
+                <small style="font-size:11px; color:#718096;">
+                    ADMIN
+                </small>
+            </a>
+
+            <nav class="nav">
+                <a href="index.html">Tổng quan</a>
+                <a class="active" href="products.html">Sản phẩm</a>
+                <a href="orders.html">Đơn hàng</a>
+                <a href="customers.html">Khách hàng</a>
+                <a href="employees.html">Nhân viên</a>
+                <a href="suppliers.html">Nhà cung cấp</a>
+                <a href="imports.html">Phiếu nhập</a>
+                <a href="accounts.html">Tài khoản</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <div class="admin-top">
+
+            <div>
+                <div class="breadcrumbs">
+                    <a href="../index.html">
+                        Trang bán hàng
+                    </a>
+                    /
+                    Khu vực Admin
+                </div>
+
+                <h1>Nhập liệu sản phẩm</h1>
+            </div>
+
+            <a class="btn secondary" href="../index.html">
+                Xem cửa hàng ↗
+            </a>
+
+        </div>
+
+        <div class="layout">
+
+            <!-- Sidebar -->
+            <aside class="panel sidebar">
+
+                <h3>Quản trị hệ thống</h3>
+
+                <div class="side-links">
+
+                    <a href="index.html">📊 Tổng quan</a>
+                    <a href="products.html">📦 Sản phẩm</a>
+                    <a href="categories.html">🗂 Danh mục</a>
+                    <a href="orders.html">🧾 Đơn hàng / Hóa đơn</a>
+                    <a href="customers.html">👥 Khách hàng</a>
+                    <a href="employees.html">🧑‍💼 Nhân viên</a>
+                    <a href="suppliers.html">🚚 Nhà cung cấp</a>
+                    <a href="imports.html">📥 Phiếu nhập</a>
+
+                    <a href="import-detail.html">
+                        📝 Chi tiết phiếu nhập
+                    </a>
+
+                    <a href="accounts.html">🔐 Tài khoản</a>
+                    <a href="permissions.html">🛡 Quyền hạn</a>
+
+                    <a href="form-product.html" class="active">
+                        ＋ Nhập liệu sản phẩm
+                    </a>
+
+                    <a href="form-invoice.html">
+                        ＋ Lập hóa đơn
+                    </a>
+
+                </div>
+
+            </aside>
+
+            <!-- Content -->
+            <section>
+                <div class="panel">
+
+                    <h2>Thông tin sản phẩm</h2>
+
+                    <form action="products.html" method="get" novalidate>
+
+                        <div class="form-grid">
+
+                            <div class="field">
+                                <label for="product-id">
+                                    Mã sản phẩm
+                                </label>
+
+                                <input
+                                    id="product-id"
+                                    name="product_id"
+                                    value="SP005">
+                            </div>
+
+                            <div class="field">
+                                <label for="product-name">
+                                    Tên sản phẩm
+                                </label>
+
+                                <input
+                                    id="product-name"
+                                    name="product_name"
+                                    placeholder="Ví dụ: Laptop Dell Inspiron">
+                            </div>
+
+                            <div class="field">
+                                <label for="category">
+                                    Danh mục
+                                </label>
+
+                                <select
+                                    id="category"
+                                    name="category">
+
+                                    <option>Laptop</option>
+                                    <option>Máy tính bộ</option>
+                                    <option>Linh kiện</option>
+                                    <option>Phụ kiện</option>
+                                    <option>Màn hình</option>
+
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label for="supplier">
+                                    Nhà cung cấp
+                                </label>
+
+                                <select
+                                    id="supplier"
+                                    name="supplier">
+
+                                    <option>
+                                        NCC001 - Công ty Phân phối ABC
+                                    </option>
+
+                                    <option>
+                                        NCC002 - Thiết bị số Minh Long
+                                    </option>
+
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label for="import-price">
+                                    Giá nhập (VNĐ)
+                                </label>
+
+                                <input
+                                    id="import-price"
+                                    name="import_price"
+                                    type="number"
+                                    placeholder="12000000">
+                            </div>
+
+                            <div class="field">
+                                <label for="sale-price">
+                                    Giá bán (VNĐ)
+                                </label>
+
+                                <input
+                                    id="sale-price"
+                                    name="sale_price"
+                                    type="number"
+                                    placeholder="15490000">
+                            </div>
+
+                            <div class="field">
+                                <label for="quantity">
+                                    Số lượng tồn
+                                </label>
+
+                                <input
+                                    id="quantity"
+                                    name="quantity"
+                                    type="number"
+                                    placeholder="20">
+                            </div>
+
+                            <div class="field">
+                                <label for="warranty">
+                                    Bảo hành
+                                </label>
+
+                                <input
+                                    id="warranty"
+                                    name="warranty"
+                                    placeholder="24 tháng">
+                            </div>
+
+                            <div class="field full">
+                                <label for="description">
+                                    Mô tả / Thông số kỹ thuật
+                                </label>
+
+                                <textarea
+                                    id="description"
+                                    name="description"
+                                    rows="5"
+                                    placeholder="CPU, RAM, ổ cứng, màn hình...">
+                                </textarea>
+                            </div>
+
+                            <div class="field">
+                                <label for="status">
+                                    Trạng thái
+                                </label>
+
+                                <select
+                                    id="status"
+                                    name="status">
+
+                                    <option>
+                                        Đang kinh doanh
+                                    </option>
+
+                                    <option>
+                                        Ngừng kinh doanh
+                                    </option>
+
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label for="image-url">
+                                    Đường dẫn ảnh
+                                </label>
+
+                                <input
+                                    id="image-url"
+                                    name="image_url"
+                                    placeholder="images/laptop.jpg">
+                            </div>
+
+                        </div>
+
+                        <div class="form-actions">
+
+                            <button
+                                class="btn"
+                                type="submit">
+                                Lưu thông tin
+                            </button>
+
+                            <a
+                                class="btn secondary"
+                                href="products.html">
+                                Hủy
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <script src="../js/site.js" defer></script>
+
+</body>
+
+</html>

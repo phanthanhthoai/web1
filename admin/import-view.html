@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Thông tin phiếu nhập | TechZone</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <span>Hệ thống quản lý cửa hàng máy tính</span>
+        <span>Khu vực quản trị</span>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <div class="breadcrumbs">
+            <a href="imports.html">
+                Quay lại danh sách
+            </a>
+            /
+            Thông tin phiếu nhập
+        </div>
+
+        <section class="panel record-view">
+
+            <h1>Thông tin phiếu nhập</h1>
+
+            <p class="badge">
+                Mã: PN20261020
+            </p>
+
+            <h2>Phiếu nhập kho</h2>
+
+            <dl class="detail-list">
+
+                <div>
+                    <dt>Ngày nhập</dt>
+                    <dd>20/10/2026</dd>
+                </div>
+
+                <div>
+                    <dt>Nhà cung cấp</dt>
+                    <dd>NCC001 - ABC</dd>
+                </div>
+
+                <div>
+                    <dt>Nhân viên</dt>
+                    <dd>NV003</dd>
+                </div>
+
+                <div>
+                    <dt>Tổng tiền</dt>
+                    <dd>85.000.000đ</dd>
+                </div>
+
+                <div>
+                    <dt>Trạng thái</dt>
+                    <dd>Đã hoàn thành</dd>
+                </div>
+
+            </dl>
+
+            <a class="btn secondary" href="imports.html">
+                Thoát
+            </a>
+
+        </section>
+
+    </main>
+
+    <script src="../js/site.js" defer></script>
+
+    <script>
+        (function () {
+
+            const records = {
+                PN20261020: {
+                    date: "20/10/2026",
+                    supplier: "NCC001 - ABC",
+                    employee: "NV003",
+                    total: "85.000.000đ",
+                    status: "Đã hoàn thành"
+                },
+
+                PN20261018: {
+                    date: "18/10/2026",
+                    supplier: "NCC002 - Minh Long",
+                    employee: "NV003",
+                    total: "42.500.000đ",
+                    status: "Đã hoàn thành"
+                }
+            };
+
+            const id =
+                new URLSearchParams(location.search)
+                    .get("id");
+
+            const record = records[id];
+
+            if (!record) return;
+
+            const badge =
+                document.querySelector(".record-view .badge");
+
+            if (badge) {
+                badge.textContent = "Mã: " + id;
+            }
+
+            const details =
+                document.querySelectorAll(".detail-list dd");
+
+            if (details[0]) details[0].textContent = record.date;
+            if (details[1]) details[1].textContent = record.supplier;
+            if (details[2]) details[2].textContent = record.employee;
+            if (details[3]) details[3].textContent = record.total;
+            if (details[4]) details[4].textContent = record.status;
+
+        })();
+    </script>
+
+</body>
+
+</html>

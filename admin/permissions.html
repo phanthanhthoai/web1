@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Quản lý quyền hạn | TechZone</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <span>Hệ thống quản lý cửa hàng máy tính</span>
+
+        <span>
+            Xin chào,
+            <a href="profile.html"
+               id="admin-top-name"
+               style="color: white;">
+                Quản trị viên
+            </a>
+            ·
+            <a href="../index.html"
+               data-logout
+               style="color: white;">
+                Đăng xuất
+            </a>
+        </span>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner">
+
+            <a class="brand" href="index.html">
+                TECH<span>ZONE</span>
+                <small style="font-size:11px;color:#718096;">
+                    ADMIN
+                </small>
+            </a>
+
+            <nav class="nav">
+                <a href="index.html">Tổng quan</a>
+                <a href="products.html">Sản phẩm</a>
+                <a href="orders.html">Đơn hàng</a>
+                <a href="customers.html">Khách hàng</a>
+                <a href="employees.html">Nhân viên</a>
+                <a href="suppliers.html">Nhà cung cấp</a>
+                <a href="imports.html">Phiếu nhập</a>
+                <a class="active" href="accounts.html">
+                    Tài khoản
+                </a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <div class="admin-top">
+
+            <div>
+                <div class="breadcrumbs">
+                    <a href="../index.html">
+                        Trang bán hàng
+                    </a>
+                    /
+                    Khu vực Admin
+                </div>
+
+                <h1>Quản lý quyền hạn</h1>
+            </div>
+
+            <a class="btn secondary" href="../index.html">
+                Xem cửa hàng ↗
+            </a>
+
+        </div>
+
+        <div class="layout">
+
+            <!-- Sidebar -->
+            <aside class="panel sidebar">
+
+                <h3>Quản trị hệ thống</h3>
+
+                <div class="side-links">
+
+                    <a href="index.html">📊 Tổng quan</a>
+                    <a href="products.html">📦 Sản phẩm</a>
+                    <a href="categories.html">🗂 Danh mục</a>
+                    <a href="orders.html">🧾 Đơn hàng / Hóa đơn</a>
+                    <a href="customers.html">👥 Khách hàng</a>
+                    <a href="employees.html">🧑‍💼 Nhân viên</a>
+                    <a href="suppliers.html">🚚 Nhà cung cấp</a>
+                    <a href="imports.html">📥 Phiếu nhập</a>
+
+                    <a href="import-detail.html">
+                        📝 Chi tiết phiếu nhập
+                    </a>
+
+                    <a href="accounts.html">
+                        🔐 Tài khoản
+                    </a>
+
+                    <a href="permissions.html" class="active">
+                        🛡 Quyền hạn
+                    </a>
+
+                    <a href="form-product.html">
+                        ＋ Nhập liệu sản phẩm
+                    </a>
+
+                    <a href="form-invoice.html">
+                        ＋ Lập hóa đơn
+                    </a>
+
+                </div>
+
+            </aside>
+
+            <!-- Content -->
+            <section>
+
+                <!-- Permission List -->
+                <div class="panel">
+
+                    <div class="admin-top">
+
+                        <h2>Danh sách quyền hạn</h2>
+
+                        <a class="btn" href="#them-quyen">
+                            ＋ Thêm quyền
+                        </a>
+
+                    </div>
+
+                    <div class="table-wrap">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Mã quyền</th>
+                                    <th>Tên quyền</th>
+                                    <th>Mô tả</th>
+                                    <th>Số tài khoản</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>ROLE_NV</td>
+                                    <td>NV</td>
+                                    <td>
+                                        Nhân viên bán hàng / kho
+                                    </td>
+                                    <td>2</td>
+                                </tr>
+
+                                <tr>
+                                    <td>ROLE_QL</td>
+                                    <td>QL</td>
+                                    <td>
+                                        Quản lý hoạt động cửa hàng,
+                                        báo cáo và nhân sự
+                                    </td>
+                                    <td>1</td>
+                                </tr>
+
+                                <tr>
+                                    <td>ROLE_ADMIN</td>
+                                    <td>Admin</td>
+                                    <td>
+                                        Toàn quyền cấu hình hệ thống
+                                    </td>
+                                    <td>1</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+                <!-- Permission Form -->
+                <div class="panel" id="them-quyen">
+
+                    <h2>Nhập liệu quyền hạn</h2>
+
+                    <form action="#" method="get" novalidate>
+
+                        <div class="form-grid">
+
+                            <div class="field">
+                                <label for="role-code">
+                                    Mã quyền
+                                </label>
+
+                                <input
+                                    id="role-code"
+                                    name="role_code"
+                                    placeholder="ROLE_KHO">
+                            </div>
+
+                            <div class="field">
+                                <label for="role-name">
+                                    Tên quyền
+                                </label>
+
+                                <input
+                                    id="role-name"
+                                    name="role_name"
+                                    placeholder="NV / QL / Admin">
+                            </div>
+
+                            <div class="field full">
+                                <label for="role-description">
+                                    Mô tả quyền hạn
+                                </label>
+
+                                <textarea
+                                    id="role-description"
+                                    name="role_description"
+                                    rows="5"
+                                    placeholder="Mô tả các chức năng được phép sử dụng">
+                                </textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="form-actions">
+
+                            <button
+                                class="btn"
+                                type="submit">
+                                Lưu quyền
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <!-- Permission Guide -->
+                <div class="panel">
+
+                    <h3>Gợi ý phân quyền</h3>
+
+                    <ul>
+
+                        <li>
+                            <strong>NV:</strong>
+                            Xem sản phẩm, tạo đơn hàng,
+                            lập hóa đơn và cập nhật
+                            phiếu nhập theo nhiệm vụ.
+                        </li>
+
+                        <li>
+                            <strong>QL:</strong>
+                            Quản lý sản phẩm, nhân viên,
+                            khách hàng và xem báo cáo.
+                        </li>
+
+                        <li>
+                            <strong>Admin:</strong>
+                            Quản lý tài khoản,
+                            quyền hạn và cấu hình
+                            toàn hệ thống.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <script src="../js/site.js" defer></script>
+
+</body>
+
+</html>

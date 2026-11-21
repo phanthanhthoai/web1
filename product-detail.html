@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Chi tiết sản phẩm | TechZone</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <span>☎ Hotline: 1900 6868 · Hỗ trợ kỹ thuật mỗi ngày</span>
+        <span class="customer-auth-slot" id="customer-auth-slot"><a href="login.html">Đăng nhập</a></span>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner">
+
+            <a class="brand" href="index.html">
+                TECH<span>ZONE</span>
+            </a>
+
+            <form
+                class="site-search"
+                action="products.html"
+                method="get"
+                role="search" novalidate>
+
+                <input
+                    type="search"
+                    name="q"
+                    placeholder="Tìm laptop, PC, linh kiện..."
+                    aria-label="Tìm kiếm sản phẩm">
+
+                <button type="submit" aria-label="Tìm kiếm">
+                    ⌕
+                </button>
+            </form>
+
+            <nav class="nav">
+                <a href="index.html">Trang chủ</a>
+                <a class="active" href="products.html">Sản phẩm</a>
+                <a href="about.html">Giới thiệu</a>
+                <a href="contact.html">Liên hệ</a>
+                <a href="cart.html">Giỏ hàng</a>
+                <a href="login.html">Đăng nhập</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <!-- Breadcrumb -->
+        <div class="breadcrumbs">
+            <a href="index.html">Trang chủ</a> /
+            <a href="products.html">Sản phẩm</a> /
+            Laptop ASUS Vivobook 15
+        </div>
+
+        <!-- Product Detail -->
+        <div class="panel product-detail">
+
+            <div class="detail-art">
+                💻
+            </div>
+
+            <div class="detail-info">
+
+                <span class="tag">
+                    Còn hàng
+                </span>
+
+                <h1 id="detail-product-name">
+                    Laptop ASUS Vivobook 15
+                </h1>
+
+                <p class="muted">
+                    Mã sản phẩm: LAP-ASU-015
+                </p>
+
+                <div class="price" style="font-size: 28px;">
+                    15.490.000đ
+                    <span class="old-price">
+                        16.990.000đ
+                    </span>
+                </div>
+
+                <p>
+                    Laptop mỏng nhẹ dành cho học tập và công việc văn phòng,
+                    hiệu năng ổn định và màn hình rộng.
+                </p>
+
+                <ul>
+                    <li>CPU: Intel Core i5 thế hệ mới</li>
+                    <li>RAM: 16GB DDR4</li>
+                    <li>Ổ cứng: SSD 512GB</li>
+                    <li>Màn hình: 15.6 inch Full HD</li>
+                    <li>Bảo hành: 24 tháng</li>
+                </ul>
+
+                <p>
+                    <strong>Số lượng:</strong>
+                    1 (minh họa)
+                </p>
+
+                <a class="btn" href="cart.html">
+                    Thêm vào giỏ hàng
+                </a>
+
+                <a class="btn secondary" href="products.html">
+                    Tiếp tục mua
+                </a>
+
+                <p class="help">
+                    Nút điều hướng chỉ mở trang minh họa,
+                    không ghi nhận giỏ hàng.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Description -->
+        <div class="panel">
+
+            <h2>Mô tả sản phẩm</h2>
+
+            <p>
+                Thiết kế thanh lịch, phù hợp với sinh viên và nhân viên văn phòng.
+                Thông số, giá bán và chính sách trong website là dữ liệu mẫu
+                phục vụ bài tập giao diện.
+            </p>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+
+            <div>
+                <strong>TECHZONE</strong>
+
+                <p>
+                    Thiết bị công nghệ cho học tập và công việc.
+                </p>
+            </div>
+
+            <div>
+                <strong>Hỗ trợ khách hàng</strong>
+
+                <p>
+                    <a href="contact.html">Liên hệ</a> ·
+                    <a href="policy.html">Chính sách</a>
+                </p>
+            </div>
+
+            <div>
+                <strong>Địa chỉ minh họa</strong>
+
+                <p>
+                    123 Đường Công Nghệ,
+                    TP. Hồ Chí Minh
+                </p>
+
+                <span class="small">
+                    © 2026 TechZone.
+                    TechZone · Thiết bị công nghệ
+                </span>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="js/site.js" defer></script>
+
+    <script>
+        (function () {
+
+            const products = {
+                SP001: {
+                    name: "Laptop ASUS Vivobook 15",
+                    desc: "Core i5 · RAM 16GB · SSD 512GB",
+                    price: "15.490.000đ",
+                    img: "picture/1.png"
+                },
+
+                SP002: {
+                    name: "PC Gaming TechZone G5",
+                    desc: "Core i5 · RTX 4060 · RAM 16GB",
+                    price: "22.990.000đ",
+                    img: "picture/3.jpg"
+                },
+
+                SP003: {
+                    name: "Bàn phím cơ KeyPro K87",
+                    desc: "87 phím · LED RGB",
+                    price: "890.000đ",
+                    img: "picture/5.jpg"
+                },
+
+                SP004: {
+                    name: "RAM Kingston Fury 16GB",
+                    desc: "DDR4 · 3200MHz",
+                    price: "950.000đ",
+                    img: "picture/4.jfif"
+                }
+            };
+
+            const productId =
+                new URLSearchParams(location.search).get("id") ||
+                "SP001";
+
+            const product =
+                products[productId] || products.SP001;
+
+            const productName =
+                document.getElementById("detail-product-name");
+
+            const main =
+                document.querySelector("main");
+
+            if (productName) {
+                productName.textContent = product.name;
+            }
+
+            if (main) {
+
+                const imageBox =
+                    main.querySelector(".detail-art");
+
+                const priceBox =
+                    main.querySelector(".price");
+
+                const codeBox =
+                    main.querySelector(".detail-info .muted");
+
+                const descBox =
+                    main.querySelector(
+                        ".detail-info > p:not(.muted):not(.help)"
+                    );
+
+                if (imageBox) {
+                    imageBox.innerHTML = `
+                        <img
+                            src="${product.img}"
+                            alt="${product.name}"
+                            style="
+                                width:100%;
+                                height:100%;
+                                object-fit:contain;
+                            ">
+                    `;
+                }
+
+                if (priceBox) {
+                    priceBox.textContent = product.price;
+                }
+
+                if (codeBox) {
+                    codeBox.textContent =
+                        `Mã sản phẩm: ${productId}`;
+                }
+
+                if (descBox) {
+                    descBox.textContent =
+                        product.desc;
+                }
+            }
+
+        })();
+    </script>
+
+</body>
+
+</html>

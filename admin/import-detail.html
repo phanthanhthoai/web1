@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Nhập liệu chi tiết phiếu nhập | TechZone</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <span>Hệ thống quản lý cửa hàng máy tính</span>
+
+        <span>
+            Xin chào,
+            <a href="profile.html"
+               id="admin-top-name"
+               style="color: white;">
+                Quản trị viên
+            </a>
+            ·
+            <a href="../index.html"
+               data-logout
+               style="color: white;">
+                Đăng xuất
+            </a>
+        </span>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner">
+
+            <a class="brand" href="index.html">
+                TECH<span>ZONE</span>
+                <small style="font-size:11px; color:#718096;">
+                    ADMIN
+                </small>
+            </a>
+
+            <nav class="nav">
+                <a href="index.html">Tổng quan</a>
+                <a href="products.html">Sản phẩm</a>
+                <a href="orders.html">Đơn hàng</a>
+                <a href="customers.html">Khách hàng</a>
+                <a href="employees.html">Nhân viên</a>
+                <a href="suppliers.html">Nhà cung cấp</a>
+                <a class="active" href="imports.html">
+                    Phiếu nhập
+                </a>
+                <a href="accounts.html">Tài khoản</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <div class="admin-top">
+
+            <div>
+                <div class="breadcrumbs">
+                    <a href="../index.html">
+                        Trang bán hàng
+                    </a>
+                    /
+                    Khu vực Admin
+                </div>
+
+                <h1>Nhập liệu chi tiết phiếu nhập</h1>
+            </div>
+
+            <a class="btn secondary" href="../index.html">
+                Xem cửa hàng ↗
+            </a>
+
+        </div>
+
+        <div class="layout">
+
+            <!-- Sidebar -->
+            <aside class="panel sidebar">
+
+                <h3>Quản trị hệ thống</h3>
+
+                <div class="side-links">
+
+                    <a href="index.html">📊 Tổng quan</a>
+                    <a href="products.html">📦 Sản phẩm</a>
+                    <a href="categories.html">🗂 Danh mục</a>
+                    <a href="orders.html">🧾 Đơn hàng / Hóa đơn</a>
+                    <a href="customers.html">👥 Khách hàng</a>
+                    <a href="employees.html">🧑‍💼 Nhân viên</a>
+                    <a href="suppliers.html">🚚 Nhà cung cấp</a>
+                    <a href="imports.html">📥 Phiếu nhập</a>
+
+                    <a href="import-detail.html" class="active">
+                        📝 Xem chi tiết phiếu nhập
+                    </a>
+
+                    <a href="accounts.html">🔐 Tài khoản</a>
+                    <a href="permissions.html">🛡 Quyền hạn</a>
+
+                    <a href="form-product.html">
+                        ＋ Nhập liệu sản phẩm
+                    </a>
+
+                    <a href="form-invoice.html">
+                        ＋ Lập hóa đơn
+                    </a>
+
+                </div>
+
+            </aside>
+
+            <!-- Content -->
+            <section>
+                <div class="panel">
+
+                    <h2>Thông tin phiếu nhập</h2>
+
+                    <form action="imports.html" method="get" novalidate>
+
+                        <!-- Header Information -->
+                        <div class="form-grid">
+
+                            <div class="field">
+                                <label for="import-id">
+                                    Mã phiếu nhập
+                                </label>
+
+                                <input
+                                    id="import-id"
+                                    name="import_id"
+                                    value="PN20261025">
+                            </div>
+
+                            <div class="field">
+                                <label for="import-date">
+                                    Ngày nhập
+                                </label>
+
+                                <input
+                                    id="import-date"
+                                    name="import_date"
+                                    type="date"
+                                    value="2026-10-24">
+                            </div>
+
+                            <div class="field">
+                                <label for="supplier">
+                                    Nhà cung cấp
+                                </label>
+
+                                <select
+                                    id="supplier"
+                                    name="supplier">
+
+                                    <option>
+                                        NCC001 - Công ty Phân phối ABC
+                                    </option>
+
+                                    <option>
+                                        NCC002 - Thiết bị số Minh Long
+                                    </option>
+
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label for="employee">
+                                    Nhân viên nhập kho
+                                </label>
+
+                                <select
+                                    id="employee"
+                                    name="employee">
+
+                                    <option>
+                                        NV003 - Phạm Đức Long
+                                    </option>
+
+                                    <option>
+                                        NV001 - Lê Thanh Tùng
+                                    </option>
+
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <!-- Product Details -->
+                        <h3 style="margin-top: 25px;">
+                            Chi tiết sản phẩm nhập
+                        </h3>
+
+                        <div class="table-wrap">
+
+                            <table>
+
+                                <thead>
+                                    <tr>
+                                        <th>Mã SP</th>
+                                        <th>Sản phẩm</th>
+                                        <th>Số lượng nhập</th>
+                                        <th>Đơn giá nhập</th>
+                                        <th>Thành tiền</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td>SP001</td>
+                                        <td>Laptop ASUS Vivobook 15</td>
+                                        <td>10</td>
+                                        <td>12.000.000đ</td>
+                                        <td>120.000.000đ</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>SP004</td>
+                                        <td>RAM Kingston Fury 16GB</td>
+                                        <td>20</td>
+                                        <td>650.000đ</td>
+                                        <td>13.000.000đ</td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                        <!-- Add New Import Detail -->
+                        <div
+                            class="form-grid"
+                            style="margin-top: 15px;">
+
+                            <div class="field">
+                                <label for="product">
+                                    Chọn sản phẩm
+                                </label>
+
+                                <select
+                                    id="product"
+                                    name="product">
+
+                                    <option>
+                                        SP001 - Laptop ASUS Vivobook 15
+                                    </option>
+
+                                    <option>
+                                        SP004 - RAM Kingston Fury 16GB
+                                    </option>
+
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label for="quantity">
+                                    Số lượng
+                                </label>
+
+                                <input
+                                    id="quantity"
+                                    name="quantity"
+                                    type="number"
+                                    placeholder="Số lượng nhập">
+                            </div>
+
+                            <div class="field">
+                                <label for="price">
+                                    Đơn giá nhập
+                                </label>
+
+                                <input
+                                    id="price"
+                                    name="price"
+                                    type="number"
+                                    placeholder="Đơn giá">
+                            </div>
+
+                            <div class="field">
+                                <label for="note">
+                                    Ghi chú
+                                </label>
+
+                                <input
+                                    id="note"
+                                    name="note"
+                                    placeholder="Ghi chú">
+                            </div>
+
+                        </div>
+
+                        <!-- Summary -->
+                        <div class="summary-row total">
+                            <span>Tổng phiếu nhập</span>
+                            <span>133.000.000đ</span>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="form-actions">
+
+                            <button
+                                class="btn"
+                                type="submit">
+                                Lưu phiếu nhập
+                            </button>
+
+                            <a
+                                class="btn secondary"
+                                href="imports.html">
+                                Hủy
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <script src="../js/site.js" defer></script>
+
+</body>
+
+</html>

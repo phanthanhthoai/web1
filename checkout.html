@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Thanh toán | TechZone</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <span>☎ Hotline: 1900 6868 · Hỗ trợ kỹ thuật mỗi ngày</span>
+        <span class="customer-auth-slot" id="customer-auth-slot"><a href="login.html">Đăng nhập</a></span>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner">
+
+            <a class="brand" href="index.html">
+                TECH<span>ZONE</span>
+            </a>
+
+            <form
+                class="site-search"
+                action="products.html"
+                method="get"
+                role="search" novalidate>
+
+                <input
+                    type="search"
+                    name="q"
+                    placeholder="Tìm laptop, PC, linh kiện..."
+                    aria-label="Tìm kiếm sản phẩm">
+
+                <button type="submit" aria-label="Tìm kiếm">
+                    ⌕
+                </button>
+
+            </form>
+
+            <nav class="nav">
+                <a class="active" href="index.html">Trang chủ</a>
+                <a href="products.html">Sản phẩm</a>
+                <a href="about.html">Giới thiệu</a>
+                <a href="contact.html">Liên hệ</a>
+                <a href="cart.html">Giỏ hàng</a>
+                <a href="login.html">Đăng nhập</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <div class="page-title">
+            <h1>Thanh toán</h1>
+            <p>Điền thông tin nhận hàng mẫu</p>
+        </div>
+
+        <div class="checkout-grid">
+
+            <!-- Customer Information -->
+            <section class="panel">
+
+                <h2>Thông tin người nhận</h2>
+
+                <div class="notice">
+                    Đây là biểu mẫu giao diện. Khi gửi, trình duyệt không xử lý
+                    đơn hàng vì website không có JavaScript/backend.
+                </div>
+
+                <form action="#" method="get" novalidate>
+
+                    <div class="form-grid">
+
+                        <div class="field">
+                            <label>Họ và tên</label>
+                            <input
+                                placeholder="Nguyễn Văn A">
+                        </div>
+
+                        <div class="field">
+                            <label>Số điện thoại</label>
+                            <input
+                                placeholder="09xx xxx xxx">
+                        </div>
+
+                        <div class="field">
+                            <label>Email</label>
+                            <input
+                                type="email"
+                                placeholder="email@example.com">
+                        </div>
+
+                        <div class="field">
+                            <label>Phương thức thanh toán</label>
+
+                            <select>
+                                <option>
+                                    Thanh toán khi nhận hàng
+                                </option>
+
+                                <option>
+                                    Chuyển khoản ngân hàng
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="field full">
+                            <label>Địa chỉ giao hàng</label>
+
+                            <input
+                                placeholder="Số nhà, đường, phường/xã, tỉnh/thành">
+                        </div>
+
+                        <div class="field full">
+                            <label>Ghi chú</label>
+
+                            <textarea
+                                placeholder="Ghi chú cho đơn hàng...">
+                            </textarea>
+                        </div>
+
+                    </div>
+
+                    <div class="form-actions">
+
+                        <button class="btn" type="submit">
+                            Xác nhận
+                        </button>
+
+                        <a class="btn secondary" href="cart.html">
+                            Quay lại giỏ hàng
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+            <!-- Order Summary -->
+            <aside class="panel">
+
+                <h2>Đơn hàng</h2>
+
+                <div class="summary-row">
+                    <span>Laptop ASUS Vivobook 15 × 1</span>
+                    <strong>15.490.000đ</strong>
+                </div>
+
+                <div class="summary-row">
+                    <span>Bàn phím cơ KeyPro K87 × 1</span>
+                    <strong>890.000đ</strong>
+                </div>
+
+                <div class="summary-row">
+                    <span>Giao hàng</span>
+                    <strong>0đ</strong>
+                </div>
+
+                <div class="summary-row total">
+                    <span>Tổng</span>
+                    <span>16.380.000đ</span>
+                </div>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+
+            <div>
+                <strong>TECHZONE</strong>
+                <p>
+                    Thiết bị công nghệ cho học tập và công việc.
+                </p>
+            </div>
+
+            <div>
+                <strong>Hỗ trợ khách hàng</strong>
+
+                <p>
+                    <a href="contact.html">Liên hệ</a>
+                    ·
+                    <a href="policy.html">Chính sách</a>
+                </p>
+            </div>
+
+            <div>
+                <strong>Địa chỉ minh họa</strong>
+
+                <p>
+                    123 Đường Công Nghệ,
+                    TP. Hồ Chí Minh
+                </p>
+
+                <span class="small">
+                    © 2026 TechZone.
+                    TechZone · Thiết bị công nghệ
+                </span>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="js/site.js" defer></script>
+
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Thông tin quản trị viên | TechZone</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+
+        <span>
+            Hệ thống quản lý cửa hàng máy tính
+        </span>
+
+        <span>
+            Xin chào,
+            <a href="profile.html"
+               id="admin-top-name"
+               style="color:white">
+                Quản trị viên
+            </a>
+            ·
+            <a href="index.html"
+               data-logout
+               style="color:white">
+                Đăng xuất
+            </a>
+        </span>
+
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+
+        <div class="header-inner">
+
+            <a class="brand" href="index.html">
+                TECH<span>ZONE</span>
+
+                <small
+                    style="font-size:11px;color:#718096">
+                    ADMIN
+                </small>
+            </a>
+
+            <nav class="nav">
+                <a href="index.html">Tổng quan</a>
+                <a href="products.html">Sản phẩm</a>
+                <a href="orders.html">Đơn hàng</a>
+                <a href="customers.html">Khách hàng</a>
+                <a href="employees.html">Nhân viên</a>
+                <a href="suppliers.html">Nhà cung cấp</a>
+                <a href="imports.html">Phiếu nhập</a>
+                <a href="accounts.html">Tài khoản</a>
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <div class="admin-top">
+
+            <div>
+
+                <div class="breadcrumbs">
+                    <a href="../index.html">
+                        Trang bán hàng
+                    </a>
+                    /
+                    <a href="index.html">
+                        Khu vực Admin
+                    </a>
+                    /
+                    Thông tin quản trị viên
+                </div>
+
+                <h1>
+                    Thông tin quản trị viên
+                </h1>
+
+                <p class="muted">
+                    Thông tin tài khoản và quyền quản lý hệ thống
+                </p>
+
+            </div>
+
+            <a class="btn secondary"
+               href="index.html">
+                ← Về trang quản trị
+            </a>
+
+        </div>
+
+        <!-- Admin Profile -->
+        <section
+            class="admin-profile-card panel"
+            data-admin-profile>
+        </section>
+
+        <!-- Permissions -->
+        <div class="panel admin-permission-panel">
+
+            <h2>
+                Quyền hạn quản trị
+            </h2>
+
+            <p class="muted">
+                Các chức năng được phép truy cập trong hệ thống.
+            </p>
+
+            <div class="admin-permission-grid">
+
+                <div>
+                    ✓ Quản lý sản phẩm và danh mục
+                </div>
+
+                <div>
+                    ✓ Quản lý đơn hàng, hóa đơn
+                </div>
+
+                <div>
+                    ✓ Quản lý khách hàng và nhân viên
+                </div>
+
+                <div>
+                    ✓ Quản lý nhà cung cấp, phiếu nhập
+                </div>
+
+                <div>
+                    ✓ Quản lý tài khoản và quyền hạn
+                </div>
+
+                <div>
+                    ✓ Xem tổng quan và báo cáo
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="../js/site.js" defer></script>
+
+</body>
+
+</html>

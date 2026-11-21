@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Thông tin nhân viên | TechZone</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <span>Hệ thống quản lý cửa hàng máy tính</span>
+        <span>Khu vực quản trị</span>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <div class="breadcrumbs">
+            <a href="employees.html">
+                Quay lại danh sách
+            </a>
+            /
+            Thông tin nhân viên
+        </div>
+
+        <section class="panel record-view">
+
+            <h1>Thông tin nhân viên</h1>
+
+            <p class="badge">
+                Mã: NV001
+            </p>
+
+            <h2>Lê Thanh Tùng</h2>
+
+            <dl class="detail-list">
+
+                <div>
+                    <dt>Chức vụ</dt>
+                    <dd>Quản lý</dd>
+                </div>
+
+                <div>
+                    <dt>Số điện thoại</dt>
+                    <dd>0908 111 222</dd>
+                </div>
+
+                <div>
+                    <dt>Tên đăng nhập</dt>
+                    <dd>tung.lt</dd>
+                </div>
+
+                <div>
+                    <dt>Email</dt>
+                    <dd>tung.lt@techzone.example</dd>
+                </div>
+
+                <div>
+                    <dt>Trạng thái</dt>
+                    <dd>Đang hoạt động</dd>
+                </div>
+
+            </dl>
+
+            <a class="btn secondary" href="employees.html">
+                Thoát
+            </a>
+
+        </section>
+
+    </main>
+
+    <script src="../js/site.js" defer></script>
+
+    <script>
+        (function () {
+
+            const records = {
+                NV001: {
+                    name: "Lê Thanh Tùng",
+                    position: "Quản lý",
+                    phone: "0908 111 222",
+                    username: "tung.lt",
+                    email: "tung.lt@techzone.example",
+                    status: "Đang hoạt động"
+                },
+
+                NV002: {
+                    name: "Nguyễn Thảo Vy",
+                    position: "Nhân viên bán hàng",
+                    phone: "0908 333 444",
+                    username: "vy.nt",
+                    email: "vy.nt@techzone.example",
+                    status: "Đang hoạt động"
+                },
+
+                NV003: {
+                    name: "Phạm Đức Long",
+                    position: "Thủ kho",
+                    phone: "0908 555 666",
+                    username: "long.pd",
+                    email: "long.pd@techzone.example",
+                    status: "Đang hoạt động"
+                }
+            };
+
+            const id =
+                new URLSearchParams(location.search)
+                    .get("id");
+
+            const employee = records[id];
+
+            if (!employee) return;
+
+            const title =
+                document.querySelector(".record-view h2");
+
+            if (title) {
+                title.textContent = employee.name;
+            }
+
+            const badge =
+                document.querySelector(".record-view .badge");
+
+            if (badge) {
+                badge.textContent = "Mã: " + id;
+            }
+
+            const details =
+                document.querySelectorAll(
+                    ".detail-list dd"
+                );
+
+            if (details[0]) details[0].textContent = employee.position;
+            if (details[1]) details[1].textContent = employee.phone;
+            if (details[2]) details[2].textContent = employee.username;
+            if (details[3]) details[3].textContent = employee.email;
+            if (details[4]) details[4].textContent = employee.status;
+
+        })();
+    </script>
+
+</body>
+
+</html>

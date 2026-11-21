@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Thông tin khách hàng | TechZone</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <span>Hệ thống quản lý cửa hàng máy tính</span>
+        <span>Khu vực quản trị</span>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <div class="breadcrumbs">
+            <a href="customers.html">
+                Quay lại danh sách
+            </a>
+            /
+            Thông tin khách hàng
+        </div>
+
+        <section class="panel record-view">
+
+            <h1>Thông tin khách hàng</h1>
+
+            <p class="badge">
+                Mã: KH001
+            </p>
+
+            <h2>Nguyễn Minh Anh</h2>
+
+            <dl class="detail-list">
+
+                <div>
+                    <dt>Số điện thoại</dt>
+                    <dd>0901 234 567</dd>
+                </div>
+
+                <div>
+                    <dt>Email</dt>
+                    <dd>minhanh@example.com</dd>
+                </div>
+
+                <div>
+                    <dt>Số đơn hàng</dt>
+                    <dd>8</dd>
+                </div>
+
+                <div>
+                    <dt>Tổng chi tiêu</dt>
+                    <dd>48.500.000đ</dd>
+                </div>
+
+                <div>
+                    <dt>Địa chỉ</dt>
+                    <dd>TP. Hồ Chí Minh</dd>
+                </div>
+
+            </dl>
+
+            <a class="btn secondary" href="customers.html">
+                Thoát
+            </a>
+
+        </section>
+
+    </main>
+
+    <script src="../js/site.js" defer></script>
+
+    <script>
+        (function () {
+
+            const records = {
+                KH001: [
+                    "Nguyễn Minh Anh",
+                    "0901 234 567",
+                    "minhanh@example.com",
+                    "8",
+                    "48.500.000đ",
+                    "TP. Hồ Chí Minh"
+                ],
+            };
+
+            const id =
+                new URLSearchParams(location.search)
+                    .get("id");
+
+            const customer = records[id];
+
+            if (!customer) return;
+
+            const customerName =
+                document.querySelector(".record-view h2");
+
+            if (customerName) {
+                customerName.textContent = customer[0];
+            }
+
+            const badge =
+                document.querySelector(".record-view .badge");
+
+            if (badge) {
+                badge.textContent = "Mã: " + id;
+            }
+
+            const details = [
+                ...document.querySelectorAll(".detail-list dd")
+            ];
+
+            customer
+                .slice(1)
+                .forEach((value, index) => {
+                    if (details[index]) {
+                        details[index].textContent = value;
+                    }
+                });
+
+        })();
+    </script>
+
+</body>
+
+</html>

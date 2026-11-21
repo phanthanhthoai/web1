@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Quản lý nhân viên | TechZone</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <span>Hệ thống quản lý cửa hàng máy tính</span>
+
+        <span>
+            Xin chào,
+            <a href="profile.html"
+               id="admin-top-name"
+               style="color: white;">
+                Quản trị viên
+            </a>
+            ·
+            <a href="../index.html"
+               data-logout
+               style="color: white;">
+                Đăng xuất
+            </a>
+        </span>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner">
+
+            <a class="brand" href="index.html">
+                TECH<span>ZONE</span>
+                <small style="font-size:11px;color:#718096;">
+                    ADMIN
+                </small>
+            </a>
+
+            <nav class="nav">
+                <a href="index.html">Tổng quan</a>
+                <a href="products.html">Sản phẩm</a>
+                <a href="orders.html">Đơn hàng</a>
+                <a href="customers.html">Khách hàng</a>
+                <a class="active" href="employees.html">
+                    Nhân viên
+                </a>
+                <a href="suppliers.html">Nhà cung cấp</a>
+                <a href="imports.html">Phiếu nhập</a>
+                <a href="accounts.html">Tài khoản</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <div class="admin-top">
+
+            <div>
+                <div class="breadcrumbs">
+                    <a href="../index.html">
+                        Trang bán hàng
+                    </a>
+                    /
+                    Khu vực Admin
+                </div>
+
+                <h1>Quản lý nhân viên</h1>
+            </div>
+
+            <a class="btn secondary" href="../index.html">
+                Xem cửa hàng ↗
+            </a>
+
+        </div>
+
+        <div class="layout">
+
+            <!-- Sidebar -->
+            <aside class="panel sidebar">
+
+                <h3>Quản trị hệ thống</h3>
+
+                <div class="side-links">
+                    <a href="index.html">📊 Tổng quan</a>
+                    <a href="products.html">📦 Sản phẩm</a>
+                    <a href="categories.html">🗂 Danh mục</a>
+                    <a href="orders.html">🧾 Đơn hàng / Hóa đơn</a>
+                    <a href="customers.html">👥 Khách hàng</a>
+
+                    <a href="employees.html" class="active">
+                        🧑‍💼 Nhân viên
+                    </a>
+
+                    <a href="suppliers.html">🚚 Nhà cung cấp</a>
+                    <a href="imports.html">📥 Phiếu nhập</a>
+                    <a href="import-detail.html">
+                        📝 Chi tiết phiếu nhập
+                    </a>
+
+                    <a href="accounts.html">🔐 Tài khoản</a>
+                    <a href="permissions.html">🛡 Quyền hạn</a>
+                    <a href="form-product.html">
+                        ＋ Nhập liệu sản phẩm
+                    </a>
+                    <a href="form-invoice.html">
+                        ＋ Lập hóa đơn
+                    </a>
+                </div>
+
+            </aside>
+
+            <!-- Content -->
+            <section>
+
+                <!-- Danh sách nhân viên -->
+                <div class="panel">
+
+                    <div class="admin-top">
+                        <h2>Danh sách nhân viên</h2>
+
+                        <a class="btn" href="#them-nv">
+                            ＋ Thêm nhân viên
+                        </a>
+                    </div>
+
+                    <!-- Bộ lọc -->
+                    <form
+                        class="admin-filter-bar"
+                        data-admin-filter-form data-ui-only-filter novalidate>
+
+                        <input
+                            type="search"
+                            name="keyword"
+                            placeholder="Tìm mã, tên nhân viên..."
+                            aria-label="Từ khóa tìm kiếm">
+
+                        <select
+                            name="status"
+                            aria-label="Lọc theo trạng thái">
+
+                            <option value="">
+                                Tất cả trạng thái
+                            </option>
+
+                            <option value="Đang làm">
+                                Đang làm
+                            </option>
+
+                            <option value="Nghỉ phép">
+                                Nghỉ phép
+                            </option>
+
+                        </select>
+
+                        <button
+                            class="btn filter-button"
+                            type="submit">
+                            Lọc
+                        </button>
+
+                        <span
+                            class="filter-count"
+                            data-filter-count>
+                        </span>
+
+                    </form>
+
+                    <!-- Bảng nhân viên -->
+                    <div class="table-wrap">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Mã NV</th>
+                                    <th>Họ tên</th>
+                                    <th>Chức vụ</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Tài khoản</th>
+                                    <th>Trạng thái</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>NV001</td>
+                                    <td>Lê Thanh Tùng</td>
+                                    <td>Quản lý</td>
+                                    <td>0908 111 222</td>
+                                    <td>tung.lt</td>
+
+                                    <td>
+                                        <span class="tag">
+                                            Đang làm
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <button
+                                            type="button"
+                                            class="table-action"
+                                            data-row-view
+                                            data-detail-page="employee-view.html">
+                                            Xem
+                                        </button>
+                                        ·
+                                        <button
+                                            type="button"
+                                            class="table-action danger"
+                                            data-row-delete>
+                                            Xóa
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>NV002</td>
+                                    <td>Nguyễn Thảo Vy</td>
+                                    <td>Nhân viên bán hàng</td>
+                                    <td>0908 333 444</td>
+                                    <td>vy.nt</td>
+
+                                    <td>
+                                        <span class="tag">
+                                            Đang làm
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <button
+                                            type="button"
+                                            class="table-action"
+                                            data-row-view
+                                            data-detail-page="employee-view.html">
+                                            Xem
+                                        </button>
+                                        ·
+                                        <button
+                                            type="button"
+                                            class="table-action danger"
+                                            data-row-delete>
+                                            Xóa
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>NV003</td>
+                                    <td>Phạm Đức Long</td>
+                                    <td>Thủ kho</td>
+                                    <td>0908 555 666</td>
+                                    <td>long.pd</td>
+
+                                    <td>
+                                        <span class="tag orange">
+                                            Nghỉ phép
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <button
+                                            type="button"
+                                            class="table-action"
+                                            data-row-view
+                                            data-detail-page="employee-view.html">
+                                            Xem
+                                        </button>
+                                        ·
+                                        <button
+                                            type="button"
+                                            class="table-action danger"
+                                            data-row-delete>
+                                            Xóa
+                                        </button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+                </div>
+
+                <!-- Form thêm nhân viên -->
+                <div class="panel" id="them-nv">
+
+                    <h2>Nhập liệu nhân viên</h2>
+
+                    <form action="#" method="get" novalidate>
+
+                        <div class="form-grid">
+
+                            <div class="field">
+                                <label for="employee-id">
+                                    Mã nhân viên
+                                </label>
+
+                                <input
+                                    id="employee-id"
+                                    name="employee_id"
+                                    placeholder="NV004">
+                            </div>
+
+                            <div class="field">
+                                <label for="employee-name">
+                                    Họ tên
+                                </label>
+
+                                <input
+                                    id="employee-name"
+                                    name="employee_name"
+                                    placeholder="Họ tên nhân viên">
+                            </div>
+
+                            <div class="field">
+                                <label for="position">
+                                    Chức vụ
+                                </label>
+
+                                <select
+                                    id="position"
+                                    name="position">
+                                    <option>Nhân viên bán hàng</option>
+                                    <option>Quản lý</option>
+                                    <option>Thủ kho</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label for="account">
+                                    Tài khoản liên kết
+                                </label>
+
+                                <select
+                                    id="account"
+                                    name="account">
+                                    <option>Chưa gán</option>
+                                    <option>tung.lt</option>
+                                    <option>vy.nt</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label for="phone">
+                                    Số điện thoại
+                                </label>
+
+                                <input
+                                    id="phone"
+                                    name="phone"
+                                    type="tel"
+                                    placeholder="09xx xxx xxx">
+                            </div>
+
+                            <div class="field">
+                                <label for="hire-date">
+                                    Ngày vào làm
+                                </label>
+
+                                <input
+                                    id="hire-date"
+                                    name="hire_date"
+                                    type="date">
+                            </div>
+
+                        </div>
+
+                        <div class="form-actions">
+
+                            <button
+                                class="btn"
+                                type="submit">
+                                Lưu nhân viên
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <script src="../js/site.js" defer></script>
+
+</body>
+
+</html>

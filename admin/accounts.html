@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Quản lý tài khoản | TechZone</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <span>Hệ thống quản lý cửa hàng máy tính</span>
+
+        <span>
+            Xin chào,
+            <a href="profile.html"
+               style="color: white"
+               id="admin-top-name">
+                Quản trị viên
+            </a>
+            ·
+            <a href="../index.html"
+               style="color: white"
+               data-logout>
+                Đăng xuất
+            </a>
+        </span>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner">
+
+            <a class="brand" href="index.html">
+                TECH<span>ZONE</span>
+                <small style="font-size:11px;color:#718096;">
+                    ADMIN
+                </small>
+            </a>
+
+            <nav class="nav">
+                <a href="index.html">Tổng quan</a>
+                <a href="products.html">Sản phẩm</a>
+                <a href="orders.html">Đơn hàng</a>
+                <a href="customers.html">Khách hàng</a>
+                <a href="employees.html">Nhân viên</a>
+                <a href="suppliers.html">Nhà cung cấp</a>
+                <a href="imports.html">Phiếu nhập</a>
+                <a class="active" href="accounts.html">
+                    Tài khoản
+                </a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <div class="admin-top">
+
+            <div>
+                <div class="breadcrumbs">
+                    <a href="../index.html">
+                        Trang bán hàng
+                    </a>
+                    /
+                    Khu vực Admin
+                </div>
+
+                <h1>Quản lý tài khoản</h1>
+            </div>
+
+            <a class="btn secondary" href="../index.html">
+                Xem cửa hàng ↗
+            </a>
+
+        </div>
+
+        <div class="layout">
+
+            <!-- Sidebar -->
+            <aside class="panel sidebar">
+
+                <h3>Quản trị hệ thống</h3>
+
+                <div class="side-links">
+
+                    <a href="index.html">📊 Tổng quan</a>
+                    <a href="products.html">📦 Sản phẩm</a>
+                    <a href="categories.html">🗂 Danh mục</a>
+                    <a href="orders.html">🧾 Đơn hàng / Hóa đơn</a>
+                    <a href="customers.html">👥 Khách hàng</a>
+                    <a href="employees.html">🧑‍💼 Nhân viên</a>
+                    <a href="suppliers.html">🚚 Nhà cung cấp</a>
+                    <a href="imports.html">📥 Phiếu nhập</a>
+                    <a href="import-detail.html">📝 Chi tiết phiếu nhập</a>
+
+                    <a href="accounts.html" class="active">
+                        🔐 Tài khoản
+                    </a>
+
+                    <a href="permissions.html">
+                        🛡 Quyền hạn
+                    </a>
+
+                    <a href="form-product.html">
+                        ＋ Nhập liệu sản phẩm
+                    </a>
+
+                    <a href="form-invoice.html">
+                        ＋ Lập hóa đơn
+                    </a>
+
+                </div>
+
+            </aside>
+
+            <!-- Content -->
+            <section>
+
+                <!-- Account List -->
+                <div class="panel">
+
+                    <div class="admin-top">
+                        <h2>Danh sách tài khoản</h2>
+
+                        <a class="btn" href="#them-tk">
+                            ＋ Tạo tài khoản
+                        </a>
+                    </div>
+
+                    <form
+                        class="admin-filter-bar"
+                        data-admin-filter-form data-ui-only-filter novalidate>
+
+                        <input
+                            type="search"
+                            name="keyword"
+                            placeholder="Tìm mã tài khoản, tên đăng nhập hoặc nhân viên..."
+                            aria-label="Từ khóa tìm kiếm">
+
+                        <select
+                            name="status"
+                            aria-label="Lọc theo trạng thái">
+
+                            <option value="">
+                                Tất cả trạng thái
+                            </option>
+
+                            <option value="Hoạt động">
+                                Hoạt động
+                            </option>
+
+                            <option value="Tạm khóa">
+                                Tạm khóa
+                            </option>
+
+                        </select>
+
+                        <button
+                            class="btn filter-button"
+                            type="submit">
+                            Lọc
+                        </button>
+
+                        <span
+                            class="filter-count"
+                            data-filter-count>
+                        </span>
+
+                    </form>
+
+                    <div class="table-wrap">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Mã TK</th>
+                                    <th>Tên đăng nhập</th>
+                                    <th>Nhân viên liên kết</th>
+                                    <th>Quyền hạn</th>
+                                    <th>Trạng thái</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>TK001</td>
+                                    <td>admin</td>
+                                    <td>NV001 - Lê Thanh Tùng</td>
+                                    <td>Admin</td>
+
+                                    <td>
+                                        <span class="tag">
+                                            Hoạt động
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <button
+                                            type="button"
+                                            class="table-action"
+                                            data-row-view
+                                            data-detail-page="account-view.html">
+                                            Xem
+                                        </button>
+                                        ·
+                                        <button
+                                            type="button"
+                                            class="table-action danger"
+                                            data-row-delete>
+                                            Xóa
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>TK002</td>
+                                    <td>vy.nt</td>
+                                    <td>NV002 - Nguyễn Thảo Vy</td>
+                                    <td>NV</td>
+
+                                    <td>
+                                        <span class="tag">
+                                            Hoạt động
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <button
+                                            type="button"
+                                            class="table-action"
+                                            data-row-view
+                                            data-detail-page="account-view.html">
+                                            Xem
+                                        </button>
+                                        ·
+                                        <button
+                                            type="button"
+                                            class="table-action danger"
+                                            data-row-delete>
+                                            Xóa
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>TK003</td>
+                                    <td>long.pd</td>
+                                    <td>NV003 - Phạm Đức Long</td>
+                                    <td>NV</td>
+
+                                    <td>
+                                        <span class="tag orange">
+                                            Tạm khóa
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <button
+                                            type="button"
+                                            class="table-action"
+                                            data-row-view
+                                            data-detail-page="account-view.html">
+                                            Xem
+                                        </button>
+                                        ·
+                                        <button
+                                            type="button"
+                                            class="table-action danger"
+                                            data-row-delete>
+                                            Xóa
+                                        </button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+                </div>
+
+                <!-- Create Account -->
+                <div class="panel" id="them-tk">
+
+                    <h2>Nhập liệu tài khoản</h2>
+
+                    <form action="#" method="get" novalidate>
+
+                        <div class="form-grid">
+
+                            <div class="field">
+                                <label>Mã tài khoản</label>
+                                <input placeholder="TK004">
+                            </div>
+
+                            <div class="field">
+                                <label>Tên đăng nhập</label>
+                                <input placeholder="ten.dangnhap">
+                            </div>
+
+                            <div class="field">
+                                <label>Mật khẩu</label>
+                                <input
+                                    type="password"
+                                    placeholder="Mật khẩu demo">
+                            </div>
+
+                            <div class="field">
+                                <label>Nhân viên liên kết</label>
+
+                                <select>
+                                    <option>
+                                        Chọn nhân viên
+                                    </option>
+                                    <option>
+                                        NV001 - Lê Thanh Tùng
+                                    </option>
+                                    <option>
+                                        NV002 - Nguyễn Thảo Vy
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label>Quyền hạn</label>
+
+                                <select>
+                                    <option>
+                                        NV - Nhân viên
+                                    </option>
+                                    <option>
+                                        QL - Quản lý
+                                    </option>
+                                    <option>
+                                        Admin - Quản trị viên
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label>Trạng thái</label>
+
+                                <select>
+                                    <option>
+                                        Hoạt động
+                                    </option>
+                                    <option>
+                                        Tạm khóa
+                                    </option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="form-actions">
+
+                            <button class="btn">
+                                Lưu tài khoản
+                            </button>
+
+                            <a
+                                class="btn secondary"
+                                href="permissions.html">
+                                Thiết lập quyền hạn
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <script src="../js/site.js" defer></script>
+
+</body>
+
+</html>

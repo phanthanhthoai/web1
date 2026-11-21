@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Quản lý khách hàng | TechZone</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <span>Hệ thống quản lý cửa hàng máy tính</span>
+
+        <span>
+            Xin chào,
+            <a href="profile.html"
+               id="admin-top-name"
+               style="color: white;">
+                Quản trị viên
+            </a>
+            ·
+            <a href="../index.html"
+               data-logout
+               style="color: white;">
+                Đăng xuất
+            </a>
+        </span>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner">
+
+            <a class="brand" href="index.html">
+                TECH<span>ZONE</span>
+                <small style="font-size:11px;color:#718096;">
+                    ADMIN
+                </small>
+            </a>
+
+            <nav class="nav">
+                <a href="index.html">Tổng quan</a>
+                <a href="products.html">Sản phẩm</a>
+                <a href="orders.html">Đơn hàng</a>
+                <a class="active" href="customers.html">
+                    Khách hàng
+                </a>
+                <a href="employees.html">Nhân viên</a>
+                <a href="suppliers.html">Nhà cung cấp</a>
+                <a href="imports.html">Phiếu nhập</a>
+                <a href="accounts.html">Tài khoản</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <div class="admin-top">
+
+            <div>
+                <div class="breadcrumbs">
+                    <a href="../index.html">
+                        Trang bán hàng
+                    </a>
+                    /
+                    Khu vực Admin
+                </div>
+
+                <h1>Quản lý khách hàng</h1>
+            </div>
+
+            <a class="btn secondary" href="../index.html">
+                Xem cửa hàng ↗
+            </a>
+
+        </div>
+
+        <div class="layout">
+
+            <!-- Sidebar -->
+            <aside class="panel sidebar">
+
+                <h3>Quản trị hệ thống</h3>
+
+                <div class="side-links">
+                    <a href="index.html">📊 Tổng quan</a>
+                    <a href="products.html">📦 Sản phẩm</a>
+                    <a href="categories.html">🗂 Danh mục</a>
+                    <a href="orders.html">🧾 Đơn hàng / Hóa đơn</a>
+
+                    <a href="customers.html" class="active">
+                        👥 Khách hàng
+                    </a>
+
+                    <a href="employees.html">🧑‍💼 Nhân viên</a>
+                    <a href="suppliers.html">🚚 Nhà cung cấp</a>
+                    <a href="imports.html">📥 Phiếu nhập</a>
+                    <a href="import-detail.html">
+                        📝 Chi tiết phiếu nhập
+                    </a>
+
+                    <a href="accounts.html">🔐 Tài khoản</a>
+                    <a href="permissions.html">🛡 Quyền hạn</a>
+                    <a href="form-product.html">
+                        ＋ Nhập liệu sản phẩm
+                    </a>
+                    <a href="form-invoice.html">
+                        ＋ Lập hóa đơn
+                    </a>
+                </div>
+
+            </aside>
+
+            <!-- Content -->
+            <section>
+
+                <!-- Customer List -->
+                <div class="panel">
+
+                    <div class="admin-top">
+                        <h2>Danh sách khách hàng</h2>
+
+                        <a class="btn" href="#them-kh">
+                            ＋ Thêm khách hàng
+                        </a>
+                    </div>
+
+                    <!-- Filter -->
+                    <form
+                        class="admin-filter-bar"
+                        data-admin-filter-form data-ui-only-filter novalidate>
+
+                        <input
+                            type="search"
+                            name="keyword"
+                            placeholder="Tìm mã khách hàng hoặc tên khách hàng..."
+                            aria-label="Từ khóa tìm kiếm">
+
+                        <select
+                            name="status"
+                            aria-label="Lọc theo trạng thái">
+
+                            <option value="">
+                                Tất cả trạng thái
+                            </option>
+
+                            <option value="Hoạt động">
+                                Hoạt động
+                            </option>
+
+                            <option value="Ngừng hoạt động">
+                                Ngừng hoạt động
+                            </option>
+
+                        </select>
+
+                        <button
+                            class="btn filter-button"
+                            type="submit">
+                            Lọc
+                        </button>
+
+                        <span
+                            class="filter-count"
+                            data-filter-count>
+                        </span>
+
+                    </form>
+
+                    <!-- Customer Table -->
+                    <div class="table-wrap">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Mã KH</th>
+                                    <th>Họ tên</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Email</th>
+                                    <th>Số đơn</th>
+                                    <th>Tổng chi tiêu</th>
+                                    <th>Trạng thái</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>KH001</td>
+                                    <td>Nguyễn Minh Anh</td>
+                                    <td>0901 234 567</td>
+                                    <td>minhanh@example.com</td>
+                                    <td>8</td>
+                                    <td>48.500.000đ</td>
+
+                                    <td>
+                                        <span class="tag">
+                                            Hoạt động
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <button
+                                            type="button"
+                                            class="table-action"
+                                            data-row-view
+                                            data-detail-page="customer-view.html">
+                                            Xem
+                                        </button>
+                                        ·
+                                        <button
+                                            type="button"
+                                            class="table-action danger"
+                                            data-row-delete>
+                                            Xóa
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>KH002</td>
+                                    <td>Trần Quốc Bảo</td>
+                                    <td>0902 345 678</td>
+                                    <td>quocbao@example.com</td>
+                                    <td>5</td>
+                                    <td>37.200.000đ</td>
+
+                                    <td>
+                                        <span class="tag">
+                                            Hoạt động
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <button
+                                            type="button"
+                                            class="table-action"
+                                            data-row-view
+                                            data-detail-page="customer-view.html">
+                                            Xem
+                                        </button>
+                                        ·
+                                        <button
+                                            type="button"
+                                            class="table-action danger"
+                                            data-row-delete>
+                                            Xóa
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>KH003</td>
+                                    <td>Lê Hoàng Phúc</td>
+                                    <td>0903 456 789</td>
+                                    <td>hoangphuc@example.com</td>
+                                    <td>3</td>
+                                    <td>12.750.000đ</td>
+
+                                    <td>
+                                        <span class="tag orange">
+                                            Ngừng hoạt động
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <button
+                                            type="button"
+                                            class="table-action"
+                                            data-row-view
+                                            data-detail-page="customer-view.html">
+                                            Xem
+                                        </button>
+                                        ·
+                                        <button
+                                            type="button"
+                                            class="table-action danger"
+                                            data-row-delete>
+                                            Xóa
+                                        </button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+                <!-- Customer Form -->
+                <div class="panel" id="them-kh">
+
+                    <h2>Nhập liệu khách hàng</h2>
+
+                    <form action="#" method="get" novalidate>
+
+                        <div class="form-grid">
+
+                            <div class="field">
+                                <label for="customer-id">
+                                    Mã khách hàng
+                                </label>
+
+                                <input
+                                    id="customer-id"
+                                    name="customer_id"
+                                    placeholder="KH004">
+                            </div>
+
+                            <div class="field">
+                                <label for="customer-name">
+                                    Họ tên
+                                </label>
+
+                                <input
+                                    id="customer-name"
+                                    name="customer_name"
+                                    placeholder="Họ và tên">
+                            </div>
+
+                            <div class="field">
+                                <label for="customer-phone">
+                                    Số điện thoại
+                                </label>
+
+                                <input
+                                    id="customer-phone"
+                                    name="phone"
+                                    type="tel"
+                                    placeholder="09xx xxx xxx">
+                            </div>
+
+                            <div class="field">
+                                <label for="customer-email">
+                                    Email
+                                </label>
+
+                                <input
+                                    id="customer-email"
+                                    name="email"
+                                    type="email"
+                                    placeholder="email@example.com">
+                            </div>
+
+                            <div class="field full">
+                                <label for="customer-address">
+                                    Địa chỉ
+                                </label>
+
+                                <input
+                                    id="customer-address"
+                                    name="address"
+                                    placeholder="Địa chỉ khách hàng">
+                            </div>
+
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="btn" type="submit">
+                                Lưu khách hàng
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <script src="../js/site.js" defer></script>
+
+</body>
+
+</html>

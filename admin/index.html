@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Tổng quan hệ thống | TechZone</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <span>Hệ thống quản lý cửa hàng máy tính</span>
+
+        <span>
+            Xin chào,
+            <a href="profile.html"
+               id="admin-top-name"
+               style="color: white;">
+                Quản trị viên
+            </a>
+            ·
+            <a href="../index.html"
+               data-logout
+               style="color: white;">
+                Đăng xuất
+            </a>
+        </span>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner">
+
+            <a class="brand" href="index.html">
+                TECH<span>ZONE</span>
+
+                <small style="font-size:11px;color:#718096;">
+                    ADMIN
+                </small>
+            </a>
+
+            <nav class="nav">
+                <a class="active" href="index.html">
+                    Tổng quan
+                </a>
+
+                <a href="products.html">Sản phẩm</a>
+                <a href="orders.html">Đơn hàng</a>
+                <a href="customers.html">Khách hàng</a>
+                <a href="employees.html">Nhân viên</a>
+                <a href="suppliers.html">Nhà cung cấp</a>
+                <a href="imports.html">Phiếu nhập</a>
+                <a href="accounts.html">Tài khoản</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <div class="admin-top">
+
+            <div>
+
+                <div class="breadcrumbs">
+                    <a href="../index.html">
+                        Trang bán hàng
+                    </a>
+                    /
+                    Khu vực Admin
+                </div>
+
+                <h1>Tổng quan hệ thống</h1>
+
+            </div>
+
+            <a class="btn secondary"
+               href="../index.html">
+                Xem cửa hàng ↗
+            </a>
+
+        </div>
+
+        <div class="layout">
+
+            <!-- Sidebar -->
+            <aside class="panel sidebar">
+
+                <h3>Quản trị hệ thống</h3>
+
+                <div class="side-links">
+
+                    <a href="index.html" class="active">
+                        📊 Tổng quan
+                    </a>
+
+                    <a href="products.html">
+                        📦 Sản phẩm
+                    </a>
+
+                    <a href="categories.html">
+                        🗂 Danh mục
+                    </a>
+
+                    <a href="orders.html">
+                        🧾 Đơn hàng / Hóa đơn
+                    </a>
+
+                    <a href="customers.html">
+                        👥 Khách hàng
+                    </a>
+
+                    <a href="employees.html">
+                        🧑‍💼 Nhân viên
+                    </a>
+
+                    <a href="suppliers.html">
+                        🚚 Nhà cung cấp
+                    </a>
+
+                    <a href="imports.html">
+                        📥 Phiếu nhập
+                    </a>
+
+                    <a href="import-detail.html">
+                        📝 Chi tiết phiếu nhập
+                    </a>
+
+                    <a href="accounts.html">
+                        🔐 Tài khoản
+                    </a>
+
+                    <a href="permissions.html">
+                        🛡 Quyền hạn
+                    </a>
+
+                    <a href="form-product.html">
+                        ＋ Nhập liệu sản phẩm
+                    </a>
+
+                    <a href="form-invoice.html">
+                        ＋ Lập hóa đơn
+                    </a>
+
+                </div>
+
+            </aside>
+
+            <!-- Dashboard Content -->
+            <section>
+
+                <!-- Statistics -->
+                <div class="stats">
+
+                    <div class="stat">
+                        <div class="label">
+                            Doanh thu tháng
+                        </div>
+
+                        <div class="number">
+                            428,5tr
+                        </div>
+
+                        <span class="tag">
+                            +12,8%
+                        </span>
+                    </div>
+
+                    <div class="stat">
+                        <div class="label">
+                            Đơn hàng
+                        </div>
+
+                        <div class="number">
+                            186
+                        </div>
+
+                        <span class="tag">
+                            +8,2%
+                        </span>
+                    </div>
+
+                    <div class="stat">
+                        <div class="label">
+                            Sản phẩm
+                        </div>
+
+                        <div class="number">
+                            248
+                        </div>
+
+                        <span class="tag orange">
+                            12 sắp hết
+                        </span>
+                    </div>
+
+                    <div class="stat">
+                        <div class="label">
+                            Khách hàng
+                        </div>
+
+                        <div class="number">
+                            1.204
+                        </div>
+
+                        <span class="tag">
+                            +64 tháng này
+                        </span>
+                    </div>
+
+                </div>
+
+                <!-- Recent Orders -->
+                <div class="panel">
+
+                    <div class="section-head" style="margin-top:0">
+
+                        <div>
+                            <h2>Đơn hàng gần đây</h2>
+
+                            <p>
+                                Tình trạng xử lý đơn hàng mẫu
+                            </p>
+                        </div>
+
+                        <a href="orders.html">
+                            Quản lý đơn hàng →
+                        </a>
+
+                    </div>
+
+                    <div class="table-wrap">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Mã đơn</th>
+                                    <th>Khách hàng</th>
+                                    <th>Ngày đặt</th>
+                                    <th>Tổng tiền</th>
+                                    <th>Trạng thái</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>HD20261024</td>
+                                    <td>Nguyễn Minh Anh</td>
+                                    <td>24/10/2026</td>
+                                    <td>15.490.000đ</td>
+
+                                    <td>
+                                        <span class="tag orange">
+                                            Chờ xác nhận
+                                        </span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>HD20261023</td>
+                                    <td>Trần Quốc Bảo</td>
+                                    <td>23/10/2026</td>
+                                    <td>22.990.000đ</td>
+
+                                    <td>
+                                        <span class="tag">
+                                            Đã giao
+                                        </span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>HD20261022</td>
+                                    <td>Lê Hoàng Phúc</td>
+                                    <td>22/10/2026</td>
+                                    <td>3.580.000đ</td>
+
+                                    <td>
+                                        <span class="tag">
+                                            Đã thanh toán
+                                        </span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>HD20261021</td>
+                                    <td>Phạm Thu Hà</td>
+                                    <td>21/10/2026</td>
+                                    <td>890.000đ</td>
+
+                                    <td>
+                                        <span class="tag red">
+                                            Đã hủy
+                                        </span>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+                <!-- Quick Access -->
+                <div class="panel">
+
+                    <h2>Truy cập nhanh</h2>
+
+                    <div class="category-grid">
+
+                        <a class="category"
+                           href="form-product.html">
+                            <span>📦</span>
+                            Thêm sản phẩm
+                        </a>
+
+                        <a class="category"
+                           href="form-invoice.html">
+                            <span>🧾</span>
+                            Lập hóa đơn
+                        </a>
+
+                        <a class="category"
+                           href="imports.html">
+                            <span>📥</span>
+                            Phiếu nhập kho
+                        </a>
+
+                        <a class="category"
+                           href="accounts.html">
+                            <span>🔐</span>
+                            Tài khoản
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <script src="../js/site.js" defer></script>
+
+</body>
+
+</html>

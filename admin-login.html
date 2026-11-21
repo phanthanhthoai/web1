@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Đăng nhập quản trị | TechZone</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <main class="container">
+        <div class="auth-card">
+
+            <section class="panel">
+
+                <div class="auth-logo">
+                    TECHZONE ADMIN
+                </div>
+
+                <h1 style="text-align: center;">
+                    Đăng nhập quản trị viên
+                </h1>
+
+                <form id="admin-login" class="login-demo-form" novalidate>
+
+                    <div class="field">
+                        <label for="admin-user">
+                            Tên đăng nhập
+                        </label>
+
+                        <input
+                            id="admin-user"
+                            type="text"
+                            placeholder="Tên đăng nhập (không bắt buộc)"
+                        >
+                    </div>
+
+                    <div class="field">
+                        <label for="admin-pass">
+                            Mật khẩu
+                        </label>
+
+                        <input
+                            id="admin-pass"
+                            type="password"
+                            placeholder="Mật khẩu (không bắt buộc)"
+                        >
+                    </div>
+
+                    <button class="btn" type="submit">
+                        Đăng nhập
+                    </button>
+
+                </form>
+
+            </section>
+
+        </div>
+    </main>
+
+    <script>
+        document
+            .getElementById("admin-login")
+            .addEventListener("submit", function (e) {
+
+                e.preventDefault();
+
+                localStorage.setItem(
+                    "techzone_admin",
+                    "Quản trị viên"
+                );
+
+                location.href = "admin/index.html";
+            });
+    </script>
+
+</body>
+
+</html>

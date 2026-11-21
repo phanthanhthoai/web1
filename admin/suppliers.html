@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Quản lý nhà cung cấp | TechZone</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <span>Hệ thống quản lý cửa hàng máy tính</span>
+
+        <span>
+            Xin chào,
+            <a href="profile.html"
+               id="admin-top-name"
+               style="color: white;">
+                Quản trị viên
+            </a>
+            ·
+            <a href="../index.html"
+               data-logout
+               style="color: white;">
+                Đăng xuất
+            </a>
+        </span>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+
+        <div class="header-inner">
+
+            <a class="brand" href="index.html">
+                TECH<span>ZONE</span>
+
+                <small style="font-size:11px;color:#718096;">
+                    ADMIN
+                </small>
+            </a>
+
+            <nav class="nav">
+                <a href="index.html">Tổng quan</a>
+                <a href="products.html">Sản phẩm</a>
+                <a href="orders.html">Đơn hàng</a>
+                <a href="customers.html">Khách hàng</a>
+                <a href="employees.html">Nhân viên</a>
+
+                <a class="active" href="suppliers.html">
+                    Nhà cung cấp
+                </a>
+
+                <a href="imports.html">Phiếu nhập</a>
+                <a href="accounts.html">Tài khoản</a>
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <div class="admin-top">
+
+            <div>
+
+                <div class="breadcrumbs">
+                    <a href="../index.html">
+                        Trang bán hàng
+                    </a>
+                    /
+                    Khu vực Admin
+                </div>
+
+                <h1>Quản lý nhà cung cấp</h1>
+
+            </div>
+
+            <a class="btn secondary"
+               href="../index.html">
+                Xem cửa hàng ↗
+            </a>
+
+        </div>
+
+        <div class="layout">
+
+            <!-- Sidebar -->
+            <aside class="panel sidebar">
+
+                <h3>Quản trị hệ thống</h3>
+
+                <div class="side-links">
+
+                    <a href="index.html">
+                        📊 Tổng quan
+                    </a>
+
+                    <a href="products.html">
+                        📦 Sản phẩm
+                    </a>
+
+                    <a href="categories.html">
+                        🗂 Danh mục
+                    </a>
+
+                    <a href="orders.html">
+                        🧾 Đơn hàng / Hóa đơn
+                    </a>
+
+                    <a href="customers.html">
+                        👥 Khách hàng
+                    </a>
+
+                    <a href="employees.html">
+                        🧑‍💼 Nhân viên
+                    </a>
+
+                    <a href="suppliers.html" class="active">
+                        🚚 Nhà cung cấp
+                    </a>
+
+                    <a href="imports.html">
+                        📥 Phiếu nhập
+                    </a>
+
+                    <a href="import-detail.html">
+                        📝 Chi tiết phiếu nhập
+                    </a>
+
+                    <a href="accounts.html">
+                        🔐 Tài khoản
+                    </a>
+
+                    <a href="permissions.html">
+                        🛡 Quyền hạn
+                    </a>
+
+                    <a href="form-product.html">
+                        ＋ Nhập liệu sản phẩm
+                    </a>
+
+                    <a href="form-invoice.html">
+                        ＋ Lập hóa đơn
+                    </a>
+
+                </div>
+
+            </aside>
+
+            <!-- Content -->
+            <section>
+
+                <!-- Supplier List -->
+                <div class="panel">
+
+                    <div class="admin-top">
+
+                        <h2>Danh sách nhà cung cấp</h2>
+
+                        <a class="btn" href="#them-ncc">
+                            ＋ Thêm nhà cung cấp
+                        </a>
+
+                    </div>
+
+                    <!-- Filter -->
+                    <form
+                        class="admin-filter-bar"
+                        data-admin-filter-form data-ui-only-filter novalidate>
+
+                        <input
+                            type="search"
+                            name="keyword"
+                            placeholder="Tìm mã, tên, liên hệ hoặc email nhà cung cấp..."
+                            aria-label="Từ khóa tìm kiếm">
+
+                        <select
+                            name="status"
+                            aria-label="Lọc theo trạng thái">
+
+                            <option value="">
+                                Tất cả trạng thái
+                            </option>
+
+                            <option value="Đang hợp tác">
+                                Đang hợp tác
+                            </option>
+
+                            <option value="Ngừng hợp tác">
+                                Ngừng hợp tác
+                            </option>
+
+                        </select>
+
+                        <button
+                            class="btn filter-button"
+                            type="submit">
+                            Lọc
+                        </button>
+
+                        <span
+                            class="filter-count"
+                            data-filter-count>
+                        </span>
+
+                    </form>
+
+                    <!-- Supplier Table -->
+                    <div class="table-wrap">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Mã NCC</th>
+                                    <th>Tên nhà cung cấp</th>
+                                    <th>Liên hệ</th>
+                                    <th>Email</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Trạng thái</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>NCC001</td>
+                                    <td>Công ty Phân phối ABC</td>
+                                    <td>028 1234 5678</td>
+                                    <td>sales@abc.example</td>
+                                    <td>TP. Hồ Chí Minh</td>
+
+                                    <td>
+                                        <span class="tag">
+                                            Đang hợp tác
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <button
+                                            type="button"
+                                            class="table-action"
+                                            data-row-view
+                                            data-detail-page="supplier-view.html">
+                                            Xem
+                                        </button>
+                                        ·
+                                        <button
+                                            type="button"
+                                            class="table-action danger"
+                                            data-row-delete>
+                                            Xóa
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>NCC002</td>
+                                    <td>Thiết bị số Minh Long</td>
+                                    <td>028 2345 6789</td>
+                                    <td>contact@minhlong.example</td>
+                                    <td>Bình Dương</td>
+
+                                    <td>
+                                        <span class="tag">
+                                            Đang hợp tác
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <button
+                                            type="button"
+                                            class="table-action"
+                                            data-row-view
+                                            data-detail-page="supplier-view.html">
+                                            Xem
+                                        </button>
+                                        ·
+                                        <button
+                                            type="button"
+                                            class="table-action danger"
+                                            data-row-delete>
+                                            Xóa
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>NCC003</td>
+                                    <td>Công nghệ Sao Việt</td>
+                                    <td>024 3456 7890</td>
+                                    <td>info@saoviet.example</td>
+                                    <td>Hà Nội</td>
+
+                                    <td>
+                                        <span class="tag orange">
+                                            Ngừng hợp tác
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <button
+                                            type="button"
+                                            class="table-action"
+                                            data-row-view
+                                            data-detail-page="supplier-view.html">
+                                            Xem
+                                        </button>
+                                        ·
+                                        <button
+                                            type="button"
+                                            class="table-action danger"
+                                            data-row-delete>
+                                            Xóa
+                                        </button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+                <!-- Add Supplier Form -->
+                <div class="panel" id="them-ncc">
+
+                    <h2>Nhập liệu nhà cung cấp</h2>
+
+                    <form action="#" method="get" novalidate>
+
+                        <div class="form-grid">
+
+                            <div class="field">
+                                <label for="supplier-id">
+                                    Mã NCC
+                                </label>
+
+                                <input
+                                    id="supplier-id"
+                                    name="supplier_id"
+                                    placeholder="NCC004">
+                            </div>
+
+                            <div class="field">
+                                <label for="supplier-name">
+                                    Tên công ty
+                                </label>
+
+                                <input
+                                    id="supplier-name"
+                                    name="supplier_name"
+                                    placeholder="Tên nhà cung cấp">
+                            </div>
+
+                            <div class="field">
+                                <label for="supplier-phone">
+                                    Số điện thoại
+                                </label>
+
+                                <input
+                                    id="supplier-phone"
+                                    name="phone"
+                                    placeholder="Số điện thoại">
+                            </div>
+
+                            <div class="field">
+                                <label for="supplier-email">
+                                    Email
+                                </label>
+
+                                <input
+                                    id="supplier-email"
+                                    name="email"
+                                    type="email"
+                                    placeholder="email@congty.vn">
+                            </div>
+
+                            <div class="field full">
+                                <label for="supplier-address">
+                                    Địa chỉ
+                                </label>
+
+                                <input
+                                    id="supplier-address"
+                                    name="address"
+                                    placeholder="Địa chỉ nhà cung cấp">
+                            </div>
+
+                        </div>
+
+                        <div class="form-actions">
+
+                            <button
+                                class="btn"
+                                type="submit">
+                                Lưu nhà cung cấp
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <script src="../js/site.js" defer></script>
+
+</body>
+
+</html>

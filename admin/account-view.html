@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Thông tin tài khoản | TechZone</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <span>Hệ thống quản lý cửa hàng máy tính</span>
+        <span>Khu vực quản trị</span>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <div class="breadcrumbs">
+            <a href="accounts.html">Quay lại danh sách</a>
+            /
+            Thông tin tài khoản
+        </div>
+
+        <section class="panel record-view">
+
+            <h1>Thông tin tài khoản</h1>
+
+            <p class="badge">
+                Mã: TK001
+            </p>
+
+            <h2>admin</h2>
+
+            <dl class="detail-list">
+
+                <div>
+                    <dt>Nhân viên liên kết</dt>
+                    <dd>NV001 - Lê Thanh Tùng</dd>
+                </div>
+
+                <div>
+                    <dt>Quyền hạn</dt>
+                    <dd>Admin</dd>
+                </div>
+
+                <div>
+                    <dt>Trạng thái</dt>
+                    <dd>Đang hoạt động</dd>
+                </div>
+
+                <div>
+                    <dt>Ngày tạo</dt>
+                    <dd>01/10/2026</dd>
+                </div>
+
+            </dl>
+
+            <a class="btn secondary" href="accounts.html">
+                Thoát
+            </a>
+
+        </section>
+
+    </main>
+
+    <script src="../js/site.js" defer></script>
+
+    <script>
+        (function () {
+
+            const records = {
+                TK001: [
+                    "admin",
+                    "NV001 - Lê Thanh Tùng",
+                    "Admin",
+                    "Hoạt động"
+                ],
+
+                TK002: [
+                    "vy.nt",
+                    "NV002 - Nguyễn Thảo Vy",
+                    "NV",
+                    "Hoạt động"
+                ],
+
+                TK003: [
+                    "long.pd",
+                    "NV003 - Phạm Đức Long",
+                    "NV",
+                    "Tạm khóa"
+                ]
+            };
+
+            const id =
+                new URLSearchParams(location.search).get("id");
+
+            const record = records[id];
+
+            if (!record) return;
+
+            const accountName =
+                document.querySelector(".record-view h2");
+
+            if (accountName) {
+                accountName.textContent = record[0];
+            }
+
+            const badge =
+                document.querySelector(".record-view .badge");
+
+            if (badge) {
+                badge.textContent = "Mã: " + id;
+            }
+
+            const details = [
+                ...document.querySelectorAll(".detail-list dd")
+            ];
+
+            record.slice(1).forEach((value, index) => {
+                if (details[index]) {
+                    details[index].textContent = value;
+                }
+            });
+
+        })();
+    </script>
+
+</body>
+
+</html>

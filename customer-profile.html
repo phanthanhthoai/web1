@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thông tin khách hàng | TechZone</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="topbar">
+        <span>☎ Hotline: 1900 6868 · Hỗ trợ kỹ thuật mỗi ngày</span>
+        <span class="customer-auth-slot" id="customer-auth-slot"><a href="login.html">Đăng nhập</a></span>
+    </div>
+    <header class="site-header customer-profile-header">
+        <div class="header-inner">
+            <a class="brand" href="index.html">TECH<span>ZONE</span></a>
+            <form class="site-search" action="products.html" method="get" role="search" novalidate>
+                <input type="search" name="q" placeholder="Tìm laptop, PC, linh kiện..." aria-label="Tìm kiếm sản phẩm">
+                <button type="submit" aria-label="Tìm kiếm">⌕</button>
+            </form>
+            <nav class="nav">
+                <a href="index.html">Trang chủ</a>
+                <a href="products.html">Sản phẩm</a>
+                <a href="about.html">Giới thiệu</a>
+                <a href="contact.html">Liên hệ</a>
+                <a href="cart.html">Giỏ hàng</a>
+                <a href="customer-profile.html" class="active" id="profile-name-nav">Tài khoản</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="page-title customer-profile-page-title">
+            <div>
+                <h1>Thông tin người dùng</h1>
+                <p class="muted">Thông tin tài khoản đang đăng nhập và hồ sơ khách hàng</p>
+            </div>
+            <a class="btn secondary" href="index.html">← Về trang chủ</a>
+        </div>
+
+        <section class="admin-profile-card panel customer-profile-card" data-customer-profile></section>
+
+        <section class="panel admin-permission-panel customer-benefits">
+            <h2>Thông tin tài khoản khách hàng</h2>
+            <p class="muted">Một số tiện ích dành cho tài khoản đang sử dụng tại TechZone.</p>
+            <div class="admin-permission-grid">
+                <div>✓ Theo dõi thông tin tài khoản</div>
+                <div>✓ Xem và mua sản phẩm</div>
+                <div>✓ Quản lý giỏ hàng</div>
+                <div>✓ Theo dõi đơn hàng và thanh toán</div>
+            </div>
+        </section>
+    </main>
+    <script src="js/site.js" defer></script>
+</body>
+</html>

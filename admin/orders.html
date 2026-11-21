@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Đơn hàng và hóa đơn | TechZone</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <span>Hệ thống quản lý cửa hàng máy tính</span>
+
+        <span>
+            Xin chào,
+            <a href="profile.html"
+               id="admin-top-name"
+               style="color: white;">
+                Quản trị viên
+            </a>
+            ·
+            <a href="../index.html"
+               data-logout
+               style="color: white;">
+                Đăng xuất
+            </a>
+        </span>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner">
+
+            <a class="brand" href="index.html">
+                TECH<span>ZONE</span>
+                <small style="font-size:11px;color:#718096;">
+                    ADMIN
+                </small>
+            </a>
+
+            <nav class="nav">
+                <a href="index.html">Tổng quan</a>
+                <a href="products.html">Sản phẩm</a>
+                <a class="active" href="orders.html">
+                    Đơn hàng
+                </a>
+                <a href="customers.html">Khách hàng</a>
+                <a href="employees.html">Nhân viên</a>
+                <a href="suppliers.html">Nhà cung cấp</a>
+                <a href="imports.html">Phiếu nhập</a>
+                <a href="accounts.html">Tài khoản</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <div class="admin-top">
+
+            <div>
+
+                <div class="breadcrumbs">
+                    <a href="../index.html">
+                        Trang bán hàng
+                    </a>
+                    /
+                    Khu vực Admin
+                </div>
+
+                <h1>Đơn hàng và hóa đơn</h1>
+
+            </div>
+
+            <a class="btn secondary" href="../index.html">
+                Xem cửa hàng ↗
+            </a>
+
+        </div>
+
+        <div class="layout">
+
+            <!-- Sidebar -->
+            <aside class="panel sidebar">
+
+                <h3>Quản trị hệ thống</h3>
+
+                <div class="side-links">
+
+                    <a href="index.html">📊 Tổng quan</a>
+                    <a href="products.html">📦 Sản phẩm</a>
+                    <a href="categories.html">🗂 Danh mục</a>
+
+                    <a href="orders.html" class="active">
+                        🧾 Đơn hàng / Hóa đơn
+                    </a>
+
+                    <a href="customers.html">👥 Khách hàng</a>
+                    <a href="employees.html">🧑‍💼 Nhân viên</a>
+                    <a href="suppliers.html">🚚 Nhà cung cấp</a>
+                    <a href="imports.html">📥 Phiếu nhập</a>
+
+                    <a href="import-detail.html">
+                        📝 Chi tiết phiếu nhập
+                    </a>
+
+                    <a href="accounts.html">🔐 Tài khoản</a>
+                    <a href="permissions.html">🛡 Quyền hạn</a>
+
+                    <a href="form-product.html">
+                        ＋ Nhập liệu sản phẩm
+                    </a>
+
+                    <a href="form-invoice.html">
+                        ＋ Lập hóa đơn
+                    </a>
+
+                </div>
+
+            </aside>
+
+            <!-- Content -->
+            <section>
+
+                <div class="panel">
+
+                    <div class="admin-top">
+
+                        <h2>Danh sách đơn hàng</h2>
+
+                        <a class="btn" href="form-invoice.html">
+                            ＋ Lập hóa đơn
+                        </a>
+
+                    </div>
+
+                    <!-- Filter -->
+                    <form
+                        class="admin-filter-bar"
+                        data-admin-filter-form data-ui-only-filter novalidate>
+
+                        <input
+                            type="search"
+                            name="keyword"
+                            placeholder="Tìm mã hóa đơn / khách hàng..."
+                            aria-label="Từ khóa tìm kiếm">
+
+                        <select
+                            name="status"
+                            aria-label="Lọc theo trạng thái">
+
+                            <option value="">
+                                Tất cả trạng thái
+                            </option>
+
+                            <option value="Đang xử lý">
+                                Đang xử lý
+                            </option>
+
+                            <option value="Đã thanh toán">
+                                Đã thanh toán
+                            </option>
+
+                            <option value="Đã hủy">
+                                Đã hủy
+                            </option>
+
+                        </select>
+
+                        <button
+                            class="btn filter-button"
+                            type="submit">
+                            Lọc
+                        </button>
+
+                        <span
+                            class="filter-count"
+                            data-filter-count>
+                        </span>
+
+                    </form>
+
+                    <!-- Orders Table -->
+                    <div class="table-wrap" style="margin-top:16px;">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Mã hóa đơn</th>
+                                    <th>Ngày lập</th>
+                                    <th>Mã KH</th>
+                                    <th>Mã NV</th>
+                                    <th>Tổng tiền</th>
+                                    <th>Thanh toán</th>
+                                    <th>Trạng thái</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>HD20261024</td>
+                                    <td>24/10/2026</td>
+                                    <td>KH001</td>
+                                    <td>NV001</td>
+                                    <td>15.490.000đ</td>
+                                    <td>COD</td>
+
+                                    <td>
+                                        <span class="tag orange">
+                                            Chờ xác nhận
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <a href="form-invoice.html">
+                                            Chi tiết
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>HD20261023</td>
+                                    <td>23/10/2026</td>
+                                    <td>KH002</td>
+                                    <td>NV002</td>
+                                    <td>22.990.000đ</td>
+                                    <td>Chuyển khoản</td>
+
+                                    <td>
+                                        <span class="tag">
+                                            Đã giao
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <a href="form-invoice.html">
+                                            Chi tiết
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>HD20261022</td>
+                                    <td>22/10/2026</td>
+                                    <td>KH003</td>
+                                    <td>NV001</td>
+                                    <td>3.580.000đ</td>
+                                    <td>Tiền mặt</td>
+
+                                    <td>
+                                        <span class="tag">
+                                            Đã thanh toán
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <a href="form-invoice.html">
+                                            Chi tiết
+                                        </a>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <script src="../js/site.js" defer></script>
+
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Thông tin sản phẩm | TechZone Admin</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <span>Hệ thống quản lý cửa hàng máy tính</span>
+        <span>Khu vực quản trị</span>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <div class="breadcrumbs">
+            <a href="products.html">
+                Quản lý sản phẩm
+            </a>
+            /
+            Thông tin sản phẩm
+        </div>
+
+        <section class="panel admin-product-view">
+
+            <!-- Product Image -->
+            <div class="admin-product-image">
+
+                <img
+                    id="view-image"
+                    src="../picture/1.png"
+                    alt="Laptop ASUS Vivobook 15">
+
+            </div>
+
+            <!-- Product Information -->
+            <div class="admin-product-info">
+
+                <span class="tag">
+                    Đang kinh doanh
+                </span>
+
+                <h1 id="view-name">
+                    Laptop ASUS Vivobook 15
+                </h1>
+
+                <p class="muted" id="view-code">
+                    Mã sản phẩm: SP001
+                </p>
+
+                <div class="price" id="view-price">
+                    15.490.000đ
+                </div>
+
+                <dl class="detail-list">
+
+                    <div>
+                        <dt>Danh mục</dt>
+                        <dd id="view-category">
+                            Laptop
+                        </dd>
+                    </div>
+
+                    <div>
+                        <dt>Số lượng tồn</dt>
+                        <dd id="view-stock">
+                            24
+                        </dd>
+                    </div>
+
+                    <div>
+                        <dt>Mô tả</dt>
+                        <dd id="view-desc">
+                            Laptop phục vụ học tập và công việc văn phòng.
+                        </dd>
+                    </div>
+
+                    <div>
+                        <dt>Thông số</dt>
+                        <dd id="view-spec">
+                            Intel Core i5, RAM 16GB, SSD 512GB,
+                            màn hình 15.6 inch Full HD.
+                        </dd>
+                    </div>
+
+                </dl>
+
+                <a class="btn secondary" href="products.html">
+                    Thoát
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="../js/site.js" defer></script>
+
+    <script>
+        (function () {
+
+            const products = {
+
+                SP001: {
+                    name: "Laptop ASUS Vivobook 15",
+                    price: "15.490.000đ",
+                    category: "Laptop",
+                    stock: "24",
+                    image: "../picture/1.png",
+                    desc: "Laptop mỏng nhẹ dành cho học tập và công việc văn phòng.",
+                    spec: "Intel Core i5, RAM 16GB, SSD 512GB, màn hình 15.6 inch Full HD."
+                },
+
+            };
+
+            const id =
+                new URLSearchParams(location.search).get("id") ||
+                "SP001";
+
+            const product =
+                products[id] || products.SP001;
+
+            document.getElementById("view-image").src =
+                product.image;
+
+            document.getElementById("view-image").alt =
+                product.name;
+
+            document.getElementById("view-name").textContent =
+                product.name;
+
+            document.getElementById("view-code").textContent =
+                "Mã sản phẩm: " + id;
+
+            document.getElementById("view-price").textContent =
+                product.price;
+
+            document.getElementById("view-category").textContent =
+                product.category;
+
+            document.getElementById("view-stock").textContent =
+                product.stock;
+
+            document.getElementById("view-desc").textContent =
+                product.desc;
+
+            document.getElementById("view-spec").textContent =
+                product.spec;
+
+        })();
+    </script>
+
+</body>
+
+</html>
