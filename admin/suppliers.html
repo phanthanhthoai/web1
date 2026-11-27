@@ -10,7 +10,14 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body>
+<body class="admin-page">
+  <div class="static-toast" id="toast-added" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Thêm mới thành công.</span></div>
+  <div class="static-toast" id="toast-updated" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Cập nhật thành công.</span></div>
+  <div class="static-toast" id="toast-saved" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Lưu thông tin thành công.</span></div>
+  <div class="static-toast" id="toast-deleted" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Xóa thành công.</span></div>
+  <div class="static-toast" id="toast-search" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Tìm kiếm thành công.</span></div>
+  <div class="static-toast" id="toast-status" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Cập nhật trạng thái thành công.</span></div>
+
 
     <!-- Top Bar -->
     <div class="topbar">
@@ -25,7 +32,7 @@
             </a>
             ·
             <a href="../index.html"
-               data-logout
+              
                style="color: white;">
                 Đăng xuất
             </a>
@@ -45,20 +52,7 @@
                 </small>
             </a>
 
-            <nav class="nav">
-                <a href="index.html">Tổng quan</a>
-                <a href="products.html">Sản phẩm</a>
-                <a href="orders.html">Đơn hàng</a>
-                <a href="customers.html">Khách hàng</a>
-                <a href="employees.html">Nhân viên</a>
-
-                <a class="active" href="suppliers.html">
-                    Nhà cung cấp
-                </a>
-
-                <a href="imports.html">Phiếu nhập</a>
-                <a href="accounts.html">Tài khoản</a>
-            </nav>
+            <nav class="nav"><a href="index.html">Tổng quan</a><a href="products.html">Sản phẩm</a><a href="categories.html">Danh mục</a><a href="orders.html">Đơn hàng</a><a href="customers.html">Khách hàng</a><a href="employees.html">Nhân viên</a><a href="suppliers.html" class="active" aria-current="page">Nhà cung cấp</a><a href="imports.html">Phiếu nhập</a></nav>
 
         </div>
 
@@ -97,61 +91,7 @@
 
                 <h3>Quản trị hệ thống</h3>
 
-                <div class="side-links">
-
-                    <a href="index.html">
-                        📊 Tổng quan
-                    </a>
-
-                    <a href="products.html">
-                        📦 Sản phẩm
-                    </a>
-
-                    <a href="categories.html">
-                        🗂 Danh mục
-                    </a>
-
-                    <a href="orders.html">
-                        🧾 Đơn hàng / Hóa đơn
-                    </a>
-
-                    <a href="customers.html">
-                        👥 Khách hàng
-                    </a>
-
-                    <a href="employees.html">
-                        🧑‍💼 Nhân viên
-                    </a>
-
-                    <a href="suppliers.html" class="active">
-                        🚚 Nhà cung cấp
-                    </a>
-
-                    <a href="imports.html">
-                        📥 Phiếu nhập
-                    </a>
-
-                    <a href="import-detail.html">
-                        📝 Chi tiết phiếu nhập
-                    </a>
-
-                    <a href="accounts.html">
-                        🔐 Tài khoản
-                    </a>
-
-                    <a href="permissions.html">
-                        🛡 Quyền hạn
-                    </a>
-
-                    <a href="form-product.html">
-                        ＋ Nhập liệu sản phẩm
-                    </a>
-
-                    <a href="form-invoice.html">
-                        ＋ Lập hóa đơn
-                    </a>
-
-                </div>
+                <div class="side-links"><a href="index.html"><span class="admin-nav-icon" aria-hidden="true">▦</span>Tổng quan</a><a href="products.html"><span class="admin-nav-icon" aria-hidden="true">▣</span>Sản phẩm</a><a href="categories.html"><span class="admin-nav-icon" aria-hidden="true">▧</span>Danh mục</a><a href="orders.html"><span class="admin-nav-icon" aria-hidden="true">▤</span>Đơn hàng</a><a href="customers.html"><span class="admin-nav-icon" aria-hidden="true">♙</span>Khách hàng</a><a href="employees.html"><span class="admin-nav-icon" aria-hidden="true">♧</span>Nhân viên</a><a href="suppliers.html" class="active" aria-current="page"><span class="admin-nav-icon" aria-hidden="true">♧</span>Nhà cung cấp</a><a href="imports.html"><span class="admin-nav-icon" aria-hidden="true">▨</span>Phiếu nhập</a></div>
 
             </aside>
 
@@ -165,7 +105,7 @@
 
                         <h2>Danh sách nhà cung cấp</h2>
 
-                        <a class="btn" href="#them-ncc">
+                        <a class="btn" href="supplier-form.html">
                             ＋ Thêm nhà cung cấp
                         </a>
 
@@ -174,7 +114,7 @@
                     <!-- Filter -->
                     <form
                         class="admin-filter-bar"
-                        data-admin-filter-form data-ui-only-filter novalidate>
+                        data-admin-filter-form data-supplier-filter novalidate action="suppliers.html?action=search#toast-search" method="get">
 
                         <input
                             type="search"
@@ -213,10 +153,11 @@
 
                     </form>
 
+                    <div class="notice-blue">Nhà cung cấp được chọn tại Phiếu nhập, không gắn cố định vào từng sản phẩm. Dữ liệu trên trang chỉ là minh họa.</div>
                     <!-- Supplier Table -->
                     <div class="table-wrap">
 
-                        <table>
+                        <table class="suppliers-admin-table">
 
                             <thead>
                                 <tr>
@@ -246,20 +187,9 @@
                                     </td>
 
                                     <td>
-                                        <button
-                                            type="button"
-                                            class="table-action"
-                                            data-row-view
-                                            data-detail-page="supplier-view.html">
-                                            Xem
-                                        </button>
-                                        ·
-                                        <button
-                                            type="button"
-                                            class="table-action danger"
-                                            data-row-delete>
-                                            Xóa
-                                        </button>
+                                        <a class="table-action" href="supplier-view.html?id=NCC001">Xem</a>
+                                        · <a class="table-action" href="supplier-form.html?id=NCC001">Sửa</a> · <a class="table-action" href="suppliers.html?action=status&id=NCC001#toast-status">Ngừng hợp tác</a> ·
+                                        <a class="table-action danger" href="suppliers.html?action=delete&id=NCC001#toast-deleted">Xóa</a>
                                     </td>
                                 </tr>
 
@@ -277,20 +207,9 @@
                                     </td>
 
                                     <td>
-                                        <button
-                                            type="button"
-                                            class="table-action"
-                                            data-row-view
-                                            data-detail-page="supplier-view.html">
-                                            Xem
-                                        </button>
-                                        ·
-                                        <button
-                                            type="button"
-                                            class="table-action danger"
-                                            data-row-delete>
-                                            Xóa
-                                        </button>
+                                        <a class="table-action" href="supplier-view.html?id=NCC002">Xem</a>
+                                        · <a class="table-action" href="supplier-form.html?id=NCC002">Sửa</a> · <a class="table-action" href="suppliers.html?action=status&id=NCC002#toast-status">Ngừng hợp tác</a> ·
+                                        <a class="table-action danger" href="suppliers.html?action=delete&id=NCC002#toast-deleted">Xóa</a>
                                     </td>
                                 </tr>
 
@@ -308,20 +227,9 @@
                                     </td>
 
                                     <td>
-                                        <button
-                                            type="button"
-                                            class="table-action"
-                                            data-row-view
-                                            data-detail-page="supplier-view.html">
-                                            Xem
-                                        </button>
-                                        ·
-                                        <button
-                                            type="button"
-                                            class="table-action danger"
-                                            data-row-delete>
-                                            Xóa
-                                        </button>
+                                        <a class="table-action" href="supplier-view.html?id=NCC003">Xem</a>
+                                        · <a class="table-action" href="supplier-form.html?id=NCC003">Sửa</a> · <a class="table-action" href="suppliers.html?action=status&id=NCC003#toast-status">Hợp tác lại</a> ·
+                                        <a class="table-action danger" href="suppliers.html?action=delete&id=NCC003#toast-deleted">Xóa</a>
                                     </td>
                                 </tr>
 
@@ -330,87 +238,7 @@
                         </table>
 
                     </div>
-
-                </div>
-
-                <!-- Add Supplier Form -->
-                <div class="panel" id="them-ncc">
-
-                    <h2>Nhập liệu nhà cung cấp</h2>
-
-                    <form action="#" method="get" novalidate>
-
-                        <div class="form-grid">
-
-                            <div class="field">
-                                <label for="supplier-id">
-                                    Mã NCC
-                                </label>
-
-                                <input
-                                    id="supplier-id"
-                                    name="supplier_id"
-                                    placeholder="NCC004">
-                            </div>
-
-                            <div class="field">
-                                <label for="supplier-name">
-                                    Tên công ty
-                                </label>
-
-                                <input
-                                    id="supplier-name"
-                                    name="supplier_name"
-                                    placeholder="Tên nhà cung cấp">
-                            </div>
-
-                            <div class="field">
-                                <label for="supplier-phone">
-                                    Số điện thoại
-                                </label>
-
-                                <input
-                                    id="supplier-phone"
-                                    name="phone"
-                                    placeholder="Số điện thoại">
-                            </div>
-
-                            <div class="field">
-                                <label for="supplier-email">
-                                    Email
-                                </label>
-
-                                <input
-                                    id="supplier-email"
-                                    name="email"
-                                    type="email"
-                                    placeholder="email@congty.vn">
-                            </div>
-
-                            <div class="field full">
-                                <label for="supplier-address">
-                                    Địa chỉ
-                                </label>
-
-                                <input
-                                    id="supplier-address"
-                                    name="address"
-                                    placeholder="Địa chỉ nhà cung cấp">
-                            </div>
-
-                        </div>
-
-                        <div class="form-actions">
-
-                            <button
-                                class="btn"
-                                type="submit">
-                                Lưu nhà cung cấp
-                            </button>
-
-                        </div>
-
-                    </form>
+                    <nav class="pagination" aria-label="Phân trang nhà cung cấp"><span class="page-number inert-page active">1</span><span class="page-number inert-page">2</span><span class="page-number inert-page">3</span></nav>
 
                 </div>
 

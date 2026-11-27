@@ -1,359 +1,108 @@
 <!doctype html>
 <html lang="vi">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Tổng quan hệ thống | TechZone</title>
-
-    <link rel="stylesheet" href="../css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tổng quan & thống kê | TechZone Admin</title>
+  <link rel="stylesheet" href="../css/style.css">
 </head>
+<body class="admin-page">
+  <div class="static-toast" id="toast-added" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Thêm mới thành công.</span></div>
+  <div class="static-toast" id="toast-updated" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Cập nhật thành công.</span></div>
+  <div class="static-toast" id="toast-saved" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Lưu thông tin thành công.</span></div>
+  <div class="static-toast" id="toast-deleted" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Xóa thành công.</span></div>
+  <div class="static-toast" id="toast-search" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Tìm kiếm thành công.</span></div>
+  <div class="static-toast" id="toast-status" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Cập nhật trạng thái thành công.</span></div>
 
-<body>
-
-    <!-- Top Bar -->
-    <div class="topbar">
-        <span>Hệ thống quản lý cửa hàng máy tính</span>
-
-        <span>
-            Xin chào,
-            <a href="profile.html"
-               id="admin-top-name"
-               style="color: white;">
-                Quản trị viên
-            </a>
-            ·
-            <a href="../index.html"
-               data-logout
-               style="color: white;">
-                Đăng xuất
-            </a>
-        </span>
+  <div class="topbar">
+    <span>Hệ thống quản lý cửa hàng máy tính</span>
+    <span>Xin chào, <a href="profile.html" style="color:#fff">Quản trị viên</a> · <a href="../admin-login.html" style="color:#fff">Đăng xuất</a></span>
+  </div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">TECH<span>ZONE</span> <small style="font-size:11px;color:#718096">ADMIN</small></a>
     </div>
-
-    <!-- Header -->
-    <header class="site-header">
-        <div class="header-inner">
-
-            <a class="brand" href="index.html">
-                TECH<span>ZONE</span>
-
-                <small style="font-size:11px;color:#718096;">
-                    ADMIN
-                </small>
-            </a>
-
-            <nav class="nav">
-                <a class="active" href="index.html">
-                    Tổng quan
-                </a>
-
-                <a href="products.html">Sản phẩm</a>
-                <a href="orders.html">Đơn hàng</a>
-                <a href="customers.html">Khách hàng</a>
-                <a href="employees.html">Nhân viên</a>
-                <a href="suppliers.html">Nhà cung cấp</a>
-                <a href="imports.html">Phiếu nhập</a>
-                <a href="accounts.html">Tài khoản</a>
-            </nav>
-
+  </header>
+  <main class="container">
+    <div class="admin-top">
+      <div>
+        <div class="breadcrumbs"><a href="../index.html">Trang bán hàng</a> / Khu vực Admin</div>
+        <h1>Tổng quan & thống kê</h1>
+        <p class="muted" style="margin:6px 0 0">Theo dõi tình hình kinh doanh và hiệu quả bán hàng của TechZone.</p>
+      </div>
+      <a class="btn secondary" href="../index.html">Xem cửa hàng ↗</a>
+    </div>
+    <div class="layout">
+      <aside class="panel sidebar">
+        <h3>Quản trị hệ thống</h3>
+        <div class="side-links"><a href="index.html" class="active" aria-current="page"><span class="admin-nav-icon" aria-hidden="true">▦</span>Tổng quan</a><a href="products.html"><span class="admin-nav-icon" aria-hidden="true">▣</span>Sản phẩm</a><a href="categories.html"><span class="admin-nav-icon" aria-hidden="true">▧</span>Danh mục</a><a href="orders.html"><span class="admin-nav-icon" aria-hidden="true">▤</span>Đơn hàng</a><a href="customers.html"><span class="admin-nav-icon" aria-hidden="true">♙</span>Khách hàng</a><a href="employees.html"><span class="admin-nav-icon" aria-hidden="true">♧</span>Nhân viên</a><a href="suppliers.html"><span class="admin-nav-icon" aria-hidden="true">♧</span>Nhà cung cấp</a><a href="imports.html"><span class="admin-nav-icon" aria-hidden="true">▨</span>Phiếu nhập</a></div>
+        <div class="admin-sidebar-footer">
+          <a href="profile.html">Tài khoản quản trị ↗</a>
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="container">
-
-        <div class="admin-top">
-
-            <div>
-
-                <div class="breadcrumbs">
-                    <a href="../index.html">
-                        Trang bán hàng
-                    </a>
-                    /
-                    Khu vực Admin
-                </div>
-
-                <h1>Tổng quan hệ thống</h1>
-
-            </div>
-
-            <a class="btn secondary"
-               href="../index.html">
-                Xem cửa hàng ↗
-            </a>
-
+      </aside>
+      <section>
+        <div class="stats dashboard-kpis">
+          <div class="stat"><div class="label">Doanh thu đã giao</div><div class="number" id="kpi-revenue">0đ</div><span class="tag">Đơn giao thành công</span></div>
+          <div class="stat"><div class="label">Đơn hàng trong kỳ</div><div class="number" id="kpi-orders">0</div><span class="tag">Bao gồm đơn chờ xử lý</span></div>
+          <div class="stat"><div class="label">Khách hàng phát sinh đơn</div><div class="number" id="kpi-customers">0</div><span class="tag">Không tính đơn đã hủy</span></div>
+          <div class="stat"><div class="label">Đơn chờ xác nhận</div><div class="number" id="kpi-pending">0</div><span class="tag orange">Cần xử lý</span></div>
         </div>
 
-        <div class="layout">
-
-            <!-- Sidebar -->
-            <aside class="panel sidebar">
-
-                <h3>Quản trị hệ thống</h3>
-
-                <div class="side-links">
-
-                    <a href="index.html" class="active">
-                        📊 Tổng quan
-                    </a>
-
-                    <a href="products.html">
-                        📦 Sản phẩm
-                    </a>
-
-                    <a href="categories.html">
-                        🗂 Danh mục
-                    </a>
-
-                    <a href="orders.html">
-                        🧾 Đơn hàng / Hóa đơn
-                    </a>
-
-                    <a href="customers.html">
-                        👥 Khách hàng
-                    </a>
-
-                    <a href="employees.html">
-                        🧑‍💼 Nhân viên
-                    </a>
-
-                    <a href="suppliers.html">
-                        🚚 Nhà cung cấp
-                    </a>
-
-                    <a href="imports.html">
-                        📥 Phiếu nhập
-                    </a>
-
-                    <a href="import-detail.html">
-                        📝 Chi tiết phiếu nhập
-                    </a>
-
-                    <a href="accounts.html">
-                        🔐 Tài khoản
-                    </a>
-
-                    <a href="permissions.html">
-                        🛡 Quyền hạn
-                    </a>
-
-                    <a href="form-product.html">
-                        ＋ Nhập liệu sản phẩm
-                    </a>
-
-                    <a href="form-invoice.html">
-                        ＋ Lập hóa đơn
-                    </a>
-
-                </div>
-
-            </aside>
-
-            <!-- Dashboard Content -->
-            <section>
-
-                <!-- Statistics -->
-                <div class="stats">
-
-                    <div class="stat">
-                        <div class="label">
-                            Doanh thu tháng
-                        </div>
-
-                        <div class="number">
-                            428,5tr
-                        </div>
-
-                        <span class="tag">
-                            +12,8%
-                        </span>
-                    </div>
-
-                    <div class="stat">
-                        <div class="label">
-                            Đơn hàng
-                        </div>
-
-                        <div class="number">
-                            186
-                        </div>
-
-                        <span class="tag">
-                            +8,2%
-                        </span>
-                    </div>
-
-                    <div class="stat">
-                        <div class="label">
-                            Sản phẩm
-                        </div>
-
-                        <div class="number">
-                            248
-                        </div>
-
-                        <span class="tag orange">
-                            12 sắp hết
-                        </span>
-                    </div>
-
-                    <div class="stat">
-                        <div class="label">
-                            Khách hàng
-                        </div>
-
-                        <div class="number">
-                            1.204
-                        </div>
-
-                        <span class="tag">
-                            +64 tháng này
-                        </span>
-                    </div>
-
-                </div>
-
-                <!-- Recent Orders -->
-                <div class="panel">
-
-                    <div class="section-head" style="margin-top:0">
-
-                        <div>
-                            <h2>Đơn hàng gần đây</h2>
-
-                            <p>
-                                Tình trạng xử lý đơn hàng mẫu
-                            </p>
-                        </div>
-
-                        <a href="orders.html">
-                            Quản lý đơn hàng →
-                        </a>
-
-                    </div>
-
-                    <div class="table-wrap">
-
-                        <table>
-
-                            <thead>
-                                <tr>
-                                    <th>Mã đơn</th>
-                                    <th>Khách hàng</th>
-                                    <th>Ngày đặt</th>
-                                    <th>Tổng tiền</th>
-                                    <th>Trạng thái</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-
-                                <tr>
-                                    <td>HD20261024</td>
-                                    <td>Nguyễn Minh Anh</td>
-                                    <td>24/10/2026</td>
-                                    <td>15.490.000đ</td>
-
-                                    <td>
-                                        <span class="tag orange">
-                                            Chờ xác nhận
-                                        </span>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>HD20261023</td>
-                                    <td>Trần Quốc Bảo</td>
-                                    <td>23/10/2026</td>
-                                    <td>22.990.000đ</td>
-
-                                    <td>
-                                        <span class="tag">
-                                            Đã giao
-                                        </span>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>HD20261022</td>
-                                    <td>Lê Hoàng Phúc</td>
-                                    <td>22/10/2026</td>
-                                    <td>3.580.000đ</td>
-
-                                    <td>
-                                        <span class="tag">
-                                            Đã thanh toán
-                                        </span>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>HD20261021</td>
-                                    <td>Phạm Thu Hà</td>
-                                    <td>21/10/2026</td>
-                                    <td>890.000đ</td>
-
-                                    <td>
-                                        <span class="tag red">
-                                            Đã hủy
-                                        </span>
-                                    </td>
-                                </tr>
-
-                            </tbody>
-
-                        </table>
-
-                    </div>
-
-                </div>
-
-                <!-- Quick Access -->
-                <div class="panel">
-
-                    <h2>Truy cập nhanh</h2>
-
-                    <div class="category-grid">
-
-                        <a class="category"
-                           href="form-product.html">
-                            <span>📦</span>
-                            Thêm sản phẩm
-                        </a>
-
-                        <a class="category"
-                           href="form-invoice.html">
-                            <span>🧾</span>
-                            Lập hóa đơn
-                        </a>
-
-                        <a class="category"
-                           href="imports.html">
-                            <span>📥</span>
-                            Phiếu nhập kho
-                        </a>
-
-                        <a class="category"
-                           href="accounts.html">
-                            <span>🔐</span>
-                            Tài khoản
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </section>
-
+        <div class="panel" id="statistics">
+          <div class="section-head" style="margin-top:0">
+            <div><h2>Thống kê kinh doanh</h2><p>Chọn khoảng thời gian để xem doanh thu và khách hàng mua nhiều nhất.</p></div>
+          </div>
+          <form class="admin-filter-bar stats-filter" id="dashboard-stats-filter" action="index.html?action=search#toast-search" method="get" novalidate>
+            <div class="field"><label for="stats-from">Từ ngày</label><input type="date" id="stats-from" name="date_from" value="2026-09-01"></div>
+            <div class="field"><label for="stats-to">Đến ngày</label><input type="date" id="stats-to" name="date_to" value="2026-11-27"></div>
+            <button class="btn" type="submit">Thống kê</button>
+            <button class="btn secondary" type="reset">Đặt lại</button>
+          </form>
+          <div class="notice-blue">Doanh thu chỉ tính các đơn đã giao thành công. Bảng Top 5 tính tổng giá trị các đơn hợp lệ (không tính đơn đã hủy) trong khoảng thời gian đã chọn. Dữ liệu chỉ mang tính minh họa.</div>
+          <div class="dashboard-chart-wrap">
+            <div class="section-head" style="margin-top:0"><div><h3>Doanh thu theo tháng</h3><p id="chart-range-label">Trong khoảng thời gian đang chọn</p></div></div>
+            <div id="revenue-chart" class="revenue-chart" aria-live="polite"><p class="muted">Chưa có dữ liệu biểu đồ.</p></div>
+          </div>
+          <div class="dashboard-substats">
+            <div><span class="label">Tổng giá trị đơn hợp lệ</span><strong id="kpi-valid-value">0đ</strong></div>
+            <div><span class="label">Đơn đã giao thành công</span><strong id="kpi-delivered">0</strong></div>
+            <div><span class="label">Đơn đã hủy</span><strong id="kpi-cancelled">0</strong></div>
+          </div>
+          <div class="section-head"><div><h3>Top 5 khách hàng mua nhiều nhất</h3><p>Sắp xếp giảm dần theo tổng tiền mua; có thể mở danh sách đơn của từng khách hàng.</p></div></div>
+          <div class="table-wrap">
+            <table class="dashboard-top-customers">
+              <thead><tr><th>Hạng</th><th>Mã KH</th><th>Khách hàng</th><th>Số đơn</th><th>Tổng tiền mua</th><th>Danh sách đơn hàng</th></tr></thead>
+              <tbody id="top-customers-body"><tr><td colspan="6">Đang tải dữ liệu mẫu...</td></tr></tbody>
+            </table>
+          </div>
         </div>
 
-    </main>
+        <div class="panel">
+          <div class="section-head" style="margin-top:0">
+            <div><h2>Đơn hàng gần đây</h2><p>Các đơn phát sinh gần nhất trong dữ liệu demo.</p></div>
+            <a href="orders.html">Quản lý đơn hàng →</a>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Mã đơn</th><th>Khách hàng</th><th>Ngày đặt</th><th>Tổng tiền</th><th>Trạng thái</th><th>Chi tiết</th></tr></thead>
+              <tbody id="recent-orders-body"><tr><td colspan="6">Đang tải dữ liệu mẫu...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
 
-    <script src="../js/site.js" defer></script>
-
+        <div class="panel">
+          <div class="section-head" style="margin-top:0"><div><h2>Truy cập nhanh</h2><p>Đi đến các chức năng quản lý thường dùng.</p></div></div>
+          <div class="category-grid admin-quick-links">
+            <a class="category" href="form-product.html"><span>＋</span>Thêm sản phẩm</a>
+            <a class="category" href="categories.html"><span>▧</span>Quản lý danh mục</a>
+            <a class="category" href="orders.html"><span>▤</span>Xử lý đơn hàng</a>
+            <a class="category" href="customers.html"><span>♙</span>Quản lý khách hàng</a>
+            <a class="category" href="employees.html"><span>♧</span>Quản lý nhân viên</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script src="../js/site.js" defer></script>
 </body>
-
 </html>

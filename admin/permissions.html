@@ -10,7 +10,14 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body>
+<body class="admin-page">
+  <div class="static-toast" id="toast-added" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Thêm mới thành công.</span></div>
+  <div class="static-toast" id="toast-updated" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Cập nhật thành công.</span></div>
+  <div class="static-toast" id="toast-saved" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Lưu thông tin thành công.</span></div>
+  <div class="static-toast" id="toast-deleted" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Xóa thành công.</span></div>
+  <div class="static-toast" id="toast-search" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Tìm kiếm thành công.</span></div>
+  <div class="static-toast" id="toast-status" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Cập nhật trạng thái thành công.</span></div>
+
 
     <!-- Top Bar -->
     <div class="topbar">
@@ -25,7 +32,7 @@
             </a>
             ·
             <a href="../index.html"
-               data-logout
+              
                style="color: white;">
                 Đăng xuất
             </a>
@@ -43,18 +50,7 @@
                 </small>
             </a>
 
-            <nav class="nav">
-                <a href="index.html">Tổng quan</a>
-                <a href="products.html">Sản phẩm</a>
-                <a href="orders.html">Đơn hàng</a>
-                <a href="customers.html">Khách hàng</a>
-                <a href="employees.html">Nhân viên</a>
-                <a href="suppliers.html">Nhà cung cấp</a>
-                <a href="imports.html">Phiếu nhập</a>
-                <a class="active" href="accounts.html">
-                    Tài khoản
-                </a>
-            </nav>
+            <nav class="nav"><a href="index.html">Tổng quan</a><a href="products.html">Sản phẩm</a><a href="categories.html">Danh mục</a><a href="orders.html">Đơn hàng</a><a href="customers.html">Khách hàng</a><a href="employees.html">Nhân viên</a><a href="suppliers.html">Nhà cung cấp</a><a href="imports.html">Phiếu nhập</a></nav>
 
         </div>
     </header>
@@ -89,38 +85,7 @@
 
                 <h3>Quản trị hệ thống</h3>
 
-                <div class="side-links">
-
-                    <a href="index.html">📊 Tổng quan</a>
-                    <a href="products.html">📦 Sản phẩm</a>
-                    <a href="categories.html">🗂 Danh mục</a>
-                    <a href="orders.html">🧾 Đơn hàng / Hóa đơn</a>
-                    <a href="customers.html">👥 Khách hàng</a>
-                    <a href="employees.html">🧑‍💼 Nhân viên</a>
-                    <a href="suppliers.html">🚚 Nhà cung cấp</a>
-                    <a href="imports.html">📥 Phiếu nhập</a>
-
-                    <a href="import-detail.html">
-                        📝 Chi tiết phiếu nhập
-                    </a>
-
-                    <a href="accounts.html">
-                        🔐 Tài khoản
-                    </a>
-
-                    <a href="permissions.html" class="active">
-                        🛡 Quyền hạn
-                    </a>
-
-                    <a href="form-product.html">
-                        ＋ Nhập liệu sản phẩm
-                    </a>
-
-                    <a href="form-invoice.html">
-                        ＋ Lập hóa đơn
-                    </a>
-
-                </div>
+                <div class="side-links"><a href="index.html"><span class="admin-nav-icon" aria-hidden="true">▦</span>Tổng quan</a><a href="products.html"><span class="admin-nav-icon" aria-hidden="true">▣</span>Sản phẩm</a><a href="categories.html"><span class="admin-nav-icon" aria-hidden="true">▧</span>Danh mục</a><a href="orders.html"><span class="admin-nav-icon" aria-hidden="true">▤</span>Đơn hàng</a><a href="customers.html"><span class="admin-nav-icon" aria-hidden="true">♙</span>Khách hàng</a><a href="employees.html"><span class="admin-nav-icon" aria-hidden="true">♧</span>Nhân viên</a><a href="suppliers.html"><span class="admin-nav-icon" aria-hidden="true">♧</span>Nhà cung cấp</a><a href="imports.html"><span class="admin-nav-icon" aria-hidden="true">▨</span>Phiếu nhập</a></div>
 
             </aside>
 
@@ -196,7 +161,7 @@
 
                     <h2>Nhập liệu quyền hạn</h2>
 
-                    <form action="#" method="get" novalidate>
+                    <form action="permissions.html?action=save#toast-saved" method="get" novalidate>
 
                         <div class="form-grid">
 
@@ -239,11 +204,7 @@
 
                         <div class="form-actions">
 
-                            <button
-                                class="btn"
-                                type="submit">
-                                Lưu quyền
-                            </button>
+                            <a class="btn" href="permissions.html?action=save#toast-saved">Lưu thay đổi</a>
 
                         </div>
 

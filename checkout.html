@@ -1,222 +1,65 @@
 <!doctype html>
 <html lang="vi">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Thanh toán | TechZone</title>
-
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Xác nhận đơn hàng | TechZone</title><link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-
-    <!-- Top Bar -->
-    <div class="topbar">
-        <span>☎ Hotline: 1900 6868 · Hỗ trợ kỹ thuật mỗi ngày</span>
-        <span class="customer-auth-slot" id="customer-auth-slot"><a href="login.html">Đăng nhập</a></span>
+  <div class="topbar"><span>☎ Hotline: 1900 6868 · Hỗ trợ kỹ thuật mỗi ngày</span><span class="customer-auth-slot" id="customer-auth-slot"><a href="login.html">Đăng nhập</a></span></div>
+  <header class="site-header"><div class="header-inner"><a class="brand" href="home-logged-in.html">TECH<span>ZONE</span></a>
+    <form class="site-search" action="products.html" method="get" role="search"><input type="search" name="q" placeholder="Tìm laptop, PC, linh kiện..." aria-label="Tìm kiếm sản phẩm"><button type="submit" aria-label="Tìm kiếm">⌕</button></form>
+    <nav class="nav"><a href="index.html">Trang chủ</a><a href="products.html">Sản phẩm</a><a href="order-history.html">Lịch sử mua hàng</a><a href="cart.html">Giỏ hàng</a><a class="active" href="customer-profile.html">Tài khoản</a></nav>
+  </div></header>
+  <main class="container">
+    <div class="breadcrumbs"><a href="cart.html">Giỏ hàng</a> / Xác nhận đơn hàng</div>
+    <div class="page-title"><h1>Xác nhận đơn hàng</h1><p>Kiểm tra thông tin nhận hàng và lựa chọn phương thức thanh toán</p></div>
+    <div class="notice-blue"><strong>Đã đăng nhập:</strong> Nguyễn Minh Anh. Thông tin người mua được hiển thị từ tài khoản mẫu. Đây là tài khoản người mua mẫu. Sau khi xác nhận, website sẽ mở trang xác nhận đơn hàng minh họa.</div>
+    <div class="checkout-grid">
+      <section class="panel">
+        <h2>1. Thông tin người mua</h2>
+        <div class="form-grid">
+          <div class="field"><label>Họ và tên</label><input value="Nguyễn Minh Anh" readonly></div>
+          <div class="field"><label>Số điện thoại</label><input value="0901 234 567" readonly></div>
+          <div class="field full"><label>Email</label><input value="minhanh@example.com" readonly></div>
+        </div>
+        <hr class="soft-rule">
+        <h2>2. Địa chỉ giao hàng</h2>
+        <div class="field">
+          <label for="saved-address">Chọn địa chỉ đã lưu trong tài khoản</label>
+          <select id="saved-address" name="saved_address" data-address-choice>
+            <option value="home">Nhà riêng — 25 Nguyễn Trãi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh</option>
+            <option value="office">Cơ quan — 120 Cộng Hòa, Phường 4, Quận Tân Bình, TP. Hồ Chí Minh</option>
+            <option value="new">＋ Nhập địa chỉ giao hàng mới</option>
+          </select>
+        </div>
+        <div class="address-preview" data-saved-address-preview><strong>Địa chỉ đang chọn</strong><p>25 Nguyễn Trãi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh</p></div>
+        <div class="new-address-fields" data-new-address hidden>
+          <h3>Nhập địa chỉ mới</h3>
+          <div class="form-grid">
+            <div class="field"><label for="new-province">Tỉnh / Thành phố</label><select id="new-province"><option>TP. Hồ Chí Minh</option><option>Hà Nội</option><option>Đà Nẵng</option><option>Cần Thơ</option></select></div>
+            <div class="field"><label for="new-district">Quận / Huyện</label><input id="new-district" placeholder="Nhập quận / huyện"></div>
+            <div class="field full"><label for="new-address-detail">Số nhà, tên đường, phường / xã</label><input id="new-address-detail" placeholder="Nhập địa chỉ chi tiết"></div>
+          </div>
+        </div>
+        <div class="field" style="margin-top:14px"><label for="delivery-note">Ghi chú giao hàng</label><textarea id="delivery-note" placeholder="Ví dụ: Gọi trước khi giao hàng..."></textarea></div>
+        <hr class="soft-rule">
+        <h2>3. Phương thức thanh toán</h2>
+        <div class="payment-options">
+          <label class="payment-option"><input type="radio" name="payment" value="online" checked><span><strong>Thanh toán trực tuyến</strong><small>Thanh toán qua ngân hàng / ví điện tử (không thực hiện cổng thanh toán ở bản giao diện)</small></span></label>
+          <label class="payment-option"><input type="radio" name="payment" value="cash"><span><strong>Tiền mặt khi nhận hàng</strong><small>Thanh toán cho nhân viên giao hàng khi nhận sản phẩm</small></span></label>
+        </div>
+        <div class="form-actions"><button class="btn" type="button">Xác nhận đặt hàng</button><a class="btn secondary" href="order-confirmation.html">Xem màn hình xác nhận mẫu</a><a class="btn secondary" href="cart.html">Quay lại giỏ hàng</a></div>
+        <p class="help">Nút xác nhận đang ở trạng thái giao diện. Chưa thể lưu đơn hàng khi không có cơ sở dữ liệu.</p>
+      </section>
+      <aside class="panel order-summary-panel">
+        <h2>Đơn hàng của bạn</h2>
+        <div class="summary-product"><img src="picture/1.png" alt="Laptop ASUS Vivobook 15"><div><strong>Laptop ASUS Vivobook 15</strong><small>Số lượng: 1</small></div><b>15.490.000đ</b></div>
+        <div class="summary-product"><img src="picture/5.jpg" alt="Bàn phím cơ KeyPro K87"><div><strong>Bàn phím cơ KeyPro K87</strong><small>Số lượng: 1</small></div><b>890.000đ</b></div>
+        <div class="summary-row"><span>Tạm tính</span><strong>16.380.000đ</strong></div><div class="summary-row"><span>Phí giao hàng</span><strong>Miễn phí</strong></div><div class="summary-row total"><span>Tổng cộng</span><span>16.380.000đ</span></div>
+        <div class="notice" style="margin-top:16px;margin-bottom:0">Giá trị và sản phẩm trong đơn hàng là dữ liệu minh họa.</div>
+      </aside>
     </div>
-
-    <!-- Header -->
-    <header class="site-header">
-        <div class="header-inner">
-
-            <a class="brand" href="index.html">
-                TECH<span>ZONE</span>
-            </a>
-
-            <form
-                class="site-search"
-                action="products.html"
-                method="get"
-                role="search" novalidate>
-
-                <input
-                    type="search"
-                    name="q"
-                    placeholder="Tìm laptop, PC, linh kiện..."
-                    aria-label="Tìm kiếm sản phẩm">
-
-                <button type="submit" aria-label="Tìm kiếm">
-                    ⌕
-                </button>
-
-            </form>
-
-            <nav class="nav">
-                <a class="active" href="index.html">Trang chủ</a>
-                <a href="products.html">Sản phẩm</a>
-                <a href="about.html">Giới thiệu</a>
-                <a href="contact.html">Liên hệ</a>
-                <a href="cart.html">Giỏ hàng</a>
-                <a href="login.html">Đăng nhập</a>
-            </nav>
-
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="container">
-
-        <div class="page-title">
-            <h1>Thanh toán</h1>
-            <p>Điền thông tin nhận hàng mẫu</p>
-        </div>
-
-        <div class="checkout-grid">
-
-            <!-- Customer Information -->
-            <section class="panel">
-
-                <h2>Thông tin người nhận</h2>
-
-                <div class="notice">
-                    Đây là biểu mẫu giao diện. Khi gửi, trình duyệt không xử lý
-                    đơn hàng vì website không có JavaScript/backend.
-                </div>
-
-                <form action="#" method="get" novalidate>
-
-                    <div class="form-grid">
-
-                        <div class="field">
-                            <label>Họ và tên</label>
-                            <input
-                                placeholder="Nguyễn Văn A">
-                        </div>
-
-                        <div class="field">
-                            <label>Số điện thoại</label>
-                            <input
-                                placeholder="09xx xxx xxx">
-                        </div>
-
-                        <div class="field">
-                            <label>Email</label>
-                            <input
-                                type="email"
-                                placeholder="email@example.com">
-                        </div>
-
-                        <div class="field">
-                            <label>Phương thức thanh toán</label>
-
-                            <select>
-                                <option>
-                                    Thanh toán khi nhận hàng
-                                </option>
-
-                                <option>
-                                    Chuyển khoản ngân hàng
-                                </option>
-                            </select>
-                        </div>
-
-                        <div class="field full">
-                            <label>Địa chỉ giao hàng</label>
-
-                            <input
-                                placeholder="Số nhà, đường, phường/xã, tỉnh/thành">
-                        </div>
-
-                        <div class="field full">
-                            <label>Ghi chú</label>
-
-                            <textarea
-                                placeholder="Ghi chú cho đơn hàng...">
-                            </textarea>
-                        </div>
-
-                    </div>
-
-                    <div class="form-actions">
-
-                        <button class="btn" type="submit">
-                            Xác nhận
-                        </button>
-
-                        <a class="btn secondary" href="cart.html">
-                            Quay lại giỏ hàng
-                        </a>
-
-                    </div>
-
-                </form>
-
-            </section>
-
-            <!-- Order Summary -->
-            <aside class="panel">
-
-                <h2>Đơn hàng</h2>
-
-                <div class="summary-row">
-                    <span>Laptop ASUS Vivobook 15 × 1</span>
-                    <strong>15.490.000đ</strong>
-                </div>
-
-                <div class="summary-row">
-                    <span>Bàn phím cơ KeyPro K87 × 1</span>
-                    <strong>890.000đ</strong>
-                </div>
-
-                <div class="summary-row">
-                    <span>Giao hàng</span>
-                    <strong>0đ</strong>
-                </div>
-
-                <div class="summary-row total">
-                    <span>Tổng</span>
-                    <span>16.380.000đ</span>
-                </div>
-
-            </aside>
-
-        </div>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-inner">
-
-            <div>
-                <strong>TECHZONE</strong>
-                <p>
-                    Thiết bị công nghệ cho học tập và công việc.
-                </p>
-            </div>
-
-            <div>
-                <strong>Hỗ trợ khách hàng</strong>
-
-                <p>
-                    <a href="contact.html">Liên hệ</a>
-                    ·
-                    <a href="policy.html">Chính sách</a>
-                </p>
-            </div>
-
-            <div>
-                <strong>Địa chỉ minh họa</strong>
-
-                <p>
-                    123 Đường Công Nghệ,
-                    TP. Hồ Chí Minh
-                </p>
-
-                <span class="small">
-                    © 2026 TechZone.
-                    TechZone · Thiết bị công nghệ
-                </span>
-            </div>
-
-        </div>
-    </footer>
-
-    <script src="js/site.js" defer></script>
-
-</body>
-
-</html>
+  </main>
+  <footer class="footer"><div class="footer-inner"><div><strong>TECHZONE</strong><p>Thiết bị công nghệ cho học tập và công việc.</p></div><div><strong>Hỗ trợ khách hàng</strong><p><a href="contact.html">Liên hệ</a> · <a href="policy.html">Chính sách</a></p></div><div><strong>Địa chỉ</strong><p>123 Đường Công Nghệ, TP. Hồ Chí Minh</p><span class="small">© 2026 TechZone</span></div></div></footer>
+  <script src="js/site.js" defer></script>
+</body></html>

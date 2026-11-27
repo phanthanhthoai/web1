@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thêm nhân viên | TechZone Admin</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="admin-page">
+  <div class="static-toast" id="toast-added" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Thêm mới thành công.</span></div>
+  <div class="static-toast" id="toast-updated" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Cập nhật thành công.</span></div>
+  <div class="topbar"><span>Hệ thống quản lý cửa hàng máy tính</span><span>Khu vực quản trị</span></div>
+  <header class="site-header"><div class="header-inner"><a class="brand" href="index.html">TECH<span>ZONE</span> <small style="font-size:11px;color:#718096">ADMIN</small></a><nav class="nav"><a href="index.html">Tổng quan</a><a href="products.html">Sản phẩm</a><a href="categories.html">Danh mục</a><a href="orders.html">Đơn hàng</a><a href="customers.html">Khách hàng</a><a href="employees.html" class="active" aria-current="page">Nhân viên</a><a href="suppliers.html">Nhà cung cấp</a><a href="imports.html">Phiếu nhập</a></nav></div></header>
+  <main class="container">
+    <div class="admin-top"><div><div class="breadcrumbs"><a href="employees.html">Nhân viên</a> / Thông tin nhân viên</div><h1 id="employee-form-title">Thêm nhân viên</h1></div><a class="btn secondary" href="employees.html">← Danh sách nhân viên</a></div>
+    <div class="panel" style="max-width:900px;margin:0 auto 28px">
+      <form id="employee-form" action="employees.html?action=add#toast-added" method="get" novalidate>
+        <div class="form-grid">
+          <div class="field"><label for="employee-id">Mã nhân viên</label><input id="employee-id" required placeholder="NV004"></div>
+          <div class="field"><label for="employee-name">Họ và tên</label><input id="employee-name" required placeholder="Nhập họ tên"></div>
+          <div class="field"><label for="employee-position">Chức vụ</label><select id="employee-position"><option>Nhân viên bán hàng</option><option>Quản lý</option><option>Thủ kho</option><option>Kỹ thuật viên</option></select></div>
+          <div class="field"><label for="employee-phone">Số điện thoại</label><input id="employee-phone" type="tel" required placeholder="09xx xxx xxx"></div>
+          <div class="field"><label for="employee-email">Email</label><input id="employee-email" type="email" required placeholder="nhanvien@techzone.vn"></div>
+          <div class="field"><label for="employee-username">Tên đăng nhập</label><input id="employee-username" required placeholder="ten.dangnhap"></div>
+          <div class="field"><label for="employee-hire-date">Ngày vào làm</label><input id="employee-hire-date" type="date"></div>
+          <div class="field"><label for="employee-account-status">Trạng thái tài khoản</label><select id="employee-account-status"><option>Hoạt động</option><option>Đã khóa</option></select></div>
+        </div>
+        <div class="form-actions"><a class="btn" id="employee-save-button" href="employees.html?action=add#toast-added">Thêm nhân viên</a><a class="btn secondary" href="employees.html">Hủy</a></div>
+      </form>
+      <p class="notice">Đây là biểu mẫu tĩnh dùng để minh họa. Thao tác lưu chỉ hiển thị thông báo, không ghi dữ liệu.</p>
+    </div>
+  </main>
+  <script src="../js/site.js" defer></script>
+</body>
+</html>

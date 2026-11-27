@@ -10,7 +10,14 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body>
+<body class="admin-page">
+  <div class="static-toast" id="toast-added" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Thêm mới thành công.</span></div>
+  <div class="static-toast" id="toast-updated" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Cập nhật thành công.</span></div>
+  <div class="static-toast" id="toast-saved" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Lưu thông tin thành công.</span></div>
+  <div class="static-toast" id="toast-deleted" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Xóa thành công.</span></div>
+  <div class="static-toast" id="toast-search" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Tìm kiếm thành công.</span></div>
+  <div class="static-toast" id="toast-status" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Cập nhật trạng thái thành công.</span></div>
+
 
     <!-- Top Bar -->
     <div class="topbar">
@@ -25,7 +32,7 @@
             </a>
             ·
             <a href="../index.html"
-               data-logout
+              
                style="color: white;">
                 Đăng xuất
             </a>
@@ -43,18 +50,7 @@
                 </small>
             </a>
 
-            <nav class="nav">
-                <a href="index.html">Tổng quan</a>
-                <a href="products.html">Sản phẩm</a>
-                <a href="orders.html">Đơn hàng</a>
-                <a href="customers.html">Khách hàng</a>
-                <a href="employees.html">Nhân viên</a>
-                <a href="suppliers.html">Nhà cung cấp</a>
-                <a class="active" href="imports.html">
-                    Phiếu nhập
-                </a>
-                <a href="accounts.html">Tài khoản</a>
-            </nav>
+            <nav class="nav"><a href="index.html">Tổng quan</a><a href="products.html">Sản phẩm</a><a href="categories.html">Danh mục</a><a href="orders.html">Đơn hàng</a><a href="customers.html">Khách hàng</a><a href="employees.html">Nhân viên</a><a href="suppliers.html">Nhà cung cấp</a><a href="imports.html" class="active" aria-current="page">Phiếu nhập</a></nav>
 
         </div>
     </header>
@@ -74,6 +70,7 @@
                 </div>
 
                 <h1>Quản lý phiếu nhập</h1>
+                <p class="muted">Theo dõi hàng hóa nhập kho, giá vốn và giá bán thiết lập theo từng đợt nhập.</p>
             </div>
 
             <a class="btn secondary" href="../index.html">
@@ -89,36 +86,7 @@
 
                 <h3>Quản trị hệ thống</h3>
 
-                <div class="side-links">
-
-                    <a href="index.html">📊 Tổng quan</a>
-                    <a href="products.html">📦 Sản phẩm</a>
-                    <a href="categories.html">🗂 Danh mục</a>
-                    <a href="orders.html">🧾 Đơn hàng / Hóa đơn</a>
-                    <a href="customers.html">👥 Khách hàng</a>
-                    <a href="employees.html">🧑‍💼 Nhân viên</a>
-                    <a href="suppliers.html">🚚 Nhà cung cấp</a>
-
-                    <a href="imports.html" class="active">
-                        📥 Phiếu nhập
-                    </a>
-
-                    <a href="import-detail.html">
-                        📝 Chi tiết phiếu nhập
-                    </a>
-
-                    <a href="accounts.html">🔐 Tài khoản</a>
-                    <a href="permissions.html">🛡 Quyền hạn</a>
-
-                    <a href="form-product.html">
-                        ＋ Nhập liệu sản phẩm
-                    </a>
-
-                    <a href="form-invoice.html">
-                        ＋ Lập hóa đơn
-                    </a>
-
-                </div>
+                <div class="side-links"><a href="index.html"><span class="admin-nav-icon" aria-hidden="true">▦</span>Tổng quan</a><a href="products.html"><span class="admin-nav-icon" aria-hidden="true">▣</span>Sản phẩm</a><a href="categories.html"><span class="admin-nav-icon" aria-hidden="true">▧</span>Danh mục</a><a href="orders.html"><span class="admin-nav-icon" aria-hidden="true">▤</span>Đơn hàng</a><a href="customers.html"><span class="admin-nav-icon" aria-hidden="true">♙</span>Khách hàng</a><a href="employees.html"><span class="admin-nav-icon" aria-hidden="true">♧</span>Nhân viên</a><a href="suppliers.html"><span class="admin-nav-icon" aria-hidden="true">♧</span>Nhà cung cấp</a><a href="imports.html" class="active" aria-current="page"><span class="admin-nav-icon" aria-hidden="true">▨</span>Phiếu nhập</a></div>
 
             </aside>
 
@@ -140,7 +108,7 @@
                     <!-- Bộ lọc -->
                     <form
                         class="admin-filter-bar"
-                        data-admin-filter-form data-ui-only-filter novalidate>
+                        data-admin-filter-form data-import-filter novalidate action="imports.html?action=search#toast-search" method="get">
 
                         <input
                             type="search"
@@ -179,10 +147,11 @@
 
                     </form>
 
+                    <div class="notice-blue">Mỗi phiếu nhập ghi nhận nhà cung cấp, nhân viên, số lượng nhập, đơn giá nhập và giá bán áp dụng cho từng sản phẩm.</div>
                     <!-- Bảng phiếu nhập -->
                     <div class="table-wrap">
 
-                        <table>
+                        <table class="imports-admin-table">
 
                             <thead>
                                 <tr>
@@ -190,7 +159,8 @@
                                     <th>Ngày nhập</th>
                                     <th>Nhà cung cấp</th>
                                     <th>Nhân viên</th>
-                                    <th>Tổng tiền</th>
+                                    <th>Số mặt hàng</th>
+                                    <th>Tổng tiền nhập</th>
                                     <th>Trạng thái</th>
                                     <th>Thao tác</th>
                                 </tr>
@@ -203,7 +173,8 @@
                                     <td>20/10/2026</td>
                                     <td>NCC001 - ABC</td>
                                     <td>NV003</td>
-                                    <td>85.000.000đ</td>
+                                    <td>2</td>
+                                    <td>133.000.000đ</td>
 
                                     <td>
                                         <span class="tag">
@@ -212,20 +183,9 @@
                                     </td>
 
                                     <td>
-                                        <button
-                                            type="button"
-                                            class="table-action"
-                                            data-row-view
-                                            data-detail-page="import-view.html">
-                                            Xem
-                                        </button>
+<a class="table-action" href="import-view.html?id=PN20261020">Xem chi tiết</a>
                                         ·
-                                        <button
-                                            type="button"
-                                            class="table-action danger"
-                                            data-row-delete>
-                                            Xóa
-                                        </button>
+                                        <a class="table-action danger" href="imports.html?action=delete&id=PN20261020#toast-deleted">Xóa</a>
                                     </td>
                                 </tr>
 
@@ -234,7 +194,8 @@
                                     <td>18/10/2026</td>
                                     <td>NCC002 - Minh Long</td>
                                     <td>NV003</td>
-                                    <td>42.500.000đ</td>
+                                    <td>3</td>
+                                    <td>44.750.000đ</td>
 
                                     <td>
                                         <span class="tag orange">
@@ -243,20 +204,9 @@
                                     </td>
 
                                     <td>
-                                        <button
-                                            type="button"
-                                            class="table-action"
-                                            data-row-view
-                                            data-detail-page="import-view.html">
-                                            Xem
-                                        </button>
+<a class="table-action" href="import-view.html?id=PN20261018">Xem chi tiết</a>
                                         ·
-                                        <button
-                                            type="button"
-                                            class="table-action danger"
-                                            data-row-delete>
-                                            Xóa
-                                        </button>
+                                        <a class="table-action danger" href="imports.html?action=delete&id=PN20261018#toast-deleted">Xóa</a>
                                     </td>
                                 </tr>
 
@@ -265,6 +215,7 @@
                         </table>
 
                     </div>
+                    <nav class="pagination" aria-label="Phân trang phiếu nhập"><span class="page-number inert-page active">1</span><span class="page-number inert-page">2</span><span class="page-number inert-page">3</span></nav>
 
                 </div>
 

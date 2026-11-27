@@ -120,8 +120,7 @@
                 </a>
 
                 <p class="help">
-                    Nút điều hướng chỉ mở trang minh họa,
-                    không ghi nhận giỏ hàng.
+                    Số lượng và giỏ hàng được cập nhật bằng dữ liệu mẫu tĩnh.
                 </p>
 
             </div>
@@ -135,8 +134,7 @@
 
             <p>
                 Thiết kế thanh lịch, phù hợp với sinh viên và nhân viên văn phòng.
-                Thông số, giá bán và chính sách trong website là dữ liệu mẫu
-                phục vụ bài tập giao diện.
+                Thông số, giá bán và chính sách trong website là dữ liệu mẫu phục vụ bài tập giao diện.
             </p>
 
         </div>
@@ -183,102 +181,7 @@
 
     <script src="js/site.js" defer></script>
 
-    <script>
-        (function () {
 
-            const products = {
-                SP001: {
-                    name: "Laptop ASUS Vivobook 15",
-                    desc: "Core i5 · RAM 16GB · SSD 512GB",
-                    price: "15.490.000đ",
-                    img: "picture/1.png"
-                },
-
-                SP002: {
-                    name: "PC Gaming TechZone G5",
-                    desc: "Core i5 · RTX 4060 · RAM 16GB",
-                    price: "22.990.000đ",
-                    img: "picture/3.jpg"
-                },
-
-                SP003: {
-                    name: "Bàn phím cơ KeyPro K87",
-                    desc: "87 phím · LED RGB",
-                    price: "890.000đ",
-                    img: "picture/5.jpg"
-                },
-
-                SP004: {
-                    name: "RAM Kingston Fury 16GB",
-                    desc: "DDR4 · 3200MHz",
-                    price: "950.000đ",
-                    img: "picture/4.jfif"
-                }
-            };
-
-            const productId =
-                new URLSearchParams(location.search).get("id") ||
-                "SP001";
-
-            const product =
-                products[productId] || products.SP001;
-
-            const productName =
-                document.getElementById("detail-product-name");
-
-            const main =
-                document.querySelector("main");
-
-            if (productName) {
-                productName.textContent = product.name;
-            }
-
-            if (main) {
-
-                const imageBox =
-                    main.querySelector(".detail-art");
-
-                const priceBox =
-                    main.querySelector(".price");
-
-                const codeBox =
-                    main.querySelector(".detail-info .muted");
-
-                const descBox =
-                    main.querySelector(
-                        ".detail-info > p:not(.muted):not(.help)"
-                    );
-
-                if (imageBox) {
-                    imageBox.innerHTML = `
-                        <img
-                            src="${product.img}"
-                            alt="${product.name}"
-                            style="
-                                width:100%;
-                                height:100%;
-                                object-fit:contain;
-                            ">
-                    `;
-                }
-
-                if (priceBox) {
-                    priceBox.textContent = product.price;
-                }
-
-                if (codeBox) {
-                    codeBox.textContent =
-                        `Mã sản phẩm: ${productId}`;
-                }
-
-                if (descBox) {
-                    descBox.textContent =
-                        product.desc;
-                }
-            }
-
-        })();
-    </script>
 
 </body>
 

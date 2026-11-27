@@ -10,7 +10,14 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body>
+<body class="admin-page">
+  <div class="static-toast" id="toast-added" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Thêm mới thành công.</span></div>
+  <div class="static-toast" id="toast-updated" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Cập nhật thành công.</span></div>
+  <div class="static-toast" id="toast-saved" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Lưu thông tin thành công.</span></div>
+  <div class="static-toast" id="toast-deleted" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Xóa thành công.</span></div>
+  <div class="static-toast" id="toast-search" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Tìm kiếm thành công.</span></div>
+  <div class="static-toast" id="toast-status" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Cập nhật trạng thái thành công.</span></div>
+
 
     <!-- Top Bar -->
     <div class="topbar">
@@ -25,7 +32,7 @@
             </a>
             ·
             <a href="../index.html"
-               data-logout
+              
                style="color: white;">
                 Đăng xuất
             </a>
@@ -43,18 +50,7 @@
                 </small>
             </a>
 
-            <nav class="nav">
-                <a href="index.html">Tổng quan</a>
-                <a href="products.html">Sản phẩm</a>
-                <a class="active" href="orders.html">
-                    Đơn hàng
-                </a>
-                <a href="customers.html">Khách hàng</a>
-                <a href="employees.html">Nhân viên</a>
-                <a href="suppliers.html">Nhà cung cấp</a>
-                <a href="imports.html">Phiếu nhập</a>
-                <a href="accounts.html">Tài khoản</a>
-            </nav>
+            <nav class="nav"><a href="index.html">Tổng quan</a><a href="products.html">Sản phẩm</a><a href="categories.html">Danh mục</a><a href="orders.html" class="active" aria-current="page">Đơn hàng</a><a href="customers.html">Khách hàng</a><a href="employees.html">Nhân viên</a><a href="suppliers.html">Nhà cung cấp</a><a href="imports.html">Phiếu nhập</a></nav>
 
         </div>
     </header>
@@ -73,7 +69,7 @@
                     Khu vực Admin
                 </div>
 
-                <h1>Lập hóa đơn bán hàng</h1>
+                <h1>Chi tiết đơn hàng</h1>
             </div>
 
             <a class="btn secondary" href="../index.html">
@@ -89,33 +85,7 @@
 
                 <h3>Quản trị hệ thống</h3>
 
-                <div class="side-links">
-
-                    <a href="index.html">📊 Tổng quan</a>
-                    <a href="products.html">📦 Sản phẩm</a>
-                    <a href="categories.html">🗂 Danh mục</a>
-                    <a href="orders.html">🧾 Đơn hàng / Hóa đơn</a>
-                    <a href="customers.html">👥 Khách hàng</a>
-                    <a href="employees.html">🧑‍💼 Nhân viên</a>
-                    <a href="suppliers.html">🚚 Nhà cung cấp</a>
-                    <a href="imports.html">📥 Phiếu nhập</a>
-
-                    <a href="import-detail.html">
-                        📝 Chi tiết phiếu nhập
-                    </a>
-
-                    <a href="accounts.html">🔐 Tài khoản</a>
-                    <a href="permissions.html">🛡 Quyền hạn</a>
-
-                    <a href="form-product.html">
-                        ＋ Nhập liệu sản phẩm
-                    </a>
-
-                    <a href="form-invoice.html" class="active">
-                        ＋ Lập hóa đơn
-                    </a>
-
-                </div>
+                <div class="side-links"><a href="index.html"><span class="admin-nav-icon" aria-hidden="true">▦</span>Tổng quan</a><a href="products.html"><span class="admin-nav-icon" aria-hidden="true">▣</span>Sản phẩm</a><a href="categories.html"><span class="admin-nav-icon" aria-hidden="true">▧</span>Danh mục</a><a href="orders.html" class="active" aria-current="page"><span class="admin-nav-icon" aria-hidden="true">▤</span>Đơn hàng</a><a href="customers.html"><span class="admin-nav-icon" aria-hidden="true">♙</span>Khách hàng</a><a href="employees.html"><span class="admin-nav-icon" aria-hidden="true">♧</span>Nhân viên</a><a href="suppliers.html"><span class="admin-nav-icon" aria-hidden="true">♧</span>Nhà cung cấp</a><a href="imports.html"><span class="admin-nav-icon" aria-hidden="true">▨</span>Phiếu nhập</a></div>
 
             </aside>
 
@@ -123,7 +93,7 @@
             <section>
                 <div class="panel">
 
-                    <form action="orders.html" method="get" novalidate>
+                    <div class="order-readonly-form">
 
                         <!-- Invoice Information -->
                         <div class="form-grid">
@@ -136,7 +106,8 @@
                                 <input
                                     id="invoice-id"
                                     name="invoice_id"
-                                    value="HD20261025">
+                                    value="DH20261127"
+                                    readonly>
                             </div>
 
                             <div class="field">
@@ -148,31 +119,13 @@
                                     id="invoice-date"
                                     name="invoice_date"
                                     type="date"
-                                    value="2026-10-24">
+                                    value="2026-11-27"
+                                    readonly>
                             </div>
 
                             <div class="field">
-                                <label for="customer">
-                                    Khách hàng (maKH)
-                                </label>
-
-                                <select
-                                    id="customer"
-                                    name="customer">
-
-                                    <option>
-                                        KH001 - Nguyễn Minh Anh
-                                    </option>
-
-                                    <option>
-                                        KH002 - Trần Quốc Bảo
-                                    </option>
-
-                                    <option>
-                                        KH003 - Lê Hoàng Phúc
-                                    </option>
-
-                                </select>
+                                <label for="customer">Khách hàng (chỉ xem)</label>
+                                <input id="customer" name="customer" value="KH001 - Nguyễn Minh Anh" readonly>
                             </div>
 
                             <div class="field">
@@ -180,19 +133,11 @@
                                     Nhân viên (maNV)
                                 </label>
 
-                                <select
+                                <input
                                     id="employee"
-                                    name="employee">
-
-                                    <option>
-                                        NV001 - Lê Thanh Tùng
-                                    </option>
-
-                                    <option>
-                                        NV002 - Nguyễn Thảo Vy
-                                    </option>
-
-                                </select>
+                                    name="employee"
+                                    value="NV001 - Lê Thanh Tùng"
+                                    readonly>
                             </div>
 
                             <div class="field">
@@ -200,15 +145,11 @@
                                     Phương thức thanh toán
                                 </label>
 
-                                <select
+                                <input
                                     id="payment-method"
-                                    name="payment_method">
-
-                                    <option>Tiền mặt</option>
-                                    <option>Chuyển khoản</option>
-                                    <option>COD</option>
-
-                                </select>
+                                    name="payment_method"
+                                    value="Tiền mặt khi nhận hàng"
+                                    readonly>
                             </div>
 
                             <div class="field">
@@ -216,19 +157,23 @@
                                     Trạng thái
                                 </label>
 
-                                <select
-                                    id="status"
-                                    name="status">
-
-                                    <option>Chờ xác nhận</option>
-                                    <option>Đã thanh toán</option>
-                                    <option>Đã giao</option>
+                                <select id="status" name="status">
+                                    <option>Chưa xác nhận</option>
+                                    <option>Đã xác nhận</option>
+                                    <option>Đã giao thành công</option>
                                     <option>Đã hủy</option>
-
                                 </select>
                             </div>
 
                         </div>
+
+                        <h3 style="margin-top:25px;">Thông tin giao hàng</h3>
+                        <div class="form-grid">
+                            <div class="field"><label for="receiver-name">Người nhận</label><input id="receiver-name" value="Nguyễn Minh Anh" readonly></div>
+                            <div class="field"><label for="receiver-phone">Số điện thoại nhận hàng</label><input id="receiver-phone" value="0901 234 567" readonly></div>
+                            <div class="field full"><label for="receiver-address">Địa chỉ giao hàng</label><textarea id="receiver-address" rows="2" readonly>25 Nguyễn Trãi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh</textarea></div>
+                        </div>
+                        <div class="notice">Đây là màn hình demo tĩnh. Có thể chọn trạng thái đơn hàng; thay đổi không được lưu. Các thông tin khác chỉ xem.</div>
 
                         <!-- Invoice Details -->
                         <h3 style="margin-top:25px;">
@@ -280,24 +225,11 @@
                             <span>16.380.000đ</span>
                         </div>
 
-                        <!-- Actions -->
                         <div class="form-actions">
-
-                            <button
-                                class="btn"
-                                type="submit">
-                                Lưu hóa đơn
-                            </button>
-
-                            <a
-                                class="btn secondary"
-                                href="orders.html">
-                                Hủy
-                            </a>
-
+                            <a class="btn secondary" href="orders.html">Quay lại danh sách đơn hàng</a>
                         </div>
 
-                    </form>
+                    </div>
 
                 </div>
 

@@ -10,7 +10,14 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body>
+<body class="admin-page">
+  <div class="static-toast" id="toast-added" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Thêm mới thành công.</span></div>
+  <div class="static-toast" id="toast-updated" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Cập nhật thành công.</span></div>
+  <div class="static-toast" id="toast-saved" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Lưu thông tin thành công.</span></div>
+  <div class="static-toast" id="toast-deleted" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Xóa thành công.</span></div>
+  <div class="static-toast" id="toast-search" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Tìm kiếm thành công.</span></div>
+  <div class="static-toast" id="toast-status" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Cập nhật trạng thái thành công.</span></div>
+
 
     <!-- Top Bar -->
     <div class="topbar">
@@ -26,7 +33,7 @@
             ·
             <a href="../index.html"
                style="color: white"
-               data-logout>
+              >
                 Đăng xuất
             </a>
         </span>
@@ -43,18 +50,7 @@
                 </small>
             </a>
 
-            <nav class="nav">
-                <a href="index.html">Tổng quan</a>
-                <a href="products.html">Sản phẩm</a>
-                <a href="orders.html">Đơn hàng</a>
-                <a href="customers.html">Khách hàng</a>
-                <a href="employees.html">Nhân viên</a>
-                <a href="suppliers.html">Nhà cung cấp</a>
-                <a href="imports.html">Phiếu nhập</a>
-                <a class="active" href="accounts.html">
-                    Tài khoản
-                </a>
-            </nav>
+            <nav class="nav"><a href="index.html">Tổng quan</a><a href="products.html">Sản phẩm</a><a href="categories.html">Danh mục</a><a href="orders.html">Đơn hàng</a><a href="customers.html">Khách hàng</a><a href="employees.html">Nhân viên</a><a href="suppliers.html">Nhà cung cấp</a><a href="imports.html">Phiếu nhập</a></nav>
 
         </div>
     </header>
@@ -89,35 +85,7 @@
 
                 <h3>Quản trị hệ thống</h3>
 
-                <div class="side-links">
-
-                    <a href="index.html">📊 Tổng quan</a>
-                    <a href="products.html">📦 Sản phẩm</a>
-                    <a href="categories.html">🗂 Danh mục</a>
-                    <a href="orders.html">🧾 Đơn hàng / Hóa đơn</a>
-                    <a href="customers.html">👥 Khách hàng</a>
-                    <a href="employees.html">🧑‍💼 Nhân viên</a>
-                    <a href="suppliers.html">🚚 Nhà cung cấp</a>
-                    <a href="imports.html">📥 Phiếu nhập</a>
-                    <a href="import-detail.html">📝 Chi tiết phiếu nhập</a>
-
-                    <a href="accounts.html" class="active">
-                        🔐 Tài khoản
-                    </a>
-
-                    <a href="permissions.html">
-                        🛡 Quyền hạn
-                    </a>
-
-                    <a href="form-product.html">
-                        ＋ Nhập liệu sản phẩm
-                    </a>
-
-                    <a href="form-invoice.html">
-                        ＋ Lập hóa đơn
-                    </a>
-
-                </div>
+                <div class="side-links"><a href="index.html"><span class="admin-nav-icon" aria-hidden="true">▦</span>Tổng quan</a><a href="products.html"><span class="admin-nav-icon" aria-hidden="true">▣</span>Sản phẩm</a><a href="categories.html"><span class="admin-nav-icon" aria-hidden="true">▧</span>Danh mục</a><a href="orders.html"><span class="admin-nav-icon" aria-hidden="true">▤</span>Đơn hàng</a><a href="customers.html"><span class="admin-nav-icon" aria-hidden="true">♙</span>Khách hàng</a><a href="employees.html"><span class="admin-nav-icon" aria-hidden="true">♧</span>Nhân viên</a><a href="suppliers.html"><span class="admin-nav-icon" aria-hidden="true">♧</span>Nhà cung cấp</a><a href="imports.html"><span class="admin-nav-icon" aria-hidden="true">▨</span>Phiếu nhập</a></div>
 
             </aside>
 
@@ -130,14 +98,14 @@
                     <div class="admin-top">
                         <h2>Danh sách tài khoản</h2>
 
-                        <a class="btn" href="#them-tk">
+                        <a class="btn" href="account-form.html">
                             ＋ Tạo tài khoản
                         </a>
                     </div>
 
                     <form
                         class="admin-filter-bar"
-                        data-admin-filter-form data-ui-only-filter novalidate>
+                        data-admin-filter-form data-ui-only-filter novalidate action="accounts.html?action=search#toast-search" method="get">
 
                         <input
                             type="search"
@@ -205,22 +173,7 @@
                                         </span>
                                     </td>
 
-                                    <td>
-                                        <button
-                                            type="button"
-                                            class="table-action"
-                                            data-row-view
-                                            data-detail-page="account-view.html">
-                                            Xem
-                                        </button>
-                                        ·
-                                        <button
-                                            type="button"
-                                            class="table-action danger"
-                                            data-row-delete>
-                                            Xóa
-                                        </button>
-                                    </td>
+                                    <td><a class="table-action" href="account-view.html?id=TK001">Xem</a> · <a class="table-action" href="accounts.html?action=status&id=TK001#toast-status">Khóa / Mở khóa</a> · <a class="table-action danger" href="accounts.html?action=delete&id=TK001#toast-deleted">Xóa</a></td>
                                 </tr>
 
                                 <tr>
@@ -235,22 +188,7 @@
                                         </span>
                                     </td>
 
-                                    <td>
-                                        <button
-                                            type="button"
-                                            class="table-action"
-                                            data-row-view
-                                            data-detail-page="account-view.html">
-                                            Xem
-                                        </button>
-                                        ·
-                                        <button
-                                            type="button"
-                                            class="table-action danger"
-                                            data-row-delete>
-                                            Xóa
-                                        </button>
-                                    </td>
+                                    <td><a class="table-action" href="account-view.html?id=TK002">Xem</a> · <a class="table-action" href="accounts.html?action=status&id=TK002#toast-status">Khóa / Mở khóa</a> · <a class="table-action danger" href="accounts.html?action=delete&id=TK002#toast-deleted">Xóa</a></td>
                                 </tr>
 
                                 <tr>
@@ -265,22 +203,7 @@
                                         </span>
                                     </td>
 
-                                    <td>
-                                        <button
-                                            type="button"
-                                            class="table-action"
-                                            data-row-view
-                                            data-detail-page="account-view.html">
-                                            Xem
-                                        </button>
-                                        ·
-                                        <button
-                                            type="button"
-                                            class="table-action danger"
-                                            data-row-delete>
-                                            Xóa
-                                        </button>
-                                    </td>
+                                    <td><a class="table-action" href="account-view.html?id=TK003">Xem</a> · <a class="table-action" href="accounts.html?action=status&id=TK003#toast-status">Khóa / Mở khóa</a> · <a class="table-action danger" href="accounts.html?action=delete&id=TK003#toast-deleted">Xóa</a></td>
                                 </tr>
 
                             </tbody>
@@ -288,97 +211,6 @@
                         </table>
 
                     </div>
-                </div>
-
-                <!-- Create Account -->
-                <div class="panel" id="them-tk">
-
-                    <h2>Nhập liệu tài khoản</h2>
-
-                    <form action="#" method="get" novalidate>
-
-                        <div class="form-grid">
-
-                            <div class="field">
-                                <label>Mã tài khoản</label>
-                                <input placeholder="TK004">
-                            </div>
-
-                            <div class="field">
-                                <label>Tên đăng nhập</label>
-                                <input placeholder="ten.dangnhap">
-                            </div>
-
-                            <div class="field">
-                                <label>Mật khẩu</label>
-                                <input
-                                    type="password"
-                                    placeholder="Mật khẩu demo">
-                            </div>
-
-                            <div class="field">
-                                <label>Nhân viên liên kết</label>
-
-                                <select>
-                                    <option>
-                                        Chọn nhân viên
-                                    </option>
-                                    <option>
-                                        NV001 - Lê Thanh Tùng
-                                    </option>
-                                    <option>
-                                        NV002 - Nguyễn Thảo Vy
-                                    </option>
-                                </select>
-                            </div>
-
-                            <div class="field">
-                                <label>Quyền hạn</label>
-
-                                <select>
-                                    <option>
-                                        NV - Nhân viên
-                                    </option>
-                                    <option>
-                                        QL - Quản lý
-                                    </option>
-                                    <option>
-                                        Admin - Quản trị viên
-                                    </option>
-                                </select>
-                            </div>
-
-                            <div class="field">
-                                <label>Trạng thái</label>
-
-                                <select>
-                                    <option>
-                                        Hoạt động
-                                    </option>
-                                    <option>
-                                        Tạm khóa
-                                    </option>
-                                </select>
-                            </div>
-
-                        </div>
-
-                        <div class="form-actions">
-
-                            <button class="btn">
-                                Lưu tài khoản
-                            </button>
-
-                            <a
-                                class="btn secondary"
-                                href="permissions.html">
-                                Thiết lập quyền hạn
-                            </a>
-
-                        </div>
-
-                    </form>
-
                 </div>
 
             </section>

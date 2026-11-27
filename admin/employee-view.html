@@ -10,7 +10,14 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body>
+<body class="admin-page">
+  <div class="static-toast" id="toast-added" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Thêm mới thành công.</span></div>
+  <div class="static-toast" id="toast-updated" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Cập nhật thành công.</span></div>
+  <div class="static-toast" id="toast-saved" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Lưu thông tin thành công.</span></div>
+  <div class="static-toast" id="toast-deleted" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Xóa thành công.</span></div>
+  <div class="static-toast" id="toast-search" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Tìm kiếm thành công.</span></div>
+  <div class="static-toast" id="toast-status" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Cập nhật trạng thái thành công.</span></div>
+
 
     <!-- Top Bar -->
     <div class="topbar">
@@ -62,8 +69,13 @@
                 </div>
 
                 <div>
-                    <dt>Trạng thái</dt>
-                    <dd>Đang hoạt động</dd>
+                    <dt>Ngày vào làm</dt>
+                    <dd>15/03/2024</dd>
+                </div>
+
+                <div>
+                    <dt>Trạng thái tài khoản</dt>
+                    <dd>Hoạt động</dd>
                 </div>
 
             </dl>
@@ -80,69 +92,26 @@
 
     <script>
         (function () {
-
-            const records = {
-                NV001: {
-                    name: "Lê Thanh Tùng",
-                    position: "Quản lý",
-                    phone: "0908 111 222",
-                    username: "tung.lt",
-                    email: "tung.lt@techzone.example",
-                    status: "Đang hoạt động"
-                },
-
-                NV002: {
-                    name: "Nguyễn Thảo Vy",
-                    position: "Nhân viên bán hàng",
-                    phone: "0908 333 444",
-                    username: "vy.nt",
-                    email: "vy.nt@techzone.example",
-                    status: "Đang hoạt động"
-                },
-
-                NV003: {
-                    name: "Phạm Đức Long",
-                    position: "Thủ kho",
-                    phone: "0908 555 666",
-                    username: "long.pd",
-                    email: "long.pd@techzone.example",
-                    status: "Đang hoạt động"
-                }
+            const params = new URLSearchParams(location.search);
+            const id = params.get("id") || "NV001";
+            const employee = {
+                name: params.get("name") || "Lê Thanh Tùng",
+                position: params.get("position") || "Quản lý",
+                phone: params.get("phone") || "0908 111 222",
+                username: params.get("username") || "tung.lt",
+                email: params.get("email") || "tung.lt@techzone.vn",
+                hireDate: params.get("hireDate") || "2024-03-15",
+                status: params.get("status") || "Hoạt động"
             };
-
-            const id =
-                new URLSearchParams(location.search)
-                    .get("id");
-
-            const employee = records[id];
-
-            if (!employee) return;
-
-            const title =
-                document.querySelector(".record-view h2");
-
-            if (title) {
-                title.textContent = employee.name;
-            }
-
-            const badge =
-                document.querySelector(".record-view .badge");
-
-            if (badge) {
-                badge.textContent = "Mã: " + id;
-            }
-
-            const details =
-                document.querySelectorAll(
-                    ".detail-list dd"
-                );
-
-            if (details[0]) details[0].textContent = employee.position;
-            if (details[1]) details[1].textContent = employee.phone;
-            if (details[2]) details[2].textContent = employee.username;
-            if (details[3]) details[3].textContent = employee.email;
-            if (details[4]) details[4].textContent = employee.status;
-
+            const title = document.querySelector(".record-view h2");
+            if (title) title.textContent = employee.name;
+            const badge = document.querySelector(".record-view .badge");
+            if (badge) badge.textContent = "Mã: " + id;
+            const details = document.querySelectorAll(".detail-list dd");
+            const dateText = employee.hireDate ? new Date(employee.hireDate + "T00:00:00").toLocaleDateString("vi-VN") : "Chưa cập nhật";
+            [employee.position, employee.phone, employee.username, employee.email, dateText, employee.status].forEach((value, index) => {
+                if (details[index]) details[index].textContent = value;
+            });
         })();
     </script>
 

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thêm danh mục | TechZone Admin</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="admin-page">
+  <div class="static-toast" id="toast-added" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Thêm mới thành công.</span></div>
+  <div class="static-toast" id="toast-updated" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Cập nhật thành công.</span></div>
+  <div class="topbar"><span>Hệ thống quản lý cửa hàng máy tính</span><span>Khu vực quản trị</span></div>
+  <header class="site-header"><div class="header-inner"><a class="brand" href="index.html">TECH<span>ZONE</span> <small style="font-size:11px;color:#718096">ADMIN</small></a><nav class="nav"><a href="index.html">Tổng quan</a><a href="products.html">Sản phẩm</a><a href="categories.html" class="active" aria-current="page">Danh mục</a><a href="orders.html">Đơn hàng</a><a href="customers.html">Khách hàng</a><a href="employees.html">Nhân viên</a><a href="suppliers.html">Nhà cung cấp</a><a href="imports.html">Phiếu nhập</a></nav></div></header>
+  <main class="container">
+    <div class="admin-top"><div><div class="breadcrumbs"><a href="categories.html">Danh mục</a> / Thông tin danh mục</div><h1 id="category-form-title">Thêm danh mục mới</h1></div><a class="btn secondary" href="categories.html">← Danh sách danh mục</a></div>
+    <div class="panel" style="max-width:900px;margin:0 auto 28px">
+      <form id="category-form" action="categories.html?action=add#toast-added" method="get" novalidate>
+        <div class="form-grid">
+          <div class="field"><label for="category-id">Mã danh mục</label><input id="category-id" name="category_id" placeholder="Ví dụ: DM06" required></div>
+          <div class="field"><label for="category-name">Tên danh mục</label><input id="category-name" name="category_name" placeholder="Ví dụ: Thiết bị mạng" required></div>
+          <div class="field"><label for="category-status">Trạng thái</label><select id="category-status" name="status"><option>Đang sử dụng</option><option>Ngừng sử dụng</option></select></div>
+          <div class="field full"><label for="category-description">Mô tả</label><textarea id="category-description" name="description" rows="3" placeholder="Mô tả nhóm sản phẩm"></textarea></div>
+        </div>
+        <div class="form-actions"><a class="btn" id="category-save-button" href="categories.html?action=add#toast-added">Lưu danh mục</a><a class="btn secondary" href="categories.html">Hủy</a></div>
+      </form>
+      <p class="notice">Đây là biểu mẫu tĩnh dùng để minh họa. Thao tác lưu chỉ hiển thị thông báo, không ghi dữ liệu.</p>
+    </div>
+  </main>
+  <script src="../js/site.js" defer></script>
+</body>
+</html>

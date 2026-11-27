@@ -1,144 +1,24 @@
 <!doctype html>
 <html lang="vi">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Chi tiết nhà cung cấp | TechZone Admin</title><link rel="stylesheet" href="../css/style.css"></head>
+<body class="admin-page">
+  <div class="static-toast" id="toast-added" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Thêm mới thành công.</span></div>
+  <div class="static-toast" id="toast-updated" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Cập nhật thành công.</span></div>
+  <div class="static-toast" id="toast-saved" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Lưu thông tin thành công.</span></div>
+  <div class="static-toast" id="toast-deleted" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Xóa thành công.</span></div>
+  <div class="static-toast" id="toast-search" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Tìm kiếm thành công.</span></div>
+  <div class="static-toast" id="toast-status" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Cập nhật trạng thái thành công.</span></div>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Thông tin nhà cung cấp | TechZone</title>
-
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-
-<body>
-
-    <!-- Top Bar -->
-    <div class="topbar">
-        <span>Hệ thống quản lý cửa hàng máy tính</span>
-        <span>Khu vực quản trị</span>
-    </div>
-
-    <!-- Main Content -->
-    <main class="container">
-
-        <div class="breadcrumbs">
-            <a href="suppliers.html">
-                Quay lại danh sách
-            </a>
-            /
-            Thông tin nhà cung cấp
+  <div class="topbar"><span>Hệ thống quản lý cửa hàng máy tính</span><span>Xin chào, <a href="profile.html" style="color:#fff">Quản trị viên</a> · <a href="../admin-login.html" style="color:#fff">Đăng xuất</a></span></div>
+  <header class="site-header"><div class="header-inner"><a class="brand" href="index.html">TECH<span>ZONE</span> <small style="font-size:11px;color:#718096">ADMIN</small></a><nav class="nav"><a href="index.html">Tổng quan</a><a href="products.html">Sản phẩm</a><a href="categories.html">Danh mục</a><a href="orders.html">Đơn hàng</a><a href="customers.html">Khách hàng</a><a href="employees.html">Nhân viên</a><a href="suppliers.html" class="active" aria-current="page">Nhà cung cấp</a><a href="imports.html">Phiếu nhập</a></nav></div></header>
+  <main class="container"><div class="admin-top"><div><div class="breadcrumbs"><a href="suppliers.html">Nhà cung cấp</a> / Chi tiết</div><h1>Thông tin nhà cung cấp</h1></div><a class="btn secondary" href="suppliers.html">← Danh sách nhà cung cấp</a></div>
+    <div class="layout"><aside class="panel sidebar"><h3>Quản trị hệ thống</h3><div class="side-links"><a href="index.html"><span class="admin-nav-icon" aria-hidden="true">▦</span>Tổng quan</a><a href="products.html"><span class="admin-nav-icon" aria-hidden="true">▣</span>Sản phẩm</a><a href="categories.html"><span class="admin-nav-icon" aria-hidden="true">▧</span>Danh mục</a><a href="orders.html"><span class="admin-nav-icon" aria-hidden="true">▤</span>Đơn hàng</a><a href="customers.html"><span class="admin-nav-icon" aria-hidden="true">♙</span>Khách hàng</a><a href="employees.html"><span class="admin-nav-icon" aria-hidden="true">♧</span>Nhân viên</a><a href="suppliers.html" class="active" aria-current="page"><span class="admin-nav-icon" aria-hidden="true">♧</span>Nhà cung cấp</a><a href="imports.html"><span class="admin-nav-icon" aria-hidden="true">▨</span>Phiếu nhập</a></div></aside>
+      <section>
+        <div class="panel"><div class="section-head"><div><h2 id="supplier-view-name">Công ty Phân phối ABC</h2><p id="supplier-view-id" class="muted">Mã nhà cung cấp: NCC001</p></div><span class="tag" id="supplier-view-status">Đang hợp tác</span></div>
+          <div class="detail-list"><div><dt>Điện thoại</dt><dd id="supplier-view-phone">028 1234 5678</dd></div><div><dt>Email</dt><dd id="supplier-view-email">sales@abc.example</dd></div><div><dt>Địa chỉ</dt><dd id="supplier-view-address">TP. Hồ Chí Minh</dd></div></div>
         </div>
-
-        <section class="panel record-view">
-
-            <h1>Thông tin nhà cung cấp</h1>
-
-            <p class="badge">
-                Mã: NCC001
-            </p>
-
-            <h2>Công ty Phân phối ABC</h2>
-
-            <dl class="detail-list">
-
-                <div>
-                    <dt>Số điện thoại</dt>
-                    <dd>028 1234 5678</dd>
-                </div>
-
-                <div>
-                    <dt>Email</dt>
-                    <dd>sales@abc.example</dd>
-                </div>
-
-                <div>
-                    <dt>Địa chỉ</dt>
-                    <dd>TP. Hồ Chí Minh</dd>
-                </div>
-
-                <div>
-                    <dt>Trạng thái</dt>
-                    <dd>Đang hợp tác</dd>
-                </div>
-
-            </dl>
-
-            <a class="btn secondary" href="suppliers.html">
-                Thoát
-            </a>
-
-        </section>
-
-    </main>
-
-    <script src="../js/site.js" defer></script>
-
-    <script>
-        (function () {
-
-            const suppliers = {
-
-                NCC001: {
-                    name: "Công ty Phân phối ABC",
-                    phone: "028 1234 5678",
-                    email: "sales@abc.example",
-                    address: "TP. Hồ Chí Minh",
-                    status: "Đang hợp tác"
-                },
-
-                NCC002: {
-                    name: "Thiết bị số Minh Long",
-                    phone: "028 2345 6789",
-                    email: "contact@minhlong.example",
-                    address: "Bình Dương",
-                    status: "Đang hợp tác"
-                },
-
-                NCC003: {
-                    name: "Công nghệ Sao Việt",
-                    phone: "024 3456 7890",
-                    email: "info@saoviet.example",
-                    address: "Hà Nội",
-                    status: "Đang hợp tác"
-                }
-
-            };
-
-            const id =
-                new URLSearchParams(location.search)
-                    .get("id");
-
-            const supplier = suppliers[id];
-
-            if (!supplier) return;
-
-            const title =
-                document.querySelector(".record-view h2");
-
-            if (title) {
-                title.textContent = supplier.name;
-            }
-
-            const badge =
-                document.querySelector(".record-view .badge");
-
-            if (badge) {
-                badge.textContent = "Mã: " + id;
-            }
-
-            const details =
-                document.querySelectorAll(
-                    ".detail-list dd"
-                );
-
-            if (details[0]) details[0].textContent = supplier.phone;
-            if (details[1]) details[1].textContent = supplier.email;
-            if (details[2]) details[2].textContent = supplier.address;
-            if (details[3]) details[3].textContent = supplier.status;
-
-        })();
-    </script>
-
-</body>
-
-</html>
+        <div class="panel"><h2>Lịch sử phiếu nhập từ nhà cung cấp</h2><div class="table-wrap"><table><thead><tr><th>Mã phiếu</th><th>Ngày nhập</th><th>Nhân viên</th><th>Số mặt hàng</th><th>Tổng tiền nhập</th><th>Chi tiết</th></tr></thead><tbody id="supplier-import-history"><tr><td colspan="6">Đang tải dữ liệu mẫu...</td></tr></tbody></table></div></div>
+      </section>
+    </div>
+  </main><script src="../js/site.js" defer></script>
+</body></html>

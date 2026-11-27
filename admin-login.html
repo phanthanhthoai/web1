@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="admin-login-page">
 
     <main class="container">
         <div class="auth-card">
@@ -23,8 +23,7 @@
                 <h1 style="text-align: center;">
                     Đăng nhập quản trị viên
                 </h1>
-
-                <form id="admin-login" class="login-demo-form" novalidate>
+<form id="admin-login" class="login-demo-form" data-ui-only novalidate>
 
                     <div class="field">
                         <label for="admin-user">
@@ -34,7 +33,7 @@
                         <input
                             id="admin-user"
                             type="text"
-                            placeholder="Tên đăng nhập (không bắt buộc)"
+                            placeholder="admin"
                         >
                     </div>
 
@@ -46,7 +45,7 @@
                         <input
                             id="admin-pass"
                             type="password"
-                            placeholder="Mật khẩu (không bắt buộc)"
+                            placeholder="admin123"
                         >
                     </div>
 
@@ -55,28 +54,14 @@
                     </button>
 
                 </form>
+                <p class="help" style="text-align:center;margin-top:18px">Đây là giao diện đăng nhập minh họa. Nhấn “Đăng nhập” để vào trang quản trị.</p>
+                <p style="text-align:center"><a href="index.html">Quay về trang bán hàng</a></p>
 
             </section>
 
         </div>
     </main>
-
-    <script>
-        document
-            .getElementById("admin-login")
-            .addEventListener("submit", function (e) {
-
-                e.preventDefault();
-
-                localStorage.setItem(
-                    "techzone_admin",
-                    "Quản trị viên"
-                );
-
-                location.href = "admin/index.html";
-            });
-    </script>
-
+    <script src="js/site.js" defer></script>
 </body>
 
 </html>

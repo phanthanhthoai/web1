@@ -10,7 +10,14 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body>
+<body class="admin-page">
+  <div class="static-toast" id="toast-added" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Thêm mới thành công.</span></div>
+  <div class="static-toast" id="toast-updated" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Cập nhật thành công.</span></div>
+  <div class="static-toast" id="toast-saved" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Lưu thông tin thành công.</span></div>
+  <div class="static-toast" id="toast-deleted" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Xóa thành công.</span></div>
+  <div class="static-toast" id="toast-search" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Tìm kiếm thành công.</span></div>
+  <div class="static-toast" id="toast-status" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Cập nhật trạng thái thành công.</span></div>
+
 
     <!-- Top Bar -->
     <div class="topbar">
@@ -25,7 +32,7 @@
             </a>
             ·
             <a href="../index.html"
-               data-logout
+              
                style="color: white;">
                 Đăng xuất
             </a>
@@ -44,20 +51,7 @@
                 </small>
             </a>
 
-            <nav class="nav">
-                <a href="index.html">Tổng quan</a>
-
-                <a class="active" href="products.html">
-                    Sản phẩm
-                </a>
-
-                <a href="orders.html">Đơn hàng</a>
-                <a href="customers.html">Khách hàng</a>
-                <a href="employees.html">Nhân viên</a>
-                <a href="suppliers.html">Nhà cung cấp</a>
-                <a href="imports.html">Phiếu nhập</a>
-                <a href="accounts.html">Tài khoản</a>
-            </nav>
+            <nav class="nav"><a href="index.html">Tổng quan</a><a href="products.html" class="active" aria-current="page">Sản phẩm</a><a href="categories.html">Danh mục</a><a href="orders.html">Đơn hàng</a><a href="customers.html">Khách hàng</a><a href="employees.html">Nhân viên</a><a href="suppliers.html">Nhà cung cấp</a><a href="imports.html">Phiếu nhập</a></nav>
 
         </div>
     </header>
@@ -94,61 +88,7 @@
 
                 <h3>Quản trị hệ thống</h3>
 
-                <div class="side-links">
-
-                    <a href="index.html">
-                        📊 Tổng quan
-                    </a>
-
-                    <a href="products.html" class="active">
-                        📦 Sản phẩm
-                    </a>
-
-                    <a href="categories.html">
-                        🗂 Danh mục
-                    </a>
-
-                    <a href="orders.html">
-                        🧾 Đơn hàng / Hóa đơn
-                    </a>
-
-                    <a href="customers.html">
-                        👥 Khách hàng
-                    </a>
-
-                    <a href="employees.html">
-                        🧑‍💼 Nhân viên
-                    </a>
-
-                    <a href="suppliers.html">
-                        🚚 Nhà cung cấp
-                    </a>
-
-                    <a href="imports.html">
-                        📥 Phiếu nhập
-                    </a>
-
-                    <a href="import-detail.html">
-                        📝 Chi tiết phiếu nhập
-                    </a>
-
-                    <a href="accounts.html">
-                        🔐 Tài khoản
-                    </a>
-
-                    <a href="permissions.html">
-                        🛡 Quyền hạn
-                    </a>
-
-                    <a href="form-product.html">
-                        ＋ Nhập liệu sản phẩm
-                    </a>
-
-                    <a href="form-invoice.html">
-                        ＋ Lập hóa đơn
-                    </a>
-
-                </div>
+                <div class="side-links"><a href="index.html"><span class="admin-nav-icon" aria-hidden="true">▦</span>Tổng quan</a><a href="products.html" class="active" aria-current="page"><span class="admin-nav-icon" aria-hidden="true">▣</span>Sản phẩm</a><a href="categories.html"><span class="admin-nav-icon" aria-hidden="true">▧</span>Danh mục</a><a href="orders.html"><span class="admin-nav-icon" aria-hidden="true">▤</span>Đơn hàng</a><a href="customers.html"><span class="admin-nav-icon" aria-hidden="true">♙</span>Khách hàng</a><a href="employees.html"><span class="admin-nav-icon" aria-hidden="true">♧</span>Nhân viên</a><a href="suppliers.html"><span class="admin-nav-icon" aria-hidden="true">♧</span>Nhà cung cấp</a><a href="imports.html"><span class="admin-nav-icon" aria-hidden="true">▨</span>Phiếu nhập</a></div>
 
             </aside>
 
@@ -158,19 +98,17 @@
                 <div class="panel">
 
                     <div class="admin-top">
-
                         <h2>Danh sách sản phẩm</h2>
-
-                        <a class="btn" href="form-product.html">
-                            ＋ Thêm sản phẩm
-                        </a>
-
+                        <div class="form-actions" style="margin-top:0">
+                            <a class="btn secondary" href="categories.html">Quản lý danh mục</a>
+                            <a class="btn" href="form-product.html">＋ Thêm sản phẩm</a>
+                        </div>
                     </div>
 
                     <!-- Filter -->
                     <form
                         class="admin-filter-bar"
-                        data-admin-filter-form data-ui-only-filter novalidate>
+                        data-admin-filter-form data-ui-only-filter novalidate action="products.html?action=search#toast-search" method="get">
 
                         <input
                             type="search"
@@ -179,21 +117,22 @@
                             aria-label="Từ khóa tìm kiếm">
 
                         <select
+                            name="category"
+                            aria-label="Chọn danh mục sản phẩm để lọc">
+                            <option value="">Tất cả danh mục</option>
+                            <option value="Laptop">Laptop</option>
+                            <option value="Máy tính bộ">Máy tính bộ</option>
+                            <option value="Linh kiện">Linh kiện</option>
+                            <option value="Phụ kiện">Phụ kiện</option>
+                            <option value="Màn hình">Màn hình</option>
+                        </select>
+
+                        <select
                             name="status"
-                            aria-label="Lọc theo trạng thái">
-
-                            <option value="">
-                                Tất cả trạng thái
-                            </option>
-
-                            <option value="Đang bán">
-                                Đang bán
-                            </option>
-
-                            <option value="Sắp hết">
-                                Sắp hết
-                            </option>
-
+                            aria-label="Lọc theo trạng thái sản phẩm">
+                            <option value="">Tất cả trạng thái</option>
+                            <option value="Đang bán">Đang bán</option>
+                            <option value="Sắp hết">Sắp hết</option>
                         </select>
 
                         <button
@@ -209,6 +148,9 @@
 
                     </form>
 
+                    <div class="notice-blue">Giá bán và tồn kho hiển thị tại danh sách là thông tin được thiết lập thông qua các Phiếu nhập. Muốn nhập giá và số lượng, hãy tạo Phiếu nhập.</div>
+                    <div class="notice">Quy tắc xóa sản phẩm: sản phẩm đã phát sinh bán hàng chỉ được <strong>ẩn khỏi website</strong>; sản phẩm chưa từng bán mới hiển thị thao tác xóa sau bước xác nhận.</div>
+
                     <!-- Product Table -->
                     <div class="table-wrap" style="margin-top:16px;">
 
@@ -221,6 +163,7 @@
                                     <th>Danh mục</th>
                                     <th>Giá bán</th>
                                     <th>Tồn kho</th>
+                                    <th>Đã bán</th>
                                     <th>Trạng thái</th>
                                     <th>Thao tác</th>
                                 </tr>
@@ -234,6 +177,7 @@
                                     <td>Laptop</td>
                                     <td>15.490.000đ</td>
                                     <td>24</td>
+                                    <td>12</td>
 
                                     <td>
                                         <span class="tag">
@@ -241,16 +185,7 @@
                                         </span>
                                     </td>
 
-                                    <td>
-                                        <a href="form-product.html?id=SP001">
-                                            Sửa
-                                        </a>
-                                        ·
-                                        <a href="product-view.html?id=SP001">
-                                            Xem
-                                        </a>
-                                    </td>
-                                </tr>
+                                    <td><a href="form-product.html?id=SP001">Sửa</a> · <a class="table-action" href="../product-detail.html?id=SP001">Xem chi tiết</a> · <a class="table-action" href="products.html?action=status&id=SP001#toast-status">Ẩn khỏi website</a></td></tr>
 
                                 <tr>
                                     <td>SP002</td>
@@ -258,6 +193,7 @@
                                     <td>Máy tính bộ</td>
                                     <td>22.990.000đ</td>
                                     <td>8</td>
+                                    <td>4</td>
 
                                     <td>
                                         <span class="tag">
@@ -265,16 +201,7 @@
                                         </span>
                                     </td>
 
-                                    <td>
-                                        <a href="form-product.html?id=SP001">
-                                            Sửa
-                                        </a>
-                                        ·
-                                        <a href="product-view.html?id=SP001">
-                                            Xem
-                                        </a>
-                                    </td>
-                                </tr>
+                                    <td><a href="form-product.html?id=SP002">Sửa</a> · <a href="../product-detail.html?id=SP002">Xem chi tiết</a> · <a class="table-action" href="products.html?action=status&id=SP002#toast-status">Ẩn khỏi website</a></td></tr>
 
                                 <tr>
                                     <td>SP003</td>
@@ -282,6 +209,7 @@
                                     <td>Phụ kiện</td>
                                     <td>890.000đ</td>
                                     <td>42</td>
+                                    <td>0</td>
 
                                     <td>
                                         <span class="tag">
@@ -289,16 +217,7 @@
                                         </span>
                                     </td>
 
-                                    <td>
-                                        <a href="form-product.html?id=SP001">
-                                            Sửa
-                                        </a>
-                                        ·
-                                        <a href="product-view.html?id=SP001">
-                                            Xem
-                                        </a>
-                                    </td>
-                                </tr>
+                                    <td><a href="form-product.html?id=SP003">Sửa</a> · <a href="../product-detail.html?id=SP003">Xem chi tiết</a> · <a class="table-action" href="products.html?action=status&id=SP003#toast-status">Ẩn khỏi website</a></td></tr>
 
                                 <tr>
                                     <td>SP004</td>
@@ -306,6 +225,7 @@
                                     <td>Linh kiện</td>
                                     <td>950.000đ</td>
                                     <td>3</td>
+                                    <td>0</td>
 
                                     <td>
                                         <span class="tag orange">
@@ -313,16 +233,7 @@
                                         </span>
                                     </td>
 
-                                    <td>
-                                        <a href="form-product.html?id=SP001">
-                                            Sửa
-                                        </a>
-                                        ·
-                                        <a href="product-view.html?id=SP001">
-                                            Xem
-                                        </a>
-                                    </td>
-                                </tr>
+                                    <td><a href="form-product.html?id=SP004">Sửa</a> · <a href="../product-detail.html?id=SP004">Xem chi tiết</a> · <a class="table-action danger" href="products.html?action=delete&id=SP004#toast-deleted">Xóa</a></td></tr>
 
                             </tbody>
 

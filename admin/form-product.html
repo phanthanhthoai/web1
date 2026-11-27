@@ -10,7 +10,14 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body>
+<body class="admin-page">
+  <div class="static-toast" id="toast-added" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Thêm mới thành công.</span></div>
+  <div class="static-toast" id="toast-updated" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Cập nhật thành công.</span></div>
+  <div class="static-toast" id="toast-saved" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Lưu thông tin thành công.</span></div>
+  <div class="static-toast" id="toast-deleted" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Xóa thành công.</span></div>
+  <div class="static-toast" id="toast-search" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Tìm kiếm thành công.</span></div>
+  <div class="static-toast" id="toast-status" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Cập nhật trạng thái thành công.</span></div>
+
 
     <!-- Top Bar -->
     <div class="topbar">
@@ -25,7 +32,7 @@
             </a>
             ·
             <a href="../index.html"
-               data-logout
+              
                style="color: white;">
                 Đăng xuất
             </a>
@@ -43,16 +50,7 @@
                 </small>
             </a>
 
-            <nav class="nav">
-                <a href="index.html">Tổng quan</a>
-                <a class="active" href="products.html">Sản phẩm</a>
-                <a href="orders.html">Đơn hàng</a>
-                <a href="customers.html">Khách hàng</a>
-                <a href="employees.html">Nhân viên</a>
-                <a href="suppliers.html">Nhà cung cấp</a>
-                <a href="imports.html">Phiếu nhập</a>
-                <a href="accounts.html">Tài khoản</a>
-            </nav>
+            <nav class="nav"><a href="index.html">Tổng quan</a><a href="products.html" class="active" aria-current="page">Sản phẩm</a><a href="categories.html">Danh mục</a><a href="orders.html">Đơn hàng</a><a href="customers.html">Khách hàng</a><a href="employees.html">Nhân viên</a><a href="suppliers.html">Nhà cung cấp</a><a href="imports.html">Phiếu nhập</a></nav>
 
         </div>
     </header>
@@ -71,7 +69,7 @@
                     Khu vực Admin
                 </div>
 
-                <h1>Nhập liệu sản phẩm</h1>
+                <h1>Thêm / sửa sản phẩm</h1>
             </div>
 
             <a class="btn secondary" href="../index.html">
@@ -87,33 +85,7 @@
 
                 <h3>Quản trị hệ thống</h3>
 
-                <div class="side-links">
-
-                    <a href="index.html">📊 Tổng quan</a>
-                    <a href="products.html">📦 Sản phẩm</a>
-                    <a href="categories.html">🗂 Danh mục</a>
-                    <a href="orders.html">🧾 Đơn hàng / Hóa đơn</a>
-                    <a href="customers.html">👥 Khách hàng</a>
-                    <a href="employees.html">🧑‍💼 Nhân viên</a>
-                    <a href="suppliers.html">🚚 Nhà cung cấp</a>
-                    <a href="imports.html">📥 Phiếu nhập</a>
-
-                    <a href="import-detail.html">
-                        📝 Chi tiết phiếu nhập
-                    </a>
-
-                    <a href="accounts.html">🔐 Tài khoản</a>
-                    <a href="permissions.html">🛡 Quyền hạn</a>
-
-                    <a href="form-product.html" class="active">
-                        ＋ Nhập liệu sản phẩm
-                    </a>
-
-                    <a href="form-invoice.html">
-                        ＋ Lập hóa đơn
-                    </a>
-
-                </div>
+                <div class="side-links"><a href="index.html"><span class="admin-nav-icon" aria-hidden="true">▦</span>Tổng quan</a><a href="products.html" class="active" aria-current="page"><span class="admin-nav-icon" aria-hidden="true">▣</span>Sản phẩm</a><a href="categories.html"><span class="admin-nav-icon" aria-hidden="true">▧</span>Danh mục</a><a href="orders.html"><span class="admin-nav-icon" aria-hidden="true">▤</span>Đơn hàng</a><a href="customers.html"><span class="admin-nav-icon" aria-hidden="true">♙</span>Khách hàng</a><a href="employees.html"><span class="admin-nav-icon" aria-hidden="true">♧</span>Nhân viên</a><a href="suppliers.html"><span class="admin-nav-icon" aria-hidden="true">♧</span>Nhà cung cấp</a><a href="imports.html"><span class="admin-nav-icon" aria-hidden="true">▨</span>Phiếu nhập</a></div>
 
             </aside>
 
@@ -122,8 +94,10 @@
                 <div class="panel">
 
                     <h2>Thông tin sản phẩm</h2>
+                    <p class="help">Sau khi tạo sản phẩm, vào <a href="import-detail.html">Phiếu nhập</a> để khai báo nhà cung cấp, số lượng, giá nhập và giá bán.</p>
+                    <div class="notice-blue">Khi sửa sản phẩm, thông tin hiện tại sẽ được hiển thị để đối chiếu. Hồ sơ sản phẩm không nhập nhà cung cấp, giá nhập, giá bán hoặc số lượng; các thông tin này được quản lý trong Phiếu nhập.</div>
 
-                    <form action="products.html" method="get" novalidate>
+                    <form id="product-form" action="products.html?action=save#toast-saved" method="get" novalidate>
 
                         <div class="form-grid">
 
@@ -135,7 +109,7 @@
                                 <input
                                     id="product-id"
                                     name="product_id"
-                                    value="SP005">
+                                    value="SP001">
                             </div>
 
                             <div class="field">
@@ -146,7 +120,7 @@
                                 <input
                                     id="product-name"
                                     name="product_name"
-                                    placeholder="Ví dụ: Laptop Dell Inspiron">
+                                    value="Laptop ASUS Vivobook 15" placeholder="Ví dụ: Laptop Dell Inspiron">
                             </div>
 
                             <div class="field">
@@ -156,72 +130,20 @@
 
                                 <select
                                     id="category"
-                                    name="category">
+                                    name="category"
+                                    required>
 
-                                    <option>Laptop</option>
-                                    <option>Máy tính bộ</option>
-                                    <option>Linh kiện</option>
-                                    <option>Phụ kiện</option>
-                                    <option>Màn hình</option>
-
-                                </select>
-                            </div>
-
-                            <div class="field">
-                                <label for="supplier">
-                                    Nhà cung cấp
-                                </label>
-
-                                <select
-                                    id="supplier"
-                                    name="supplier">
-
-                                    <option>
-                                        NCC001 - Công ty Phân phối ABC
-                                    </option>
-
-                                    <option>
-                                        NCC002 - Thiết bị số Minh Long
-                                    </option>
+                                    <option value="">Chọn danh mục sản phẩm</option>
+                                    <option value="Laptop">Laptop</option>
+                                    <option value="Máy tính bộ">Máy tính bộ</option>
+                                    <option value="Linh kiện">Linh kiện</option>
+                                    <option value="Phụ kiện">Phụ kiện</option>
+                                    <option value="Màn hình">Màn hình</option>
 
                                 </select>
+                                <p class="help"><a href="categories.html">Quản lý danh mục sản phẩm ↗</a></p>
                             </div>
 
-                            <div class="field">
-                                <label for="import-price">
-                                    Giá nhập (VNĐ)
-                                </label>
-
-                                <input
-                                    id="import-price"
-                                    name="import_price"
-                                    type="number"
-                                    placeholder="12000000">
-                            </div>
-
-                            <div class="field">
-                                <label for="sale-price">
-                                    Giá bán (VNĐ)
-                                </label>
-
-                                <input
-                                    id="sale-price"
-                                    name="sale_price"
-                                    type="number"
-                                    placeholder="15490000">
-                            </div>
-
-                            <div class="field">
-                                <label for="quantity">
-                                    Số lượng tồn
-                                </label>
-
-                                <input
-                                    id="quantity"
-                                    name="quantity"
-                                    type="number"
-                                    placeholder="20">
-                            </div>
 
                             <div class="field">
                                 <label for="warranty">
@@ -267,26 +189,21 @@
                                 </select>
                             </div>
 
-                            <div class="field">
-                                <label for="image-url">
-                                    Đường dẫn ảnh
-                                </label>
-
-                                <input
-                                    id="image-url"
-                                    name="image_url"
-                                    placeholder="images/laptop.jpg">
+                            <div class="field full">
+                                <label for="product-image">Tải ảnh sản phẩm</label>
+                                <input id="product-image" name="product_image" type="file" accept="image/*" data-image-upload>
+                                <p class="help">Chọn tệp ảnh JPG, PNG hoặc WEBP. Ảnh chỉ được xem trước, chưa tải lên máy chủ.</p>
+                                <div class="upload-preview-wrap">
+                                    <div class="upload-preview"><img src="../picture/1.png" alt="Ảnh sản phẩm hiện tại" data-image-preview><span data-image-empty hidden>Chưa chọn ảnh</span></div>
+                                    <div><strong>Ảnh hiện tại: Laptop ASUS Vivobook 15</strong><p class="muted">picture/1.png · Danh mục: Laptop</p></div>
+                                </div>
                             </div>
 
                         </div>
 
                         <div class="form-actions">
 
-                            <button
-                                class="btn"
-                                type="submit">
-                                Lưu thông tin
-                            </button>
+                            <a class="btn" href="products.html?action=save#toast-saved">Lưu thông tin</a>
 
                             <a
                                 class="btn secondary"
