@@ -1141,8 +1141,6 @@
   }
 
   function setupPublicInteractions() {
-    $$('.site-search').forEach(form => form.addEventListener('submit', event => event.preventDefault()));
-
     document.addEventListener('click', event => {
       const add = event.target.closest('[data-add-cart]');
       if (add) { event.preventDefault(); handleAddToCart(add); return; }
