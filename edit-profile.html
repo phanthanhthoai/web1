@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chỉnh sửa thông tin | TechZone</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="topbar">
+    <span>☎ Hotline: 1900 6868 · Hỗ trợ kỹ thuật mỗi ngày</span>
+    <span class="customer-auth-slot" id="customer-auth-slot"><a href="login.html">Đăng nhập</a></span>
+  </div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="home-logged-in.html">TECH<span>ZONE</span></a>
+      <form class="site-search" action="products.html" method="get" role="search">
+        <input type="search" name="q" placeholder="Tìm laptop, PC, linh kiện..." aria-label="Tìm kiếm sản phẩm">
+        <button type="submit" aria-label="Tìm kiếm">⌕</button>
+      </form>
+      <nav class="nav">
+        <a href="index.html">Trang chủ</a>
+        <a href="products.html">Sản phẩm</a>
+        <a href="order-history.html">Lịch sử mua hàng</a>
+        <a href="cart.html">Giỏ hàng</a>
+        <a class="active" href="customer-profile.html">Tài khoản</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumbs"><a href="checkout.html">Thanh toán</a> / <a href="customer-profile.html">Tài khoản</a> / Chỉnh sửa thông tin</div>
+    <div class="page-title">
+      <h1>Chỉnh sửa thông tin cá nhân</h1>
+      <p>Cập nhật thông tin người mua dùng khi đặt hàng</p>
+    </div>
+    <div class="notice-blue">
+      Bạn đang chỉnh sửa thông tin của tài khoản mẫu <strong>Nguyễn Minh Anh</strong>. Thay đổi chỉ minh họa trên giao diện và không được lưu.
+    </div>
+    <section class="panel">
+      <h2>Thông tin cá nhân</h2>
+      <form data-profile-form>
+        <div class="form-grid">
+          <div class="field full">
+            <label for="profile-name">Họ và tên</label>
+            <input id="profile-name" name="name" type="text" value="Nguyễn Minh Anh" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="profile-phone">Số điện thoại</label>
+            <input id="profile-phone" name="phone" type="tel" value="0901 234 567" autocomplete="tel" required>
+          </div>
+          <div class="field">
+            <label for="profile-email">Email</label>
+            <input id="profile-email" name="email" type="email" value="minhanh@example.com" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="profile-customer-id">Mã khách hàng</label>
+            <input id="profile-customer-id" value="KH001" readonly aria-describedby="profile-id-help">
+            <span class="help" id="profile-id-help">Mã khách hàng không thể chỉnh sửa.</span>
+          </div>
+        </div>
+        <hr class="soft-rule">
+        <h3>Địa chỉ giao hàng đã lưu</h3>
+        <div class="form-grid" data-profile-addresses>
+          <div class="field full" data-profile-address>
+            <label for="profile-address-1">Địa chỉ nhà riêng · Mặc định</label>
+            <input id="profile-address-1" name="addresses[]" type="text" value="25 Nguyễn Trãi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh" autocomplete="street-address" required>
+          </div>
+          <div class="field full" data-profile-address>
+            <label for="profile-address-2">Địa chỉ cơ quan</label>
+            <input id="profile-address-2" name="addresses[]" type="text" value="120 Cộng Hòa, Phường 4, Quận Tân Bình, TP. Hồ Chí Minh" autocomplete="street-address" required>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn secondary" type="button" data-add-profile-address>＋ Thêm địa chỉ</button>
+        </div>
+        <div class="form-actions">
+          <button class="btn" type="submit" href="customer-profile.html">Lưu thay đổi</button>
+          <a class="btn secondary" href="checkout.html">Quay lại thanh toán</a>
+          <a class="btn secondary" href="customer-profile.html">Hủy</a>
+        </div>
+      </form>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><strong>TECHZONE</strong><p>Thiết bị công nghệ cho học tập và công việc.</p></div>
+      <div><strong>Hỗ trợ khách hàng</strong><p><a href="contact.html">Liên hệ</a> · <a href="policy.html">Chính sách</a></p></div>
+      <div><strong>Địa chỉ</strong><p>123 Đường Công Nghệ, TP. Hồ Chí Minh</p><span class="small">© 2026 TechZone</span></div>
+    </div>
+  </footer>
+  <script src="js/site.js" defer></script>
+</body>
+</html>

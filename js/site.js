@@ -193,7 +193,7 @@
       if (brand && !isAdmin) brand.href = 'home-logged-in.html';
       const nav = $('.site-header .nav');
       if (nav && !isAdmin) {
-        const active = page === 'products.html' || page === 'product-filter.html' || page === 'product-detail.html' ? 'products' : page === 'order-history.html' || page === 'order-detail.html' || page === 'order-confirmation.html' ? 'orders' : page === 'customer-profile.html' ? 'profile' : page === 'cart.html' || page === 'checkout.html' ? 'cart' : 'home';
+        const active = page === 'products.html' || page === 'product-filter.html' || page === 'product-detail.html' ? 'products' : page === 'order-history.html' || page === 'order-detail.html' || page === 'order-confirmation.html' ? 'orders' : page === 'customer-profile.html' || page === 'edit-profile.html' ? 'profile' : page === 'cart.html' || page === 'checkout.html' ? 'cart' : 'home';
         nav.innerHTML = `<a class="${active === 'home' ? 'active' : ''}" href="home-logged-in.html">Trang chủ</a><a class="${active === 'products' ? 'active' : ''}" href="products.html">Sản phẩm</a><a class="${active === 'orders' ? 'active' : ''}" href="order-history.html">Lịch sử mua hàng</a><a class="${active === 'profile' ? 'active' : ''}" href="customer-profile.html">Tài khoản</a><a class="${active === 'cart' ? 'active' : ''}" href="cart.html">Giỏ hàng</a>`;
       }
     }
@@ -471,15 +471,47 @@
     if (layout) {
       const addressPanel = layout.nextElementSibling;
       const customer = DEMO_USER;
-      layout.innerHTML = `<div class="account-avatar">👤</div><div><h2>${esc(customer.name)}</h2><span class="tag">Tài khoản demo</span><dl class="account-details"><div><dt>Mã khách hàng</dt><dd>${customer.id}</dd></div><div><dt>Email</dt><dd>${esc(customer.email)}</dd></div><div><dt>Số điện thoại</dt><dd>${esc(customer.phone)}</dd></div><div><dt>Trạng thái</dt><dd>Hoạt động (mẫu)</dd></div></dl><div class="form-actions"><a class="btn" href="order-history.html">Xem lịch sử mua hàng</a><button class="btn secondary" type="button" data-ui-note>Chỉnh sửa thông tin</button></div></div>`;
-      if (addressPanel) addressPanel.innerHTML = `<h2>Địa chỉ giao hàng mẫu</h2><div class="saved-address-grid">${customer.addresses.map((address, index) => `<article class="saved-address"><strong>${index === 0 ? 'Nhà riêng · Mặc định' : 'Địa chỉ ' + (index + 1)}</strong><p>${esc(address)}</p></article>`).join('')}</div><button class="btn secondary" type="button" data-ui-note>＋ Thêm địa chỉ</button>`;
+      layout.innerHTML = `<div class="account-avatar">👤</div><div><h2>${esc(customer.name)}</h2><span class="tag">Tài khoản demo</span><dl class="account-details"><div><dt>Mã khách hàng</dt><dd>${customer.id}</dd></div><div><dt>Email</dt><dd>${esc(customer.email)}</dd></div><div><dt>Số điện thoại</dt><dd>${esc(customer.phone)}</dd></div><div><dt>Trạng thái</dt><dd>Hoạt động (mẫu)</dd></div></dl><div class="form-actions"><a class="btn" href="order-history.html">Xem lịch sử mua hàng</a><a class="btn secondary" href="edit-profile.html">Chỉnh sửa thông tin</a></div></div>`;
+      if (addressPanel) addressPanel.innerHTML = `<h2>Địa chỉ giao hàng mẫu</h2><div class="saved-address-grid">${customer.addresses.map((address, index) => `<article class="saved-address"><strong>${index === 0 ? 'Nhà riêng · Mặc định' : 'Địa chỉ ' + (index + 1)}</strong><p>${esc(address)}</p></article>`).join('')}</div><a class="btn secondary" href="edit-profile.html">＋ Thêm / chỉnh sửa địa chỉ</a>`;
     }
+    if (params.get('updated') === '1') toast('Cập nhật thông tin thành công!', 'success');
+  }
+
+  function setupProfileForm() {
+    const form = $('[data-profile-form]');
+    if (!form) return;
+    form.dataset.staticHandler = '1';
+
+    const addressList = $('[data-profile-addresses]', form);
+    const addAddress = $('[data-add-profile-address]', form);
+    if (addressList && addAddress) {
+      let nextAddressId = addressList.querySelectorAll('[data-profile-address]').length + 1;
+      addAddress.addEventListener('click', () => {
+        const addressId = `profile-address-${nextAddressId}`;
+        const addressNumber = nextAddressId++;
+        const field = document.createElement('div');
+        field.className = 'field full';
+        field.dataset.profileAddress = '';
+        field.innerHTML = `<label for="${addressId}">Địa chỉ mới ${addressNumber - 1}</label><input id="${addressId}" name="addresses[]" type="text" autocomplete="street-address" placeholder="Nhập số nhà, tên đường, phường / xã" required><button class="btn secondary" type="button" data-remove-profile-address>Gỡ địa chỉ</button>`;
+        addressList.appendChild(field);
+        $(`#${addressId}`, field).focus();
+      });
+      addressList.addEventListener('click', event => {
+        const removeAddress = event.target.closest('[data-remove-profile-address]');
+        if (removeAddress) removeAddress.closest('[data-profile-address]')?.remove();
+      });
+    }
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      go('customer-profile.html?updated=1');
+    });
   }
 
   function safePublicReturn(defaultPage) {
     const next = params.get('next');
     if (!next) return defaultPage;
-    const allowedPages = ['index.html', 'home-logged-in.html', 'products.html', 'product-filter.html', 'product-detail.html', 'cart.html', 'checkout.html', 'order-confirmation.html', 'order-history.html', 'order-detail.html', 'customer-profile.html'];
+    const allowedPages = ['index.html', 'home-logged-in.html', 'products.html', 'product-filter.html', 'product-detail.html', 'cart.html', 'checkout.html', 'edit-profile.html', 'order-confirmation.html', 'order-history.html', 'order-detail.html', 'customer-profile.html'];
     try {
       const target = new URL(next, location.href);
       const routeName = target.pathname.split('/').pop();
@@ -1184,6 +1216,7 @@
     renderOrderHistory();
     renderOrderDetail();
     renderProfile();
+    setupProfileForm();
     setupGenericDemoForms();
   }
 
