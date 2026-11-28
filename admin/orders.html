@@ -6,7 +6,7 @@
   <div class="static-toast" id="toast-saved" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Lưu thông tin thành công.</span></div>
   <div class="static-toast" id="toast-deleted" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Xóa thành công.</span></div>
   <div class="static-toast" id="toast-search" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Tìm kiếm thành công.</span></div>
-  <div class="static-toast" id="toast-status" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Cập nhật trạng thái thành công.</span></div>
+  <div class="static-toast" id="toast-status" role="status" aria-live="polite"><span class="static-toast-icon">✓</span><span>Cập nhật trạng thái đơn hàng thành công.</span></div>
 <div class="topbar"><span>Hệ thống quản lý cửa hàng máy tính</span><span>Quản trị viên · <a href="../admin-login.html" style="color:#fff">Đăng xuất</a></span></div>
 <header class="site-header"><div class="header-inner"><a class="brand" href="index.html">TECH<span>ZONE</span> <small style="font-size:11px;color:#718096">ADMIN</small></a><nav class="nav"><a href="index.html">Tổng quan</a><a href="products.html">Sản phẩm</a><a href="categories.html">Danh mục</a><a href="orders.html" class="active" aria-current="page">Đơn hàng</a><a href="customers.html">Khách hàng</a><a href="employees.html">Nhân viên</a><a href="suppliers.html">Nhà cung cấp</a><a href="imports.html">Phiếu nhập</a></nav></div></header>
 <main class="container"><div class="admin-top"><div><div class="breadcrumbs"><a href="../index.html">Trang bán hàng</a> / Khu vực Admin</div><h1>Quản lý đơn hàng</h1></div><a href="index.html#statistics">Tổng quan</a></div>
@@ -21,7 +21,7 @@
   <div class="field"><label for="order-district">Quận / Huyện</label><input id="order-district" name="district" placeholder="Ví dụ: Quận 1"></div>
   <div class="order-filter-actions"><button class="btn" type="submit">Lọc đơn hàng</button><button class="btn secondary" type="reset">Xóa bộ lọc</button></div>
 </form>
-<div class="notice">Thông tin đơn hàng và trạng thái được hiển thị để xem. Admin không chỉnh sửa thông tin hoặc cập nhật trạng thái tại giao diện này; dropdown phía trên chỉ dùng để lọc đơn hàng.</div>
+<div class="notice">Trạng thái có thể cập nhật trong trang chi tiết đơn hàng; thay đổi chỉ mô phỏng và không lưu dữ liệu. Dropdown phía trên chỉ dùng để lọc đơn.</div>
 <div class="table-wrap"><table class="orders-admin-table"><thead><tr><th>Mã đơn</th><th>Ngày đặt</th><th>Khách hàng</th><th>Thông tin giao hàng</th><th>Thanh toán</th><th>Tổng tiền</th><th>Trạng thái</th><th>Thao tác</th></tr></thead><tbody>
 <tr><td><strong>DH20261125</strong></td><td>25/11/2026</td><td>Nguyễn Minh Anh<br><small>KH001 · 0901 234 567</small></td><td><strong>Người nhận:</strong> Nguyễn Minh Anh<br><small>25 Nguyễn Trãi, Quận 1, TP. Hồ Chí Minh</small></td><td>Tiền mặt</td><td>16.380.000đ</td><td><span class="tag orange">Chưa xác nhận</span></td><td><a href="form-invoice.html?id=DH20261125">Chi tiết</a></td></tr>
 <tr><td><strong>DH20261122</strong></td><td>22/11/2026</td><td>Trần Quốc Bảo<br><small>KH002 · 0902 345 678</small></td><td><strong>Người nhận:</strong> Trần Quốc Bảo<br><small>120 Cộng Hòa, Quận Tân Bình, TP. Hồ Chí Minh</small></td><td>Trực tuyến</td><td>22.990.000đ</td><td><span class="tag orange">Đã xác nhận</span></td><td><a href="form-invoice.html?id=DH20261125">Chi tiết</a></td></tr>

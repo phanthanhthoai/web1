@@ -25,6 +25,7 @@ TECHZONE - WEBSITE BÁN HÀNG MÁY TÍNH (STATIC FRONTEND DEMO)
 4. LUỒNG NGƯỜI MUA
 Trang chủ -> Đăng nhập/Đăng ký -> Trang chủ -> Sản phẩm / Tìm kiếm -> Chi tiết sản phẩm -> Giỏ hàng mẫu -> Thanh toán mẫu -> Xác nhận -> Chi tiết đơn hàng / Lịch sử mua hàng.
 - Thanh tìm kiếm cơ bản theo tên sản phẩm có minh họa lọc danh sách.
+- Thanh danh mục nhanh gồm Laptop, Máy tính bộ, Linh kiện, Phụ kiện và Màn hình; các mục chỉ quay về danh sách sản phẩm, không lọc theo danh mục.
 - Tìm kiếm nâng cao gồm tên, danh mục và khoảng giá chỉ hiển thị giao diện; không thực hiện tìm kiếm.
 - Phân trang chỉ hiển thị các ô số trang minh họa; bấm số trang không chuyển trang hoặc thay đổi dữ liệu.
 - Giỏ hàng có dữ liệu mẫu riêng. Tăng/giảm số lượng chỉ cập nhật tổng tiền trong trang giỏ hàng hiện tại.
@@ -33,16 +34,15 @@ Trang chủ -> Đăng nhập/Đăng ký -> Trang chủ -> Sản phẩm / Tìm ki
 5. LUỒNG QUẢN TRỊ
 Đăng nhập Admin -> Tổng quan / Sản phẩm / Danh mục / Đơn hàng / Khách hàng / Nhân viên / Nhà cung cấp / Phiếu nhập.
 - Tổng quan: hiển thị KPI, biểu đồ và top 5 khách hàng mua nhiều nhất.
-- Sản phẩm: xem danh sách, các ô lọc chỉ mang tính giao diện; có liên kết mở trang Quản lý danh mục. Nút Xem chi tiết mở trang bán hàng của sản phẩm tương ứng (SP001 là Laptop ASUS Vivobook 15). Form thêm/sửa chỉ gồm thông tin sản phẩm, danh mục, bảo hành, mô tả và hình ảnh; không nhập giá nhập, giá bán hoặc số lượng ở hồ sơ sản phẩm.
+- Sản phẩm: xem danh sách, các ô lọc chỉ mang tính giao diện; có liên kết mở trang Quản lý danh mục. Các nút Sửa mở trang sửa tĩnh minh họa PC Gaming TechZone G5 với danh mục Máy tính bộ; thao tác không lưu dữ liệu. Nút Xem chi tiết mở trang bán hàng của sản phẩm tương ứng (SP001 là Laptop ASUS Vivobook 15). Form chỉ gồm thông tin sản phẩm, danh mục, bảo hành, mô tả và hình ảnh; không nhập giá nhập, giá bán hoặc số lượng ở hồ sơ sản phẩm.
 - Danh mục: quản lý 5 nhóm mẫu gồm Laptop, Máy tính bộ, Linh kiện, Phụ kiện và Màn hình; có danh sách, tìm trong danh sách, biểu mẫu thêm/chỉnh sửa và ô phân trang tĩnh. Danh mục trong module này thống nhất với dropdown ở form sản phẩm và bộ lọc danh sách sản phẩm.
 - Khách hàng: danh sách mẫu; thêm/sửa/xóa/khóa/mở khóa điều hướng về trang danh sách và hiển thị toast CSS, không cập nhật dữ liệu mẫu.
 - Nhân viên: danh sách mẫu; thêm/sửa/xóa/khóa/mở khóa điều hướng về trang danh sách và hiển thị toast CSS, không cập nhật dữ liệu mẫu.
 - Nhà cung cấp: xem danh sách, các ô lọc chỉ mang tính giao diện, xem chi tiết và mở biểu mẫu thêm/chỉnh sửa; thêm/sửa/xóa/ngừng hợp tác chỉ điều hướng và hiển thị toast CSS.
 - Phiếu nhập: bảng giữ hai dòng sản phẩm mẫu; nhân viên nhập kho được điền sẵn là nhân viên thủ kho demo (NV003), vì prototype không có xác thực/session thật. Nút “Thêm vào phiếu nhập” chỉ hiện toast, không thay đổi sản phẩm mẫu; nút “Hoàn tất phiếu nhập” kết thúc thao tác demo nhưng không lưu dữ liệu.
 - Giá nhập, giá bán và số lượng thuộc phiếu nhập, không thuộc form thêm sản phẩm. Ô giá trong Admin tự định dạng VND với dấu chấm phân tách hàng nghìn.
-- Đơn hàng: dropdown Trạng thái đơn hàng và các ô lọc chỉ là điều khiển giao diện; không lọc hoặc thay đổi dữ liệu; xem chi tiết đơn.
-- Thông tin đơn hàng chỉ được xem, không có trường chỉnh sửa.
-- Trạng thái đơn hàng không thể cập nhật. Dropdown trạng thái ở danh sách đơn hàng chỉ dùng để lọc.
+- Đơn hàng: dropdown Trạng thái đơn hàng và các ô lọc chỉ dùng để lọc danh sách; trang chi tiết cho phép chọn trạng thái và hiển thị toast xác nhận, nhưng không lưu hoặc thay đổi dữ liệu mẫu.
+- Thông tin khách hàng, địa chỉ giao hàng và chi tiết hóa đơn chỉ được xem; riêng trạng thái đơn hàng có thể chọn cập nhật trong giao diện demo.
 - Phân trang ở các danh sách chỉ là ô hiển thị minh họa, không có chức năng chuyển trang.
 
 6. LƯU Ý

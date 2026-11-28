@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sửa sản phẩm | TechZone Admin</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="admin-page">
+    <div class="topbar">
+        <span>Hệ thống quản lý cửa hàng máy tính</span>
+        <span>Xin chào, <a href="profile.html" style="color:white">Quản trị viên</a> · <a href="../index.html" style="color:white">Đăng xuất</a></span>
+    </div>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="index.html">TECH<span>ZONE</span> <small style="font-size:11px;color:#718096">ADMIN</small></a>
+            <nav class="nav">
+                <a href="index.html">Tổng quan</a>
+                <a href="products.html" class="active" aria-current="page">Sản phẩm</a>
+                <a href="categories.html">Danh mục</a>
+                <a href="orders.html">Đơn hàng</a>
+                <a href="customers.html">Khách hàng</a>
+                <a href="employees.html">Nhân viên</a>
+                <a href="suppliers.html">Nhà cung cấp</a>
+                <a href="imports.html">Phiếu nhập</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <div class="admin-top">
+            <div>
+                <div class="breadcrumbs"><a href="../index.html">Trang bán hàng</a> / Khu vực Admin / <a href="products.html">Sản phẩm</a></div>
+                <h1>Sửa sản phẩm SP002</h1>
+            </div>
+            <a class="btn secondary" href="../index.html">Xem cửa hàng ↗</a>
+        </div>
+        <div class="layout">
+            <aside class="panel sidebar">
+                <h3>Quản trị hệ thống</h3>
+                <div class="side-links">
+                    <a href="index.html">Tổng quan</a>
+                    <a href="products.html" class="active" aria-current="page">Sản phẩm</a>
+                    <a href="categories.html">Danh mục</a>
+                    <a href="orders.html">Đơn hàng</a>
+                    <a href="customers.html">Khách hàng</a>
+                    <a href="employees.html">Nhân viên</a>
+                    <a href="suppliers.html">Nhà cung cấp</a>
+                    <a href="imports.html">Phiếu nhập</a>
+                </div>
+            </aside>
+            <section>
+                <div class="panel">
+                    <h2>Thông tin sản phẩm</h2>
+                    <p class="help">Thông tin được điền sẵn để minh họa thao tác sửa sản phẩm. Giá và số lượng được quản lý trong Phiếu nhập.</p>
+                    <form action="products.html#toast-updated" method="get">
+                        <input type="hidden" name="action" value="update">
+                        <div class="form-grid">
+                            <div class="field">
+                                <label for="product-id">Mã sản phẩm</label>
+                                <input id="product-id" name="product_id" value="SP002" readonly>
+                            </div>
+                            <div class="field">
+                                <label for="product-name">Tên sản phẩm</label>
+                                <input id="product-name" name="product_name" value="PC Gaming TechZone G5">
+                            </div>
+                            <div class="field">
+                                <label for="category">Danh mục</label>
+                                <select id="category" name="category">
+                                    <option value="">Chọn danh mục sản phẩm</option>
+                                    <option value="Laptop">Laptop</option>
+                                    <option value="Máy tính bộ" selected>Máy tính bộ</option>
+                                    <option value="Linh kiện">Linh kiện</option>
+                                    <option value="Phụ kiện">Phụ kiện</option>
+                                    <option value="Màn hình">Màn hình</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label for="warranty">Bảo hành</label>
+                                <input id="warranty" name="warranty" value="24 tháng">
+                            </div>
+                            <div class="field full">
+                                <label for="description">Mô tả / Thông số kỹ thuật</label>
+                                <textarea id="description" name="description" rows="5">Intel Core i5 · RTX 4060 · RAM 16GB · SSD 1TB</textarea>
+                            </div>
+                            <div class="field">
+                                <label for="status">Trạng thái</label>
+                                <select id="status" name="status">
+                                    <option selected>Đang kinh doanh</option>
+                                    <option>Ngừng kinh doanh</option>
+                                </select>
+                            </div>
+                            <div class="field full">
+                                <label for="product-image">Ảnh sản phẩm</label>
+                                <input id="product-image" name="product_image" type="file" accept="image/*">
+                                <div class="upload-preview-wrap">
+                                    <div class="upload-preview"><img src="../picture/3.jpg" alt="PC Gaming TechZone G5"></div>
+                                    <div><strong>Ảnh hiện tại: PC Gaming TechZone G5</strong><p class="muted">picture/3.jpg · Danh mục: Máy tính bộ</p></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn" type="submit">Lưu thay đổi</button>
+                            <a class="btn secondary" href="products.html">Hủy</a>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

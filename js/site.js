@@ -23,6 +23,7 @@
     { id: 'SP007', name: 'Màn hình ViewMax 24 inch', category: 'Màn hình', price: 2690000, importPrice: 2250000, stock: 11, sold: 7, image: 'picture/8.jfif', description: 'Full HD · 100Hz · Tấm nền IPS', warranty: '24 tháng', active: true },
     { id: 'SP008', name: 'Laptop Lenovo IdeaPad Slim 5', category: 'Laptop', price: 19990000, importPrice: 17500000, stock: 6, sold: 8, image: 'picture/2.jpg', description: 'AMD Ryzen 7 · RAM 16GB · SSD 1TB', warranty: '24 tháng', active: true }
   ];
+  const PRODUCT_CATEGORIES = ['Laptop', 'Máy tính bộ', 'Linh kiện', 'Phụ kiện', 'Màn hình'];
 
   const CUSTOMERS = [
     { id: 'KH001', name: 'Nguyễn Minh Anh', email: 'minhanh@example.com', phone: '0901 234 567', status: 'Hoạt động', addresses: ['25 Nguyễn Trãi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh', '120 Cộng Hòa, Phường 4, Quận Tân Bình, TP. Hồ Chí Minh'] },
@@ -238,16 +239,32 @@
     if (!['products.html', 'product-filter.html'].includes(page)) return;
     const grid = $('.grid');
     if (!grid) return;
-    const rows = PRODUCTS.filter(item => item.active);
+    const requestedCategory = page === 'product-filter.html' ? params.get('category') : '';
+    const category = PRODUCT_CATEGORIES.includes(requestedCategory) ? requestedCategory : '';
+    const rows = PRODUCTS.filter(item => item.active && (!category || item.category === category));
+
+    const categoryNav = document.createElement('nav');
+    categoryNav.className = 'product-category-nav';
+    categoryNav.setAttribute('aria-label', 'Danh mục sản phẩm');
+    categoryNav.innerHTML = PRODUCT_CATEGORIES.map(item => {
+      const selected = item === category;
+      return `<a href="products.html"${selected ? ' aria-current="page"' : ''}>${esc(item)}</a>`;
+    }).join('');
+    const pageTitle = $('.page-title');
+    if (pageTitle) pageTitle.insertAdjacentElement('afterend', categoryNav);
 
     grid.innerHTML = rows.map(renderProductCard).join('') ||
       '<div class="panel empty-state"><h2>Không có sản phẩm để hiển thị</h2><p>Danh sách sản phẩm mẫu hiện đang trống.</p><a class="btn" href="products.html">Xem tất cả sản phẩm</a></div>';
 
     if (page === 'product-filter.html') {
       const title = $('.page-title h1');
-      if (title) title.textContent = 'Sản phẩm theo bộ lọc';
+      if (title) title.textContent = category ? `Sản phẩm: ${category}` : 'Sản phẩm theo bộ lọc';
       const subtitle = $('.page-title p');
-      if (subtitle) subtitle.textContent = 'Đây là trang giao diện minh họa bộ lọc nâng cao; chưa thực hiện tìm kiếm.';
+      if (subtitle) subtitle.textContent = category
+        ? `Danh sách sản phẩm thuộc danh mục ${category}.`
+        : 'Đây là trang giao diện minh họa bộ lọc nâng cao; chưa thực hiện tìm kiếm.';
+      const summary = $('.filter-summary .muted');
+      if (summary) summary.textContent = `Danh mục: ${category || 'Tất cả'} · Sắp xếp: Nổi bật`;
     }
 
     renderStaticPagination(grid, 5);
@@ -581,7 +598,7 @@
     $('tbody', table).innerHTML = rows.map(item => `<tr>
       <td>${item.id}</td><td>${esc(item.name)}</td><td>${esc(item.category)}</td><td>${money(item.price)}</td><td>${item.stock}</td><td>${item.sold}</td>
       <td><span class="tag ${!item.active ? 'red' : item.stock <= 5 ? 'orange' : ''}">${!item.active ? 'Đã ẩn' : item.stock <= 5 ? 'Sắp hết' : 'Đang kinh doanh'}</span></td>
-      <td><a href="form-product.html?id=${item.id}">Sửa</a> · <a class="table-action" href="../product-detail.html?id=${item.id}">Xem chi tiết</a> · ${item.sold > 0 ? `<a class="table-action" href="products.html?action=status&amp;id=${encodeURIComponent(item.id)}#toast-status">${item.active ? 'Ẩn khỏi website' : 'Hiện lại'}</a>` : `<a class="table-action danger" href="products.html?action=delete&amp;id=${encodeURIComponent(item.id)}#toast-deleted">Xóa</a>`}</td>
+      <td><a href="edit-product.html">Sửa</a> · <a class="table-action" href="../product-detail.html?id=${item.id}">Xem chi tiết</a> · ${item.sold > 0 ? `<a class="table-action" href="products.html?action=status&amp;id=${encodeURIComponent(item.id)}#toast-status">${item.active ? 'Ẩn khỏi website' : 'Hiện lại'}</a>` : `<a class="table-action danger" href="products.html?action=delete&amp;id=${encodeURIComponent(item.id)}#toast-deleted">Xóa</a>`}</td>
     </tr>`).join('') || '<tr><td colspan="8">Không có sản phẩm phù hợp.</td></tr>';
     const count = $('[data-filter-count]'); if (count) count.textContent = `${rows.length} sản phẩm`;
     renderStaticPagination(table, 5);
@@ -884,6 +901,7 @@
     const customer = $('#customer'); if (customer) { customer.value = `${order.customerId} - ${order.customerName}`; customer.readOnly = true; }
     const employee = $('#employee'); if (employee) { employee.value = 'NV001 - Lê Thanh Tùng'; employee.readOnly = true; }
     const payment = $('#payment-method'); if (payment) { payment.value = order.payment; payment.readOnly = true; }
+    const statusOrderId = $('#order-status-id'); if (statusOrderId) statusOrderId.value = order.id;
     const receiver = $('#receiver-name'); if (receiver) { receiver.value = order.receiver; receiver.readOnly = true; }
     const phone = $('#receiver-phone'); if (phone) { phone.value = order.phone; phone.readOnly = true; }
     const address = $('#receiver-address'); if (address) { address.value = order.address; address.readOnly = true; }
