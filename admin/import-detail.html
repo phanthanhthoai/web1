@@ -25,12 +25,12 @@
       <section>
         <form class="panel" id="import-form" action="imports.html#toast-added" method="get" novalidate>
           <h2>Thông tin chung</h2>
-          <div class="notice-blue">Chọn nhà cung cấp và nhân viên lập phiếu. Mỗi dòng hàng bên dưới có số lượng nhập, giá nhập và giá bán dự kiến.</div>
+          <div class="notice-blue">Nhà cung cấp và thông tin sản phẩm không bắt buộc trong bản demo. Nhân viên nhập kho được lấy theo tài khoản đang đăng nhập.</div>
           <div class="form-grid">
             <div class="field"><label for="import-id">Mã phiếu nhập</label><input id="import-id" value="PN20261128" readonly></div>
             <div class="field"><label for="import-date">Ngày nhập</label><input id="import-date" type="date" value="2026-11-28"></div>
-            <div class="field"><label for="import-supplier">Nhà cung cấp</label><select id="import-supplier" required><option value="">Chọn nhà cung cấp</option><option value="NCC001">NCC001 - Công ty Phân phối ABC</option><option value="NCC002">NCC002 - Thiết bị số Minh Long</option><option value="NCC003">NCC003 - Công nghệ Sao Việt</option></select><p class="help"><a href="suppliers.html">Quản lý danh sách nhà cung cấp ↗</a></p></div>
-            <div class="field"><label for="import-employee">Nhân viên nhập kho</label><select id="import-employee" required><option value="">Chọn nhân viên</option><option>NV003 - Phạm Đức Long</option><option>NV001 - Lê Thanh Tùng</option></select></div>
+            <div class="field"><label for="import-supplier">Nhà cung cấp</label><select id="import-supplier"><option value="">Chọn nhà cung cấp</option><option value="NCC001">NCC001 - Công ty Phân phối ABC</option><option value="NCC002">NCC002 - Thiết bị số Minh Long</option><option value="NCC003">NCC003 - Công nghệ Sao Việt</option></select><p class="help"><a href="suppliers.html">Quản lý danh sách nhà cung cấp ↗</a></p></div>
+            <div class="field"><label for="import-employee">Nhân viên nhập kho</label><input id="import-employee" name="employee" value="NV003 - Phạm Đức Long" readonly><p class="help">Tự động theo tài khoản nhân viên đang đăng nhập.</p></div>
           </div>
 
           <h2 style="margin-top:28px">Chi tiết hàng hóa nhập</h2>
@@ -48,15 +48,15 @@
           <h3 style="margin-top:24px">Thêm sản phẩm vào phiếu</h3>
           <div class="form-grid import-line-entry">
             <div class="field full"><label for="import-product">Sản phẩm</label><select id="import-product"><option value="">Chọn sản phẩm</option><option value="SP001" data-name="Laptop ASUS Vivobook 15">SP001 - Laptop ASUS Vivobook 15</option><option value="SP002" data-name="PC Gaming TechZone G5">SP002 - PC Gaming TechZone G5</option><option value="SP003" data-name="Bàn phím cơ KeyPro K87">SP003 - Bàn phím cơ KeyPro K87</option><option value="SP004" data-name="RAM Kingston Fury 16GB">SP004 - RAM Kingston Fury 16GB</option><option value="SP005" data-name="Chuột không dây M310">SP005 - Chuột không dây M310</option><option value="SP006" data-name="Tai nghe HyperSound H7">SP006 - Tai nghe HyperSound H7</option><option value="SP007" data-name="Màn hình ViewMax 24 inch">SP007 - Màn hình ViewMax 24 inch</option><option value="SP008" data-name="Laptop Lenovo IdeaPad Slim 5">SP008 - Laptop Lenovo IdeaPad Slim 5</option></select></div>
-            <div class="field"><label for="import-quantity">Số lượng nhập</label><input id="import-quantity" type="number" min="1" value="1" placeholder="Ví dụ: 10"></div>
-            <div class="field"><label for="import-unit-price">Đơn giá nhập (VNĐ)</label><input id="import-unit-price" type="number" min="1" placeholder="Ví dụ: 12000000"></div>
-            <div class="field"><label for="import-sale-price">Giá bán (VNĐ)</label><input id="import-sale-price" type="number" min="1" placeholder="Ví dụ: 15490000"></div>
+            <div class="field"><label for="import-quantity">Số lượng nhập</label><input id="import-quantity" type="number" value="1" placeholder="Ví dụ: 10"></div>
+            <div class="field"><label for="import-unit-price">Đơn giá nhập (VNĐ)</label><input id="import-unit-price" type="number" placeholder="Ví dụ: 12000000"></div>
+            <div class="field"><label for="import-sale-price">Giá bán (VNĐ)</label><input id="import-sale-price" type="number" placeholder="Ví dụ: 15490000"></div>
             <div class="field"><label for="import-note">Ghi chú</label><input id="import-note" placeholder="Ghi chú (không bắt buộc)"></div>
           </div>
-          <div class="form-actions"><a class="btn" href="imports.html#toast-added">＋ Thêm vào phiếu nhập</a></div>
+          <div class="form-actions"><button class="btn" id="add-import-item" type="button">＋ Thêm vào phiếu nhập</button></div>
           <div class="summary-row total"><span>Tổng giá trị nhập</span><strong id="import-total">133.000.000đ</strong></div>
-          <div class="notice">Đây là giao diện demo tĩnh. Việc thêm dòng hàng và tính tổng chỉ minh họa trong trang hiện tại; không cập nhật tồn kho hay lưu phiếu nhập.</div>
-          <div class="form-actions"><a class="btn" href="imports.html#toast-added">Hoàn tất phiếu nhập</a><a class="btn secondary" href="imports.html">Hủy</a></div>
+          <div class="notice">Danh sách và tổng tiền phía trên là dữ liệu mẫu. Nút thêm chỉ hiển thị thông báo, không thêm dòng hàng; hoàn tất phiếu không lưu dữ liệu hay cập nhật tồn kho.</div>
+          <div class="form-actions"><button class="btn" type="submit">Hoàn tất phiếu nhập</button><a class="btn secondary" href="imports.html">Hủy</a></div>
         </form>
       </section>
     </div>

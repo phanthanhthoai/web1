@@ -73,6 +73,7 @@
     { id: 'NV002', name: 'Nguyễn Thảo Vy', position: 'Nhân viên bán hàng', phone: '0908 333 444', email: 'vy.nt@techzone.vn', username: 'vy.nt', hireDate: '2024-06-01', status: 'Hoạt động' },
     { id: 'NV003', name: 'Phạm Đức Long', position: 'Thủ kho', phone: '0908 555 666', email: 'long.pd@techzone.vn', username: 'long.pd', hireDate: '2025-01-10', status: 'Hoạt động' }
   ];
+  const CURRENT_EMPLOYEE = EMPLOYEES.find(item => item.id === 'NV003');
 
   let adminProducts = PRODUCTS.map(item => ({ ...item }));
   let adminCustomers = CUSTOMERS.map(item => ({ ...item }));
@@ -899,51 +900,19 @@
 
   function setupImportEntry() {
     if (!isAdmin || page !== 'import-detail.html') return;
-    const body = $('#import-items-body');
-    const totalNode = $('#import-total');
-    if (!body || !totalNode) return;
-    const refreshTotal = () => {
-      const total = $$('[data-import-row]', body).reduce((sum, row) => sum + Number(row.dataset.lineTotal || 0), 0);
-      totalNode.textContent = money(total);
-    };
+    const employeeField = $('#import-employee');
+    if (employeeField && CURRENT_EMPLOYEE) {
+      employeeField.value = `${CURRENT_EMPLOYEE.id} - ${CURRENT_EMPLOYEE.name}`;
+      employeeField.readOnly = true;
+    }
     const addButton = $('#add-import-item');
-    if (addButton) addButton.addEventListener('click', () => {
-      const productSelect = $('#import-product');
-      const selected = productSelect?.selectedOptions?.[0];
-      const productId = productSelect?.value || '';
-      const finalProductId = productId || 'SP001';
-      const quantity = Math.max(1, Number($('#import-quantity')?.value || 1));
-      const importPrice = parseVndInput($('#import-unit-price')?.value);
-      const salePrice = parseVndInput($('#import-sale-price')?.value);
-      const fallbackProduct = productById(finalProductId);
-      const productName = selected ? (selected.dataset.name || selected.textContent.replace(/^SP\d+\s*-\s*/, '')) : fallbackProduct.name;
-      const lineTotal = quantity * importPrice;
-      const row = document.createElement('tr');
-      row.dataset.importRow = '1';
-      row.dataset.lineTotal = String(lineTotal);
-      row.innerHTML = `<td>${esc(finalProductId)}</td><td>${esc(productName)}</td><td>${quantity}</td><td>${money(importPrice)}</td><td>${money(salePrice)}</td><td><strong>${money(lineTotal)}</strong></td>`;
-      body.appendChild(row);
-      refreshTotal();
-      toast('Đã thêm dòng hàng vào phiếu nhập demo hiện tại. Không lưu dữ liệu.');
-      if (productSelect) productSelect.value = '';
-      ['import-quantity', 'import-unit-price', 'import-sale-price', 'import-note'].forEach(id => { const input = $('#' + id); if (input) input.value = ''; });
-    });
-    refreshTotal();
+    if (addButton) addButton.addEventListener('click', () => toast('Đã thêm sản phẩm vào phiếu nhập.'));
     const form = $('#import-form');
     if (form) {
       form.dataset.staticHandler = '1';
       form.addEventListener('submit', event => {
         event.preventDefault();
-        if (!$('#import-supplier')?.value || !$('#import-employee')?.value) {
-          toast('Vui lòng chọn nhà cung cấp và nhân viên nhập kho.');
-          return;
-        }
-        if (!$$('[data-import-row]', body).length) {
-          toast('Phiếu nhập cần có ít nhất một sản phẩm.');
-          return;
-        }
-        toast('Phiếu nhập demo đã được kiểm tra. Không lưu phiếu và không cập nhật tồn kho thật.');
-        go('imports.html');
+        go('imports.html#toast-added');
       });
     }
   }
@@ -1197,6 +1166,7 @@
       renderAdminInvoice();
       renderAdminSupplierView();
       renderAdminImportView();
+      setupImportEntry();
       setupAdminCategories();
       setupSupplierManagement();
       return;

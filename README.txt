@@ -38,7 +38,7 @@ Trang chủ -> Đăng nhập/Đăng ký -> Trang chủ -> Sản phẩm / Tìm ki
 - Khách hàng: danh sách mẫu; thêm/sửa/xóa/khóa/mở khóa điều hướng về trang danh sách và hiển thị toast CSS, không cập nhật dữ liệu mẫu.
 - Nhân viên: danh sách mẫu; thêm/sửa/xóa/khóa/mở khóa điều hướng về trang danh sách và hiển thị toast CSS, không cập nhật dữ liệu mẫu.
 - Nhà cung cấp: xem danh sách, các ô lọc chỉ mang tính giao diện, xem chi tiết và mở biểu mẫu thêm/chỉnh sửa; thêm/sửa/xóa/ngừng hợp tác chỉ điều hướng và hiển thị toast CSS.
-- Phiếu nhập: chọn nhà cung cấp, nhân viên, sản phẩm, số lượng nhập, đơn giá nhập và giá bán; tính tổng giá trị nhập minh họa.
+- Phiếu nhập: bảng giữ hai dòng sản phẩm mẫu; nhân viên nhập kho được điền sẵn là nhân viên thủ kho demo (NV003), vì prototype không có xác thực/session thật. Nút “Thêm vào phiếu nhập” chỉ hiện toast, không thay đổi sản phẩm mẫu; nút “Hoàn tất phiếu nhập” kết thúc thao tác demo nhưng không lưu dữ liệu.
 - Giá nhập, giá bán và số lượng thuộc phiếu nhập, không thuộc form thêm sản phẩm. Ô giá trong Admin tự định dạng VND với dấu chấm phân tách hàng nghìn.
 - Đơn hàng: dropdown Trạng thái đơn hàng và các ô lọc chỉ là điều khiển giao diện; không lọc hoặc thay đổi dữ liệu; xem chi tiết đơn.
 - Thông tin đơn hàng chỉ được xem, không có trường chỉnh sửa.
@@ -49,15 +49,15 @@ Trang chủ -> Đăng nhập/Đăng ký -> Trang chủ -> Sản phẩm / Tìm ki
 Đây là prototype giao diện tĩnh phục vụ trình bày. Các dữ liệu và thao tác không được lưu hoặc đồng bộ sau khi chuyển trang/tải lại. Không có thanh toán hay giao dịch thật.
 
 7. THÔNG BÁO MÔ PHỎNG
-- Các thao tác Thêm/Sửa/Xóa/Tìm kiếm/đổi trạng thái trong Admin sử dụng liên kết hoặc form GET điều hướng sang trang đích kèm mã #toast-...; toast được hiển thị hoàn toàn bằng HTML/CSS qua :target và animation, không cần JavaScript. Không bắt buộc nhập dữ liệu, không kiểm tra hợp lệ, không cập nhật dữ liệu mẫu và không ghi dữ liệu.
+- Các thao tác Thêm/Sửa/Xóa/Tìm kiếm/đổi trạng thái trong Admin sử dụng liên kết hoặc form GET điều hướng sang trang đích kèm mã #toast-...; toast được hiển thị hoàn toàn bằng HTML/CSS qua :target và animation. Ngoại lệ: nút thêm sản phẩm tại trang tạo phiếu nhập chỉ hiển thị toast JavaScript ngay tại trang, không thay đổi dữ liệu mẫu.
 - Bộ lọc trong Admin gửi GET sang trang danh sách với toast CSS; danh sách mẫu không bị lọc.
 - Nút Khóa/Mở khóa và các thao tác trạng thái chỉ điều hướng về trang danh sách, hiển thị toast CSS; trạng thái dữ liệu mẫu không thay đổi.
 - Các ô tiền trong Admin hiển thị định dạng VND có dấu chấm phân tách hàng nghìn, ví dụ 1.000.000.
 - Nút Xem chi tiết trong quản lý sản phẩm mở trang bán hàng của sản phẩm tương ứng; SP001 là Laptop ASUS Vivobook 15.
 - Không dùng localStorage, sessionStorage hoặc bất kỳ cơ chế lưu dữ liệu trình duyệt nào.
 
-8. TOAST CSS-ONLY
+8. TOAST ADMIN
 - Mỗi trang Admin chứa các phần tử HTML toast cố định, được hiển thị hoàn toàn bằng CSS :target và animation.
 - Các thao tác Thêm/Sửa/Xóa/đổi trạng thái dùng liên kết điều hướng về trang danh sách kèm mã thao tác và fragment #toast-...; tìm kiếm dùng form GET với #toast-search.
-- JavaScript không tạo, bật hoặc ẩn toast Admin. JavaScript vẫn có thể dựng dữ liệu mẫu hoặc điền trước biểu mẫu, nhưng không xử lý thông báo thành công.
+- JavaScript không tạo, bật hoặc ẩn toast CSS của Admin; ngoại lệ là toast “Đã thêm sản phẩm vào phiếu nhập” hiển thị tại trang tạo phiếu.
 - Tất cả thao tác chỉ mô phỏng giao diện; không ghi, không đồng bộ và không thay đổi dữ liệu gốc.
